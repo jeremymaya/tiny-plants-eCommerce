@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace dotnet_ECommerce.Models.Interfaces.Services
+namespace dotnet_ECommerce.Models
 {
-    public class ProductService : IInventory
+    public class Product
     {
-
     }
 }
