@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dotnet_ECommerce.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ namespace dotnet_ECommerce.Models.Interfaces.Services
     {
         private StoreDbContext _context;
 
-        public ProductService(StoreDbContext _context)
+        public ProductService(StoreDbContext context)
         {
             _context = context;
         }
@@ -19,9 +21,9 @@ namespace dotnet_ECommerce.Models.Interfaces.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Product>> GetAllInventoriesAsync() => await _context.Posts.ToListAsync();
+        public async Task<List<Product>> GetAllInventoriesAsync() => await _context.Product.ToListAsync();
 
-        public async Task<Product> GetInventoryByIdAsync(int id) => await _context.Posts.FindAsync(id);
+        public async Task<Product> GetInventoryByIdAsync(int id) => await _context.Product.FindAsync(id);
 
         public async Task RemoveInventoryAsync(int id)
         {
@@ -32,7 +34,7 @@ namespace dotnet_ECommerce.Models.Interfaces.Services
 
         public async Task UpdateInventoryAsync(Product product)
         {
-            _context.Posts.Update(product);
+            _context.Product.Update(product);
             await _context.SaveChangesAsync();
         }
     }
