@@ -10,11 +10,15 @@ namespace dotnet_ECommerce.Pages.Account
 {
     public class RegisterModel : PageModel
     {
+
+        [BindProperty]
+        public RegisterInput Input { get; set; }
+
         public void OnGet()
         {
         }
 
-        public class RegisgerInput
+        public class RegisterInput
         {
             [Required]
             [Display(Name = "First Name:")]
