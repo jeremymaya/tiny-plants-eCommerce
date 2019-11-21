@@ -15,22 +15,22 @@ namespace dotnet_ECommerce.Models.Interfaces.Services
         }
         public async Task CreateInventoryAsync(Product product)
         {
-            _context.Posts.Add(product);
+            await _context.Product.AddAsync(product);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Product>> GetProductsAsync() => await _context.Posts.ToListAsync();
+        public async Task<List<Product>> GetAllInventoriesAsync() => await _context.Posts.ToListAsync();
 
-        public async Task<Product> GetProductById(int id) => await _context.Posts.FindAsync(id);
+        public async Task<Product> GetInventoryByIdAsync(int id) => await _context.Posts.FindAsync(id);
 
-        public async Task RemoveProductAsync(int id)
+        public async Task RemoveInventoryAsync(int id)
         {
-            var product = await GetProductById(id);
-            _context.Posts.Remove(product);
+            var product = await GetInventoryByIdAsync(id);
+            _context.Product.Remove(product);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateProductAsync(Product product)
+        public async Task UpdateInventoryAsync(Product product)
         {
             _context.Posts.Update(product);
             await _context.SaveChangesAsync();
