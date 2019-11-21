@@ -1,0 +1,21 @@
+﻿@page
+@model dotnet_ECommerce.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Input.Email"></label>
+    <input asp-for="Input.Email" />
+
+    <label asp-for="Input.Password"></label>
+    <input asp-for="Input.Password" />
+
+    <label asp-for="Input.RememberMe"></label>
+    <input asp-for="Input.RememberMe" />
+
+    <button type="submit">Login</button>
+</form>

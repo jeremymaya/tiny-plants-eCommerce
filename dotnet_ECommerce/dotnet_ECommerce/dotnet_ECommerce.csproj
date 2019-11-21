@@ -10,8 +10,6 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Data\" />
-    <Folder Include="Pages\" />
-    <Folder Include="Pages\Account\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Home\index.html" />
