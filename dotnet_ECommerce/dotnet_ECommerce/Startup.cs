@@ -38,12 +38,19 @@ namespace dotnet_ECommerce
 
             services.AddScoped<IInventory, ProductService>();
 
-            string connString = Environment.IsDevelopment()
-                ? Configuration["ConnectionStrings:DefaultConnection"]
-                : Configuration["ConnectionStrings:ProductionConnection"];
+            string userConnString = Environment.IsDevelopment()
+                ? Configuration["ConnectionStrings:UserConnection"]
+                : Configuration["ConnectionStrings:UserProductionConnection"];
+
+            string productConnString = Environment.IsDevelopment()
+                ? Configuration["ConnectionStrings:ProductConnection"]
+                : Configuration["ConnectionStrings:ProductProductionConnection"];
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connString));
+                options.UseSqlServer(userConnString));
+
+            services.AddDbContext<StoreDbContext>(options =>
+                options.UseSqlServer(productConnString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                  .AddEntityFrameworkStores<ApplicationDbContext>()

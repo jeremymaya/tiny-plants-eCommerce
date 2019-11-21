@@ -25,7 +25,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Atlantic",
                     Price = 12,
                     Description = "A combination of multiple small cactuses",
-                    Image = "/wwwroot/images/cactus_atlantic.jpg",
+                    Image = "/../../wwwroot/images/cactus_atlantic.jpg",
                 },
                 new Product
                 {
@@ -34,7 +34,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Rosette",
                     Price = 9,
                     Description = "A hot pink little cactus to bright up your room",
-                    Image = "/wwwroot/images/cactus_rosette.jpg",
+                    Image = "/../../wwwroot/images/cactus_rosette.jpg",
                 },
                 new Product
                 {
@@ -43,7 +43,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Pastel",
                     Price = 7,
                     Description = "This cactus with elegant-looking glass is perfect for your desk",
-                    Image = "/wwwroot/images/cactus_pastel.jpg",
+                    Image = "/../../wwwroot/images/cactus_pastel.jpg",
                 },
                 new Product
                 {
@@ -52,7 +52,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Coral",
                     Price = 10,
                     Description = "This cute little coral will definitely lighten up your mood",
-                    Image = "/wwwroot/images/cactus_coral.jpg",
+                    Image = "/../../wwwroot/images/cactus_coral.jpg",
                 },
                 new Product
                 {
@@ -61,7 +61,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Parakeet",
                     Price = 18,
                     Description = "The unique looking little parakeet is one of the tiny plants that you must have",
-                    Image = "/wwwroot/images/cactus_parakeet.jpg",
+                    Image = "/../../wwwroot/images/cactus_parakeet.jpg",
                 },
                 new Product
                 {
@@ -70,7 +70,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Crimson",
                     Price = 17,
                     Description = "This spiky and layered looking cactus is defenitely a rare found",
-                    Image = "/wwwroot/images/cactus_crimson.jpg",
+                    Image = "/../../wwwroot/images/cactus_crimson.jpg",
                 },
                 new Product
                 {
@@ -79,34 +79,34 @@ namespace dotnet_ECommerce.Data
                     Name = "Arctic",
                     Price = 24,
                     Description = "A blue orchid is one of the best indoor plants that you can have",
-                    Image = "/wwwroot/images/flower_arctic.jpg",
+                    Image = "/../../wwwroot/images/flower_arctic.jpg",
                 },
                 new Product
                 {
                     ID = 8,
                     Sku = "FLW002",
-                    Name = "Kokedama",
+                    Name = "Violet Kokedama",
                     Price = 29,
-                    Description = "",
-                    Image = "/wwwroot/images/flower_kokedama.jpg",
+                    Description = "This ornamental plant comes with violet flowers and kokedama that adds more style to your plant",
+                    Image = "/../../wwwroot/images/flower_kokedama.jpg",
                 },
                 new Product
                 {
                     ID = 9,
                     Sku = "PLN001",
                     Name = "Bamboo",
-                    Price = 31,
-                    Description = "",
-                    Image = "/wwwroot/images/plant_bamboo.jpg",
+                    Price = 26,
+                    Description = "Bamboo is easy to take care of and it grows fast",
+                    Image = "/../../wwwroot/images/plant_bamboo.jpg",
                 },
                 new Product
                 {
                     ID = 10,
                     Sku = "PLN002",
                     Name = "Hyacinth",
-                    Price = 31,
-                    Description = "",
-                    Image = "/wwwroot/images/plant_hyacinth.jpg",
+                    Price = 22,
+                    Description = "This plant can live in water and it makes a great indoor plant",
+                    Image = "/../../wwwroot/images/plant_hyacinth.jpg",
                 }
                 );
         }
