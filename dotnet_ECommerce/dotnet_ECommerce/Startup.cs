@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Data;
 using dotnet_ECommerce.Models;
+using dotnet_ECommerce.Models.Interfaces;
+using dotnet_ECommerce.Models.Interfaces.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,9 +23,11 @@ namespace dotnet_ECommerce
         {
             services.AddMvc();
 
+            services.AddScoped<IInventory, ProductService>();
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+                 .AddEntityFrameworkStores<ApplicationDbContext>()
+                 .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
