@@ -20,9 +20,14 @@ namespace dotnet_ECommerce
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        public Startup(IConfiguration configuration)
+        public IHostEnvironment Environment { get; }
+
+        public Startup(IHostEnvironment environment)
         {
-            Configuration = configuration;
+            Environment = environment;
+            var builder = new ConfigurationBuilder().AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            Configuration = builder.Build();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -33,8 +38,12 @@ namespace dotnet_ECommerce
 
             services.AddScoped<IInventory, ProductService>();
 
-            services.AddDbContext<StoreDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("StoreDefaultConnection")));
+            string connString = Environment.IsDevelopment()
+                ? Configuration["ConnectionStrings:DefaultConnection"]
+                : Configuration["ConnectionStrings:ProductionConnection"];
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connString));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                  .AddEntityFrameworkStores<ApplicationDbContext>()
