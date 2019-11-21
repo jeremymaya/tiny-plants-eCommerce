@@ -21,70 +21,70 @@ namespace dotnet_ECommerce.Data
                 new Product
                 {
                     ID = 1,
-                    Sku = "CACS01",
+                    Sku = "CAC001",
                     Name = "Atlantic",
-                    Price = 15,
-                    Description = "",
+                    Price = 12,
+                    Description = "A combination of multiple small cactuses",
                     Image = "/wwwroot/images/cactus_atlantic.jpg",
                 },
                 new Product
                 {
                     ID = 2,
-                    Sku = "CACS02",
+                    Sku = "CAC002",
                     Name = "Rosette",
-                    Price = 12,
-                    Description = "",
+                    Price = 9,
+                    Description = "A hot pink little cactus to bright up your room",
                     Image = "/wwwroot/images/cactus_rosette.jpg",
                 },
                 new Product
                 {
                     ID = 3,
-                    Sku = "CACS03",
+                    Sku = "CAC003",
                     Name = "Pastel",
-                    Price = 8,
-                    Description = "",
+                    Price = 7,
+                    Description = "This cactus with elegant-looking glass is perfect for your desk",
                     Image = "/wwwroot/images/cactus_pastel.jpg",
                 },
                 new Product
                 {
                     ID = 4,
-                    Sku = "CACS04",
+                    Sku = "CAC004",
                     Name = "Coral",
-                    Price = 7,
-                    Description = "",
+                    Price = 10,
+                    Description = "This cute little coral will definitely lighten up your mood",
                     Image = "/wwwroot/images/cactus_coral.jpg",
                 },
                 new Product
                 {
                     ID = 5,
-                    Sku = "CACS05",
+                    Sku = "CAC005",
                     Name = "Parakeet",
-                    Price = 16,
-                    Description = "",
+                    Price = 18,
+                    Description = "The unique looking little parakeet is one of the tiny plants that you must have",
                     Image = "/wwwroot/images/cactus_parakeet.jpg",
                 },
                 new Product
                 {
                     ID = 6,
-                    Sku = "CACS06",
+                    Sku = "CAC006",
                     Name = "Crimson",
-                    Price = 14,
-                    Description = "",
+                    Price = 17,
+                    Description = "This spiky and layered looking cactus is defenitely a rare found",
                     Image = "/wwwroot/images/cactus_crimson.jpg",
                 },
                 new Product
                 {
                     ID = 7,
-                    Sku = "FLWS01",
+                    Sku = "FLW001",
                     Name = "Arctic",
                     Price = 24,
-                    Description = "",
+                    Description = "A blue orchid is one of the best indoor plants that you can have",
                     Image = "/wwwroot/images/flower_arctic.jpg",
                 },
                 new Product
                 {
                     ID = 8,
-                    Sku = "FLWS02",
+                    Sku = "FLW002",
                     Name = "Kokedama",
                     Price = 29,
                     Description = "",
@@ -93,7 +93,7 @@ namespace dotnet_ECommerce.Data
                 new Product
                 {
                     ID = 9,
-                    Sku = "PLNS01",
+                    Sku = "PLN001",
                     Name = "Bamboo",
                     Price = 31,
                     Description = "",
@@ -102,7 +102,7 @@ namespace dotnet_ECommerce.Data
                 new Product
                 {
                     ID = 10,
-                    Sku = "PLNS02",
+                    Sku = "PLN002",
                     Name = "Hyacinth",
                     Price = 31,
                     Description = "",
