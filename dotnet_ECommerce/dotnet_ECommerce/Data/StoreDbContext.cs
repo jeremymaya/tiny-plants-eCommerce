@@ -71,6 +71,42 @@ namespace dotnet_ECommerce.Data
                     Price = 14,
                     Description = "",
                     Image = "/wwwroot/images/cactus_crimson.jpg",
+                },
+                new Product
+                {
+                    ID = 7,
+                    Sku = "FLWS01",
+                    Name = "Arctic",
+                    Price = 24,
+                    Description = "",
+                    Image = "/wwwroot/images/flower_arctic.jpg",
+                },
+                new Product
+                {
+                    ID = 8,
+                    Sku = "FLWS02",
+                    Name = "Kokedama",
+                    Price = 29,
+                    Description = "",
+                    Image = "/wwwroot/images/flower_kokedama.jpg",
+                },
+                new Product
+                {
+                    ID = 9,
+                    Sku = "PLNS01",
+                    Name = "Bamboo",
+                    Price = 31,
+                    Description = "",
+                    Image = "/wwwroot/images/plant_bamboo.jpg",
+                },
+                new Product
+                {
+                    ID = 10,
+                    Sku = "PLNS02",
+                    Name = "Hyacinth",
+                    Price = 31,
+                    Description = "",
+                    Image = "/wwwroot/images/plant_hyacinth.jpg",
                 }
                 );
         }
