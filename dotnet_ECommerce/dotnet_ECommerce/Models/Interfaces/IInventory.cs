@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace dotnet_ECommerce.Models.Interfaces
 {
-    interface IInventory
+    public interface IInventory
     {
         // Create
         Task CreateInventoryAsync(Product product);
