@@ -7,19 +7,19 @@ namespace dotnet_ECommerce.Models.Interfaces
 {
     public interface IInventory
     {
-        //// Create
-        //Task CreateInventoryAsync(Product product);
+        // Create
+        Task CreateInventoryAsync(Product product);
 
-        //// Read - GetAll
-        //Task<List<Product>> GetAllInventoriesAsync();
+        // Read - GetAll
+        Task<List<Product>> GetAllInventoriesAsync();
 
-        //// Read - GeyByID
-        //Task<Product> GetInventoryByIdAsync(int id);
+        // Read - GeyByID
+        Task<Product> GetInventoryByIdAsync(int id);
 
-        //// Update
-        //Task UpdateInventoryAsync(Product product);
+        // Update
+        Task UpdateInventoryAsync(Product product);
 
-        //// Delete
-        //Task RemoveInventoryAsync(int id);
+        // Delete
+        Task RemoveInventoryAsync(int id);
     }
 }
