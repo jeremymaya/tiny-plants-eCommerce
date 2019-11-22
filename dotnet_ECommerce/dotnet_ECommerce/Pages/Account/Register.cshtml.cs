@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Models;
 using Microsoft.AspNetCore.Identity;
@@ -41,7 +42,13 @@ namespace dotnet_ECommerce.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    Claim name = new Claim("FullName", $"{Input.FirstName} {Input.LastName}");
+                    Claim email = new Claim(ClaimTypes.Email, user.Email, ClaimValueTypes.Email);
+
+                    List<Claim> claims = new List<Claim> { name, email };
+                    await _userManager.AddClaimsAsync(user, claims);
                     await _signInManager.SignInAsync(user, false);
+
                     return RedirectToAction("Index", "Home");
                 }
 

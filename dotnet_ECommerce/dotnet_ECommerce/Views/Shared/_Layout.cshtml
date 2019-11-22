@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
+@inject  SignInManager<ApplicationUser> SignInManager
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    @if(SignInManager.IsSignedIn(User))
+    {
+        <p>Welcome @User.Claims.First(c => c.Type == "FullName").Value!</p>
+    }
+    else
+    {
+        <p>Welcome to Tiny Plants!</p>
+    }
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
