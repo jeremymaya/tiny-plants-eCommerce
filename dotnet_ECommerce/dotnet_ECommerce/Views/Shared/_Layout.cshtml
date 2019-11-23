@@ -27,30 +27,30 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Products</a>
                         </li>
-                        <li class="#">
+                        <li class="nav-item">
                             <a class="nav-link" href="/Account/Login">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/Account/Register">Register</a>
                         </li>
                     </ul>
+                    <div>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <span class="navbar-text">Hello @User.Claims.First(c => c.Type == "FullName").Value!</span>
+                        }
+                        else
+                        {
+                            <a class="navbar-text" href="/Account/Register">Register</a>
+                        }
+                    </div>
                 </div>
             </nav>
-            <div class="container">
-                @if(SignInManager.IsSignedIn(User))
-                {
-                    <p>Welcome @User.Claims.First(c => c.Type == "FullName").Value!</p>
-                }
-                else
-                {
-                    <p>Welcome to Tiny Plants!</p>
-                }
-            </div>
         </header>
         <main>
             @RenderBody()
