@@ -19,5 +19,7 @@ namespace dotnet_ECommerce.Models
         public string Description { get; set; }
         [Required]
         public string Image { get; set; }
+        [Required]
+        public bool IsFeatured { get; set; }
     }
 }

@@ -26,6 +26,7 @@ namespace dotnet_ECommerce.Data
                     Price = 12,
                     Description = "A combination of multiple small cactuses",
                     Image = "images/cactus_atlantic.jpg",
+                    IsFeatured = true
                 },
                 new Product
                 {
@@ -35,6 +36,7 @@ namespace dotnet_ECommerce.Data
                     Price = 9,
                     Description = "A hot pink little cactus to bright up your room",
                     Image = "images/cactus_rosette.jpg",
+                    IsFeatured = true
                 },
                 new Product
                 {
@@ -44,6 +46,7 @@ namespace dotnet_ECommerce.Data
                     Price = 7,
                     Description = "This cactus with elegant-looking glass is perfect for your desk",
                     Image = "images/cactus_pastel.jpg",
+                    IsFeatured = false
                 },
                 new Product
                 {
@@ -53,6 +56,7 @@ namespace dotnet_ECommerce.Data
                     Price = 10,
                     Description = "This cute little coral will definitely lighten up your mood",
                     Image = "images/cactus_coral.jpg",
+                    IsFeatured = true
                 },
                 new Product
                 {
@@ -62,6 +66,7 @@ namespace dotnet_ECommerce.Data
                     Price = 18,
                     Description = "The unique looking little parakeet is one of the tiny plants that you must have",
                     Image = "images/cactus_parakeet.jpg",
+                    IsFeatured = false
                 },
                 new Product
                 {
@@ -71,6 +76,7 @@ namespace dotnet_ECommerce.Data
                     Price = 17,
                     Description = "This spiky and layered looking cactus is defenitely a rare found",
                     Image = "images/cactus_crimson.jpg",
+                    IsFeatured = false
                 },
                 new Product
                 {
@@ -80,6 +86,7 @@ namespace dotnet_ECommerce.Data
                     Price = 24,
                     Description = "A blue orchid is one of the best indoor plants that you can have",
                     Image = "images/flower_arctic.jpg",
+                    IsFeatured = false
                 },
                 new Product
                 {
@@ -89,6 +96,7 @@ namespace dotnet_ECommerce.Data
                     Price = 29,
                     Description = "This ornamental plant comes with violet flowers and kokedama that adds more style to your plant",
                     Image = "images/flower_kokedama.jpg",
+                    IsFeatured = false
                 },
                 new Product
                 {
@@ -98,6 +106,7 @@ namespace dotnet_ECommerce.Data
                     Price = 26,
                     Description = "Bamboo is easy to take care of and it grows fast",
                     Image = "images/plant_bamboo.jpg",
+                    IsFeatured = false
                 },
                 new Product
                 {
@@ -107,6 +116,7 @@ namespace dotnet_ECommerce.Data
                     Price = 22,
                     Description = "This plant can live in water and it makes a great indoor plant",
                     Image = "images/plant_hyacinth.jpg",
+                    IsFeatured = false
                 }
                 );
         }

@@ -22,7 +22,9 @@ namespace dotnet_ECommerce.Pages
 
         public async Task OnGetAsync()
         {
-            FeaturedProducts = await _context.Product.ToListAsync();
+            FeaturedProducts = await _context.Product
+                .Where(x => x.IsFeatured == true)
+                .ToListAsync();
         }
     }
 }
