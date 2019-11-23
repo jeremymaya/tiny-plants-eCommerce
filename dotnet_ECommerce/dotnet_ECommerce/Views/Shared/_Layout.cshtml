@@ -32,12 +32,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Register">Register</a>
-                        </li>
                     </ul>
                     <div>
                         @if (SignInManager.IsSignedIn(User))
@@ -46,7 +40,7 @@
                         }
                         else
                         {
-                            <a class="navbar-text" href="/Account/Register">Register</a>
+                            <a class="navbar-text" href="/Account/Login">Login</a>
                         }
                     </div>
                 </div>
