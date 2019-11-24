@@ -21,7 +21,7 @@ namespace dotnet_ECommerce.Models.Interfaces.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Product>> GetAllInventoriesAsync() => await _context.Product.ToListAsync();
+        public async Task<IEnumerable<Product>> GetAllInventoriesAsync() => await _context.Product.ToListAsync();
 
         public async Task<Product> GetInventoryByIdAsync(int id) => await _context.Product.FindAsync(id);
 
