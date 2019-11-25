@@ -11,7 +11,9 @@ namespace dotnet_ECommerce.Models.Interfaces
         Task CreateInventoryAsync(Product product);
 
         // Read - GetAll
-        Task<IEnumerable<Product>> GetAllInventoriesAsync();
+        Task<IList<Product>> GetAllInventoriesAsync();
+
+        Task<IList<Product>> GetFeaturedInventoriesAsync();
 
         // Read - GeyByID
         Task<Product> GetInventoryByIdAsync(int id);

@@ -10,20 +10,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_ECommerce.Pages
 {
-    public class IndexModel : PageModel
+    public class ProductsModel : PageModel
     {
         private readonly IInventory _context;
 
-        public IndexModel(IInventory context)
+        public ProductsModel(IInventory context)
         {
             _context = context;
         }
 
-        public IList<Product> FeaturedProducts { get; set; }
+        public IList<Product> Products { get; set; }
+
+        public Product Product { get; set; }
 
         public async Task OnGetAsync()
         {
-            FeaturedProducts = await _context.GetFeaturedInventoriesAsync();
+            Products = await _context.GetAllInventoriesAsync();
         }
     }
 }
