@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet_ECommerce", "dotnet_ECommerce\dotnet_ECommerce.csproj", "{2DAE8613-186A-4052-9A66-FC477DCEADAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceTests", "ECommerceTests\ECommerceTests.csproj", "{D0B35642-46E5-4315-B264-F1E850D295FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECommerceTests", "ECommerceTests\ECommerceTests.csproj", "{D0B35642-46E5-4315-B264-F1E850D295FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
