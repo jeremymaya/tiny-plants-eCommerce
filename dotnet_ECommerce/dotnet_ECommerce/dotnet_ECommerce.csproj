@@ -10,6 +10,7 @@
     <Folder Include="Views\Home\" />
     <Folder Include="Data\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\captures\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Home\index.html" />

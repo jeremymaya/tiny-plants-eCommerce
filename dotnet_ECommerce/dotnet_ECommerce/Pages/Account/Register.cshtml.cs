@@ -49,7 +49,7 @@ namespace dotnet_ECommerce.Pages.Account
                     await _userManager.AddClaimsAsync(user, claims);
                     await _signInManager.SignInAsync(user, false);
 
-                    return RedirectToAction("Index", "Home");
+                    Response.Redirect("/");
                 }
 
                 foreach (var error in result.Errors)
