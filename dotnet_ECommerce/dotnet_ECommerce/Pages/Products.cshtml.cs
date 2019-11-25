@@ -21,8 +21,6 @@ namespace dotnet_ECommerce.Pages
 
         public IList<Product> Products { get; set; }
 
-        public Product Product { get; set; }
-
         public async Task OnGetAsync()
         {
             Products = await _context.GetAllInventoriesAsync();

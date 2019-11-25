@@ -56,7 +56,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 1,
                             Description = "A combination of multiple small cactuses",
-                            Image = "images/cactus_atlantic.jpg",
+                            Image = "/images/cactus_atlantic.jpg",
                             IsFeatured = true,
                             Name = "Atlantic",
                             Price = 12m,
@@ -66,7 +66,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 2,
                             Description = "A hot pink little cactus to bright up your room",
-                            Image = "images/cactus_rosette.jpg",
+                            Image = "/images/cactus_rosette.jpg",
                             IsFeatured = true,
                             Name = "Rosette",
                             Price = 9m,
@@ -76,7 +76,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 3,
                             Description = "This cactus with elegant-looking glass is perfect for your desk",
-                            Image = "images/cactus_pastel.jpg",
+                            Image = "/images/cactus_pastel.jpg",
                             IsFeatured = false,
                             Name = "Pastel",
                             Price = 7m,
@@ -86,7 +86,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 4,
                             Description = "This cute little coral will definitely lighten up your mood",
-                            Image = "images/cactus_coral.jpg",
+                            Image = "/images/cactus_coral.jpg",
                             IsFeatured = true,
                             Name = "Coral",
                             Price = 10m,
@@ -96,7 +96,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 5,
                             Description = "The unique looking little parakeet is one of the tiny plants that you must have",
-                            Image = "images/cactus_parakeet.jpg",
+                            Image = "/images/cactus_parakeet.jpg",
                             IsFeatured = false,
                             Name = "Parakeet",
                             Price = 18m,
@@ -106,7 +106,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 6,
                             Description = "This spiky and layered looking cactus is defenitely a rare found",
-                            Image = "images/cactus_crimson.jpg",
+                            Image = "/images/cactus_crimson.jpg",
                             IsFeatured = false,
                             Name = "Crimson",
                             Price = 17m,
@@ -116,7 +116,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 7,
                             Description = "A blue orchid is one of the best indoor plants that you can have",
-                            Image = "images/flower_arctic.jpg",
+                            Image = "/images/flower_arctic.jpg",
                             IsFeatured = false,
                             Name = "Arctic",
                             Price = 24m,
@@ -126,7 +126,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 8,
                             Description = "This ornamental plant comes with violet flowers and kokedama that adds more style to your plant",
-                            Image = "images/flower_kokedama.jpg",
+                            Image = "/images/flower_kokedama.jpg",
                             IsFeatured = false,
                             Name = "Violet Kokedama",
                             Price = 29m,
@@ -136,7 +136,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 9,
                             Description = "Bamboo is easy to take care of and it grows fast",
-                            Image = "images/plant_bamboo.jpg",
+                            Image = "/images/plant_bamboo.jpg",
                             IsFeatured = false,
                             Name = "Bamboo",
                             Price = 26m,
@@ -146,7 +146,7 @@ namespace dotnet_ECommerce.Migrations
                         {
                             ID = 10,
                             Description = "This plant can live in water and it makes a great indoor plant",
-                            Image = "images/plant_hyacinth.jpg",
+                            Image = "/images/plant_hyacinth.jpg",
                             IsFeatured = false,
                             Name = "Hyacinth",
                             Price = 22m,
