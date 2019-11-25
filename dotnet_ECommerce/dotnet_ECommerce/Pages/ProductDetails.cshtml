@@ -1,0 +1,51 @@
+﻿@page "{id?}"
+@model dotnet_ECommerce.Pages.ProductDetailsModel
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "_Layout";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- <link rel="stylesheet" href="~/css/reset.css">
+    -->
+    <link rel="stylesheet" href="~/css/Style1.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <img class="detail-img" src="@Model.SingleProduct.Image" width="350"/>
+            </div>
+            <div class="col-sm">
+                <div class="row">
+                    <h6>Name: </h6>
+                    <p> @Model.SingleProduct.Name</p>
+                </div>
+                <div class="row">
+                    <h6>SKU: </h6>
+                    <p> @Model.SingleProduct.Sku</p>
+                </div>
+                <div class="row">
+                    <h6>Price: </h6>
+                    <p> $@Model.SingleProduct.Price</p>
+                </div>
+                <div class="row">
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="row2">
+            <h6 class="description">Description:</h6>
+        </div>
+        <div class="row2">
+            <p>@Model.SingleProduct.Description</p>
+        </div>
+    </div>
+</body>
+</html>
