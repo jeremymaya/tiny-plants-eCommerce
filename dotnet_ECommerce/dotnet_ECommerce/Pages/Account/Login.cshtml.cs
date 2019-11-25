@@ -34,7 +34,7 @@ namespace dotnet_ECommerce.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    Response.Redirect("/");
                 }
                 else
                 {
