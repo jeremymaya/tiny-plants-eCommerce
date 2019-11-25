@@ -1,0 +1,12 @@
+﻿img {
+    object-fit: cover;
+}
+
+.hero {
+    height: 750px;
+}
+
+.products {
+    height: 300px;
+    width: 300px;
+}

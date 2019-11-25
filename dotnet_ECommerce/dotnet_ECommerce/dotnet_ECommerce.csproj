@@ -9,6 +9,7 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Data\" />
+    <Folder Include="wwwroot\css\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Home\index.html" />
