@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Models;
+using dotnet_ECommerce.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +12,9 @@ namespace dotnet_ECommerce.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly dotnet_ECommerce.Data.StoreDbContext _context;
+        private readonly IInventory _context;
 
-        public IndexModel (dotnet_ECommerce.Data.StoreDbContext context)
+        public IndexModel(IInventory context)
         {
             _context = context;
         }
@@ -22,9 +23,7 @@ namespace dotnet_ECommerce.Pages
 
         public async Task OnGetAsync()
         {
-            FeaturedProducts = await _context.Product
-                .Where(x => x.IsFeatured == true)
-                .ToListAsync();
+            FeaturedProducts = await _context.GetFeaturedInventoriesAsync();
         }
     }
 }

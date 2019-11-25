@@ -16,7 +16,9 @@
                 <div class="w-100"></div>
             }
         <div class="col">
-            <img class="products" src="@Model.Products[i].Image" alt="...">
+            <a href="/ProductDetails/@Model.Products[i].ID">
+                <img class="products" src="@Model.Products[i].Image" alt="...">
+            </a>
             <h5>@Model.Products[i].Name</h5>
             <p>$@Model.Products[i].Price</p>
         </div>
