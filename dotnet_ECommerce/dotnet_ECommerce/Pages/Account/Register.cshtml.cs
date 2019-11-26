@@ -16,19 +16,36 @@ namespace dotnet_ECommerce.Pages.Account
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
 
+        /// <summary>
+        /// A property to be available on the Model property in the Razor Page
+        /// It uses BindProperty attribute to access the values outside of the handler method
+        /// </summary>
         [BindProperty]
         public RegisterInput Input { get; set; }
 
+        /// <summary>
+        /// A property that brings in SignInManager depdency to be used in the class
+        /// </summary>
+        /// <param name="userManager">UserManager context</param>
+        /// <param name="signInManager">SignInManager context</param>
         public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
+        /// <summary>
+        /// A handler method to process the default GET request
+        /// </summary>
         public void OnGet()
         {
+
         }
 
+        /// <summary>
+        /// A handler method to process a POST request after a user's registration information has been entered
+        /// </summary>
+        /// <returns>Home page upon successful registration</returns>
         public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
@@ -60,6 +77,9 @@ namespace dotnet_ECommerce.Pages.Account
             return Page();
         }
 
+        /// <summary>
+        /// A class to define the RegisterInput
+        /// </summary>
         public class RegisterInput
         {
             [Required]
@@ -87,6 +107,23 @@ namespace dotnet_ECommerce.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match")]
             [Display(Name = "Confirm Password:")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            public string Address { get; set; }
+
+            [Display(Name = "Address 2:")]
+            public string Address2 { get; set; }
+
+            [Required]
+            public string City { get; set; }
+
+            [Required]
+            public string State { get; set; }
+
+            [Required]
+            [DataType(DataType.PostalCode)]
+            [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
+            public string Zip { get; set; }
         }
     }
 }

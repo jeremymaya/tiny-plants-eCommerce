@@ -24,14 +24,14 @@ namespace dotnet_ECommerce.Pages.Account
         /// <summary>
         /// A property that brings in SignInManager depdency to be used in the class
         /// </summary>
-        /// <param name="signInManager"></param>
+        /// <param name="signInManager">SignInManager context</param>
         public LoginModel(SignInManager<ApplicationUser> signInManager)
         {
             _signInManager = signInManager;
         }
 
         /// <summary>
-        /// Handler method to process the default GET request
+        /// A handler method to process the default GET request
         /// </summary>
         public void OnGet()
         {
@@ -39,7 +39,7 @@ namespace dotnet_ECommerce.Pages.Account
         }
 
         /// <summary>
-        /// Handler method to process a POST request after a user's login information has been entered
+        ///  A handler method to process a POST request after a user's login information has been entered
         /// </summary>
         /// <returns>Home page upon successful login</returns>
         public async Task<IActionResult> OnPost()
@@ -61,7 +61,7 @@ namespace dotnet_ECommerce.Pages.Account
         }
 
         /// <summary>
-        /// Class to define the InputModel
+        /// A class to define the InputModel
         /// </summary>
         public class InputModel
         {
