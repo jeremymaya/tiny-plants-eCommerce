@@ -14,19 +14,34 @@ namespace dotnet_ECommerce.Pages.Account
     {
         private SignInManager<ApplicationUser> _signInManager;
 
+        /// <summary>
+        /// A property to be available on the Model property in the Razor Page
+        /// It uses BindProperty attribute to access the values outside of the handler method
+        /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
 
+        /// <summary>
+        /// A property that brings in SignInManager depdency to be used in the class
+        /// </summary>
+        /// <param name="signInManager"></param>
         public LoginModel(SignInManager<ApplicationUser> signInManager)
         {
             _signInManager = signInManager;
         }
 
+        /// <summary>
+        /// Handler method to process the default GET request
+        /// </summary>
         public void OnGet()
         {
 
         }
 
+        /// <summary>
+        /// Handler method to process a POST request after a user's login information has been entered
+        /// </summary>
+        /// <returns>Home page upon successful login</returns>
         public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
@@ -45,6 +60,9 @@ namespace dotnet_ECommerce.Pages.Account
             return Page();
         }
 
+        /// <summary>
+        /// Class to define the InputModel
+        /// </summary>
         public class InputModel
         {
             [Required]
