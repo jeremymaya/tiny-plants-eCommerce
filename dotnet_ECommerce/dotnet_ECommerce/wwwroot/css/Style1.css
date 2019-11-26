@@ -11,7 +11,7 @@
 }
 
 .detail-img {
-    margin: 0 5px 10px 0;
+    margin: 0 0 10px 0;
 }
 
 h6 {
@@ -28,6 +28,6 @@ h6 {
     margin-left: 7px;
 }
 
-description {
-    margin-left: 20px;
+.product-name {
+    margin-top: 8px;
 }
