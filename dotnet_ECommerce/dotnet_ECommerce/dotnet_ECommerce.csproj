@@ -11,6 +11,7 @@
     <Folder Include="Data\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\captures\" />
+    <Folder Include="Views\Products\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Home\index.html" />
