@@ -13,9 +13,10 @@ namespace dotnet_ECommerce.Models.Interfaces
         // Read - GetAll
         Task<IList<Product>> GetAllInventoriesAsync();
 
+        // Read - GetIsFeatured
         Task<IList<Product>> GetFeaturedInventoriesAsync();
 
-        // Read - GeyByID
+        // Read - GetByID
         Task<Product> GetInventoryByIdAsync(int id);
 
         // Update
