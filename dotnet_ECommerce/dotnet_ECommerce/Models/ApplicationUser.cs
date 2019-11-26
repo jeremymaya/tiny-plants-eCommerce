@@ -13,6 +13,7 @@ namespace dotnet_ECommerce.Models
 
         public string Address { get; set; }
 
+        [Display(Name = "Address 2")]
         public string Address2 { get; set; }
 
         public string City { get; set; }
@@ -20,5 +21,14 @@ namespace dotnet_ECommerce.Models
         public string State { get; set; }
 
         public string Zip { get; set; }
+    }
+
+    /// <summary>
+    /// Create new roles
+    /// </summary>
+    public static class ApplicationRoles
+    {
+        public const string Member = "Member";
+        public const string Admin = "Administration";
     }
 }
