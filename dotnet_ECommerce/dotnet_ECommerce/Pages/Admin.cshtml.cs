@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dotnet_ECommerce.Pages
 {
-    //[Authorize(Policy="")]
+    [Authorize(Policy="AdminOnly")]
     public class AdminModel : PageModel
     {
         public void OnGet()

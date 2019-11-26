@@ -7,12 +7,14 @@ using dotnet_ECommerce.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 
 namespace dotnet_ECommerce.Pages.Account
 {
     public class LoginModel : PageModel
     {
         private SignInManager<ApplicationUser> _signInManager;
+        public IConfiguration Configuration { get; }
 
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
@@ -25,9 +27,10 @@ namespace dotnet_ECommerce.Pages.Account
         /// A property that brings in SignInManager depdency to be used in the class
         /// </summary>
         /// <param name="signInManager">SignInManager context</param>
-        public LoginModel(SignInManager<ApplicationUser> signInManager)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
         {
             _signInManager = signInManager;
+            Configuration = configuration;
         }
 
         /// <summary>
@@ -49,7 +52,14 @@ namespace dotnet_ECommerce.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    Response.Redirect("/");
+                    if (Input.Email == Configuration["AdminRoles"])
+                    {
+                        Response.Redirect("/Admin");
+                    }
+                    else
+                    {
+                        Response.Redirect("/");
+                    }
                 }
                 else
                 {
@@ -71,6 +81,7 @@ namespace dotnet_ECommerce.Pages.Account
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
+            [Display(Name = "Remember Me")]
             public bool RememberMe { get; set; }
         }
     }
