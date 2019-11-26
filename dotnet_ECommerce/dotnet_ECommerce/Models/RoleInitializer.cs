@@ -25,7 +25,7 @@ namespace dotnet_ECommerce.Models
         /// Calls AddRoles() method to add roles data
         /// </summary>
         /// <param name="serviceProvider"></param>
-        private static void SeedData(IServiceProvider serviceProvider)
+        public static void SeedData(IServiceProvider serviceProvider)
         {
             using (var dbContext = new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
