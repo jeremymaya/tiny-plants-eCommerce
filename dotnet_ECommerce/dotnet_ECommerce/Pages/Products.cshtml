@@ -5,31 +5,24 @@
     Layout = "_Layout";
 }
 
-<!doctype html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="~/css/Style1.css">
-</head>
-<body>
-    <div class="container text-center">
-        <h1 class="text-left">
-            Products
-        </h1>
-        <div class="row">
-            @for (int i = 0; i < Model.Products.Count; i++)
+<div class="container text-center">
+    <h1 class="text-left">
+        Products
+    </h1>
+    <div class="row">
+        @for (int i = 0; i < Model.Products.Count; i++)
+        {
+            @if (i % 3 == 0)
             {
-                @if (i % 3 == 0)
-                {
-                    <div class="w-100"></div>
-                }
-                <div class="col">
-                    <a href="/ProductDetails/@Model.Products[i].ID">
-                        <img class="products" src="@Model.Products[i].Image" alt="...">
-                    </a>
-                    <h5 class="product-name">@Model.Products[i].Name</h5>
-                    <p>$@Model.Products[i].Price</p>
-                </div>
+                <div class="w-100"></div>
             }
-        </div>
+            <div class="col">
+                <a href="/ProductDetails/@Model.Products[i].ID">
+                    <img class="products" src="@Model.Products[i].Image" alt="...">
+                </a>
+                <h5 class="product-name">@Model.Products[i].Name</h5>
+                <p>$@Model.Products[i].Price</p>
+            </div>
+        }
     </div>
-</body>
+</div>
