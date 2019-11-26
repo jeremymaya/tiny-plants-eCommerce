@@ -91,7 +91,7 @@ namespace dotnet_ECommerce.Pages.Account
             [Required]
             public string Address { get; set; }
 
-            [Required]
+            [Display(Name = "Address 2:")]
             public string Address2 { get; set; }
 
             [Required]
