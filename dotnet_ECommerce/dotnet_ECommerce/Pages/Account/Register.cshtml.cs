@@ -87,6 +87,23 @@ namespace dotnet_ECommerce.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match")]
             [Display(Name = "Confirm Password:")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            public string Address { get; set; }
+
+            [Required]
+            public string Address2 { get; set; }
+
+            [Required]
+            public string City { get; set; }
+
+            [Required]
+            public string State { get; set; }
+
+            [Required]
+            [DataType(DataType.PostalCode)]
+            [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
+            public string Zip { get; set; }
         }
     }
 }
