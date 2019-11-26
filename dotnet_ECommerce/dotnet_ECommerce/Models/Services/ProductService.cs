@@ -39,7 +39,7 @@ namespace dotnet_ECommerce.Models.Interfaces.Services
         /// <summary>
         /// Gets all of the entries from the connctected database
         /// </summary>
-        /// <returns>IList of all products marked as IsFeatured from the conntected database</returns>
+        /// <returns>IList of all product data marked as IsFeatured from the conntected database</returns>
         public async Task<IList<Product>> GetFeaturedInventoriesAsync() => await _context.Product
                 .Where(x => x.IsFeatured == true)
                 .ToListAsync();
