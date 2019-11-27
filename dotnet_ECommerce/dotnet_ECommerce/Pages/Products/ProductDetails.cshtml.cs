@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace dotnet_ECommerce.Pages
+namespace dotnet_ECommerce.Pages.Products
 {
-    public class ProductsModel : PageModel
+    public class ProductDetailsModel : PageModel
     {
         /// <summary>
         /// Dependency injection to establish a private connection to a database table by injecting an interface
@@ -21,7 +21,7 @@ namespace dotnet_ECommerce.Pages
         /// A contructor to set propety to the corresponding interface instance
         /// </summary>
         /// <param name="context">IInventory interface</param>
-        public ProductsModel(IInventory context)
+        public ProductDetailsModel(IInventory context)
         {
             _context = context;
         }
@@ -29,15 +29,15 @@ namespace dotnet_ECommerce.Pages
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
         /// </summary>
-        public IList<Product> Products { get; set; }
+        public Product SingleProduct { get; set; }
 
         /// <summary>
         /// Asynchronous handler method to process the default GET request
         /// </summary>
-        /// <returns>List of all products from the database</returns>
-        public async Task OnGetAsync()
+        /// <returns>A product from the database based on the id</returns>
+        public async Task OnGetAsync(int id)
         {
-            Products = await _context.GetAllInventoriesAsync();
+            SingleProduct = await _context.GetInventoryByIdAsync(id);
         }
     }
 }
