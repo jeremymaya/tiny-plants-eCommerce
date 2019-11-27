@@ -8,6 +8,7 @@ using dotnet_ECommerce.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 
 namespace dotnet_ECommerce.Pages.Account
 {
@@ -15,6 +16,8 @@ namespace dotnet_ECommerce.Pages.Account
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+
+        public IConfiguration Configuration { get; }
 
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
@@ -28,10 +31,11 @@ namespace dotnet_ECommerce.Pages.Account
         /// </summary>
         /// <param name="userManager">UserManager context</param>
         /// <param name="signInManager">SignInManager context</param>
-        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            Configuration = configuration;
         }
 
         /// <summary>
@@ -66,6 +70,13 @@ namespace dotnet_ECommerce.Pages.Account
                     await _userManager.AddClaimsAsync(user, claims);
                     await _signInManager.SignInAsync(user, false);
 
+                    if (Input.Email == Configuration["AdminRoles"])
+                    {
+                        await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
+                    }
+
+                    await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
+                    
                     Response.Redirect("/");
                 }
 

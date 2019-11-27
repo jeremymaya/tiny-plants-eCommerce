@@ -1,7 +1,7 @@
 ﻿@page
 @model dotnet_ECommerce.Pages.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "TINY PLANTS";
     Layout = "_Layout";
 }
 
@@ -36,7 +36,7 @@
                 else
                 {
                     <div class="carousel-item">
-                        <img src="@Model.FeaturedProducts[i].Image" class="d-block w-100" alt="...">
+                        <img src="@Model.FeaturedProducts[i].Image" class="d-block w-100 hero" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>@Model.FeaturedProducts[i].Name</h5>
                             <p>@Model.FeaturedProducts[i].Description</p>

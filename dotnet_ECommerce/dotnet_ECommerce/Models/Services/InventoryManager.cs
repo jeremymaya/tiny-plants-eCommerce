@@ -1,20 +1,21 @@
-﻿using dotnet_ECommerce.Data;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dotnet_ECommerce.Data;
+using dotnet_ECommerce.Models.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
-namespace dotnet_ECommerce.Models.Interfaces.Services
+namespace dotnet_ECommerce.Models.Services
 {
-    public class ProductService : IInventory
+    public class InventoryManager : IInventory
     {
         /// <summary>
         /// Establishes a private connection to a database via dependency injection
         /// </summary>
         private StoreDbContext _context;
 
-        public ProductService(StoreDbContext context)
+        public InventoryManager(StoreDbContext context)
         {
             _context = context;
         }
@@ -39,7 +40,7 @@ namespace dotnet_ECommerce.Models.Interfaces.Services
         /// <summary>
         /// Gets all of the entries from the connctected database
         /// </summary>
-        /// <returns>IList of all products marked as IsFeatured from the conntected database</returns>
+        /// <returns>IList of all product data marked as IsFeatured from the conntected database</returns>
         public async Task<IList<Product>> GetFeaturedInventoriesAsync() => await _context.Product
                 .Where(x => x.IsFeatured == true)
                 .ToListAsync();

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace dotnet_ECommerce.Pages
+namespace dotnet_ECommerce.Pages.Products
 {
     public class IndexModel : PageModel
     {
@@ -29,15 +29,15 @@ namespace dotnet_ECommerce.Pages
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
         /// </summary>
-        public IList<Product> FeaturedProducts { get; set; }
+        public IList<Product> Products { get; set; }
 
         /// <summary>
         /// Asynchronous handler method to process the default GET request
         /// </summary>
-        /// <returns>List of all products marked as IsFeatured from the database</returns>
+        /// <returns>List of all products from the database</returns>
         public async Task OnGetAsync()
         {
-            FeaturedProducts = await _context.GetFeaturedInventoriesAsync();
+            Products = await _context.GetAllInventoriesAsync();
         }
     }
 }
