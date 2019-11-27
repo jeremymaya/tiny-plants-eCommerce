@@ -11,11 +11,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_ECommerce.Controllers
 {
-    public class ProductsController : Controller
+    public class InventoryController : Controller
     {
         private readonly IInventory _context;
 
-        public ProductsController(IInventory inventory)
+        public InventoryController(IInventory inventory)
         {
             _context = inventory;
         }

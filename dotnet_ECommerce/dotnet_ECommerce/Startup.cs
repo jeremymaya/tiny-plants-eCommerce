@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using dotnet_ECommerce.Data;
 using dotnet_ECommerce.Models;
 using dotnet_ECommerce.Models.Interfaces;
-using dotnet_ECommerce.Models.Interfaces.Services;
+using dotnet_ECommerce.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,9 +36,9 @@ namespace dotnet_ECommerce
         {
             services.AddRazorPages();
 
-            services.AddMvc();
+            services.AddControllersWithViews();
 
-            services.AddScoped<IInventory, ProductService>();
+            services.AddScoped<IInventory, InventoryManager>();
 
             string userConnString = Environment.IsDevelopment()
                 ? Configuration["ConnectionStrings:UserConnection"]
@@ -81,6 +81,7 @@ namespace dotnet_ECommerce
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllerRoute("default", "{controller=Inventory}/{action=Index}/{id?}");
             });
 
             RoleInitializer.SeedData(serviceProvider);
