@@ -16,6 +16,9 @@ namespace dotnet_ECommerce.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Creating a foreign key
+            modelBuilder.Entity<CartItems>().HasKey(cartitems => new { cartitems.CartID, cartitems.ProductID });
+
             // Seeding Data
             modelBuilder.Entity<Product>().HasData(
                 new Product
