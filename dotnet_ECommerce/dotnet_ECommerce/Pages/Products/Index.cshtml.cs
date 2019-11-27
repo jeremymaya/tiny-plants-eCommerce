@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace dotnet_ECommerce.Pages
+namespace dotnet_ECommerce.Pages.Products
 {
-    public class ProductsModel : PageModel
+    public class IndexModel : PageModel
     {
         /// <summary>
         /// Dependency injection to establish a private connection to a database table by injecting an interface
@@ -21,7 +21,7 @@ namespace dotnet_ECommerce.Pages
         /// A contructor to set propety to the corresponding interface instance
         /// </summary>
         /// <param name="context">IInventory interface</param>
-        public ProductsModel(IInventory context)
+        public IndexModel(IInventory context)
         {
             _context = context;
         }

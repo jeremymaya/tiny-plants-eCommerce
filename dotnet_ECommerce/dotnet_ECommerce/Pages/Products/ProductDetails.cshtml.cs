@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace dotnet_ECommerce.Pages
+namespace dotnet_ECommerce.Pages.Products
 {
     public class ProductDetailsModel : PageModel
     {

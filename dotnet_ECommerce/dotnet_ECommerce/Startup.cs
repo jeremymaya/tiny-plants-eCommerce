@@ -81,7 +81,7 @@ namespace dotnet_ECommerce
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapControllerRoute("default", "{controller=Inventory}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
 
             RoleInitializer.SeedData(serviceProvider);
