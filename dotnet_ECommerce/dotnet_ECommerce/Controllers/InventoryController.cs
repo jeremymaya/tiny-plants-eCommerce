@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Models;
 using dotnet_ECommerce.Models.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_ECommerce.Controllers
 {
-    [Authorize(Policy = "AdminOnly")]
     public class InventoryController : Controller
     {
         private readonly IInventory _context;
