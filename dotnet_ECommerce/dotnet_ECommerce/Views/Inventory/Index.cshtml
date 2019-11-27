@@ -1,17 +1,13 @@
 ﻿@model IEnumerable<dotnet_ECommerce.Models.Product>
-
 @{
     ViewData["Title"] = "Inventory Management";
     Layout = "_Layout";
 }
-
 <div class="container">
-
     <h1>Inventory</h1>
     <p>
         <a asp-action="Create">Create New</a>
     </p>
-
     <form asp-controller="Inventory" asp-action="Index" method="get">
         <p>
             Item Name: <input type="text" name="SearchString">
