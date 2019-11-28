@@ -16,14 +16,12 @@ namespace dotnet_ECommerce.Pages.Account
         public LogOutModel(SignInManager<ApplicationUser> signInManager)
         {
             _signInManager = signInManager;
-
         }
 
         public async Task<IActionResult> OnPost()
         {
             await _signInManager.SignOutAsync();
-            return Page();
-
+            return Redirect("/");
         }
 
     }
