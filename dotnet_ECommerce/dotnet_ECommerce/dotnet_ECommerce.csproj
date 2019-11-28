@@ -10,7 +10,6 @@
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\captures\" />
     <Folder Include="Views\Inventory\" />
-    <Folder Include="Pages\Products\" />
     <Folder Include="Pages\Admin\" />
     <Folder Include="Models\Components\" />
   </ItemGroup>

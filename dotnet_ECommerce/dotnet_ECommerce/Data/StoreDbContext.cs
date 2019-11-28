@@ -125,5 +125,7 @@ namespace dotnet_ECommerce.Data
         }
 
         public DbSet<Product> Product { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartItems> CartItems { get; set; }
     }
 }
