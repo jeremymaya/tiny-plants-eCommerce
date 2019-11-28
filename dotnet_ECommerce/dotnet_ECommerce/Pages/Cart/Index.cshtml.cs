@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace dotnet_ECommerce.Cart
+namespace dotnet_ECommerce.Pages.Cart
 {
     public class IndexModel : PageModel
     {

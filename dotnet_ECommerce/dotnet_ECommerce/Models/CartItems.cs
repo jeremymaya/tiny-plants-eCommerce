@@ -10,5 +10,10 @@ namespace dotnet_ECommerce.Models
         public int ProductID { get; set; }
 
         public int Quantity { get; set; }
+
+        // Navigational Properties
+        public Cart Cart { get; set; }
+
+        public Product Product { get; set; }
     }
 }
