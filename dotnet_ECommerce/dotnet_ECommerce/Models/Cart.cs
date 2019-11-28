@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace dotnet_ECommerce.Models
 {
     public class Cart
