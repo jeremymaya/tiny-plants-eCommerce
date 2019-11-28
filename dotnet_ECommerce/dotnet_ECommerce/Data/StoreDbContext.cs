@@ -16,7 +16,7 @@ namespace dotnet_ECommerce.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Creating a foreign key
+            // Creating a composite key
             modelBuilder.Entity<CartItems>().HasKey(cartitems => new { cartitems.CartID, cartitems.ProductID });
 
             // Seeding Data
@@ -125,5 +125,7 @@ namespace dotnet_ECommerce.Data
         }
 
         public DbSet<Product> Product { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartItems> CartItems { get; set; }
     }
 }
