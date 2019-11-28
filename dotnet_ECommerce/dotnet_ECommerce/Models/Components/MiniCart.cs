@@ -14,11 +14,11 @@ namespace dotnet_ECommerce.Models.Components
             _inventory = inventory;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int number)
-        {
-            var cartItems = _inventory.
-            return View(posts);
-            // return View("nameofThing")
-        }
+        //public async Task<IViewComponentResult> InvokeAsync(int number)
+        //{
+        //    var cartItems = _inventory.
+        //    return View(posts);
+        //    // return View("nameofThing")
+        //}
     }
 }
