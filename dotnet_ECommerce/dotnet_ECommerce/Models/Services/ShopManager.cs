@@ -22,6 +22,14 @@ namespace dotnet_ECommerce.Models.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task CreateCartItemAsync(CartItems cartItems)
+        {
+            await _context.CartItems.AddAsync(cartItems);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Cart>> GetCartsAsync() => await _context.Cart.ToListAsync();
+
         public async Task<CartItems> GetCartItemByIdAsync(int id) => await _context.CartItems.FindAsync(id);
 
         public async Task<IEnumerable<CartItems>> GetCartItemsAsync() => await _context.CartItems.ToListAsync();

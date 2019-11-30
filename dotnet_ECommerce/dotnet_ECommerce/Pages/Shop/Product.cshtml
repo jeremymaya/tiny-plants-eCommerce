@@ -26,7 +26,13 @@
                 <p> $@Model.SingleProduct.Price</p>
             </div>
             <div class="row">
-                <button class="add-to-cart-button">Add to Cart</button>
+                <form method="post">
+                    <div>
+                        <label asp-for="Input.Quantity">Quantity</label>
+                        <input asp-for="Input.Quantity" type="text">
+                    </div>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </form>
             </div>
         </div>
     </div>
