@@ -40,6 +40,8 @@ namespace dotnet_ECommerce
 
             services.AddScoped<IInventory, InventoryManager>();
 
+            services.AddScoped<IShop, ShopManager>();
+
             string userConnString = Environment.IsDevelopment()
                 ? Configuration["ConnectionStrings:UserConnection"]
                 : Configuration["ConnectionStrings:UserProductionConnection"];

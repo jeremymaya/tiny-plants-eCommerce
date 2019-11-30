@@ -1,5 +1,8 @@
 ﻿@page "{id?}"
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
 @model dotnet_ECommerce.Pages.Shop.ProductModel
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "Product";
     Layout = "_Layout";
@@ -33,4 +36,8 @@
     <div class="row2">
         <p>@Model.SingleProduct.Description</p>
     </div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @await Component.InvokeAsync("MiniCart")
+    }
 </div>

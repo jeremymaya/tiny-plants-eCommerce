@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Data;
 using dotnet_ECommerce.Models;
+using dotnet_ECommerce.Models.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -17,7 +18,7 @@ namespace dotnet_ECommerce.Pages.Account
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
-        //private StoreDbContext<StoreDbContext> _storeDbContext;
+        private IShop _shop;
 
         public IConfiguration Configuration { get; }
 
@@ -33,12 +34,15 @@ namespace dotnet_ECommerce.Pages.Account
         /// </summary>
         /// <param name="userManager">UserManager context</param>
         /// <param name="signInManager">SignInManager context</param>
-        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
+        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IShop shop)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             Configuration = configuration;
+            _shop = shop;
         }
+
+
 
         /// <summary>
         /// A handler method to process the default GET request
@@ -61,6 +65,7 @@ namespace dotnet_ECommerce.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email
                 };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -78,6 +83,13 @@ namespace dotnet_ECommerce.Pages.Account
                     }
 
                     await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
+
+                    var cart = new Cart
+                    {
+                        UserID = user.Id
+                    };
+
+                    await _shop.CreateCartAsync(cart);
                     
                     Response.Redirect("/");
                 }

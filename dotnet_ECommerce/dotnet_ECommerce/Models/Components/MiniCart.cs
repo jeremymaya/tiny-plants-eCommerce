@@ -7,18 +7,18 @@ namespace dotnet_ECommerce.Models.Components
 {
     public class MiniCart : ViewComponent
     {
-        private readonly IInventory _inventory;
+        private readonly IShop _shop;
 
-        public MiniCart(IInventory inventory)
+        public MiniCart(IShop shop)
         {
-            _inventory = inventory;
+            _shop = shop;
         }
 
-        //public async Task<IViewComponentResult> InvokeAsync(int number)
-        //{
-        //    var cartItems = _inventory.
-        //    return View(posts);
-        //    // return View("nameofThing")
-        //}
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var cartItems = await _shop.GetCartItemsAsync();
+
+            return View(cartItems);
+        }
     }
 }
