@@ -33,7 +33,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr class="text-center">
                         <td>
                             <img src="@Html.DisplayFor(modelItem => item.Product.Image)" width="50" height="50" />
                         </td>
@@ -44,7 +44,6 @@
                             @Html.DisplayFor(modelItem => item.Quantity)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Quantity * item.Product.Price)
                         </td>
                     </tr>
                 }
