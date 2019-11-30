@@ -38,15 +38,15 @@
                 <div>
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <span class="navbar-text">Hello @User.Claims.First(c => c.Type == "FullName").Value!</span>
-                        <form asp-page="/Account/LogOut">
-                            <button class="nav-item" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;Logout</button>
+                        <span class="navbar-text">Hello @User.Claims.First(c => c.Type == "FullName").Value!&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <form class="button" asp-page="/Account/LogOut">
+                            <button class="btn2 btn-links" type="submit">Logout</button>
                         </form>
                     }
                     else
                     {
-                        <span class="navbar-text">Welcome!</span>
-                        <a class="navbar-text" href="/Account/Login">&nbsp;&nbsp;&nbsp;&nbsp;Login</a>
+                        <span class="navbar-text">Welcome!&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <a class="navbar-text" href="/Account/Login">Login</a>
                     }
                 </div>
             </div>

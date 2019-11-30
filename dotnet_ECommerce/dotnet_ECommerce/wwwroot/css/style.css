@@ -10,3 +10,33 @@
     height: 300px;
     width: 300px;
 }
+
+.btn-links {
+    font-weight: 400;
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 .75rem;
+}
+
+.btn-links:hover {
+    text-decoration: underline;
+}
+
+.btn2 {
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.button {
+    padding: 0 .75rem;
+    display: inline-block;
+}
