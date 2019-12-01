@@ -1,27 +1,33 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
 @model dotnet_ECommerce.Pages.Shop.CartModel
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "My Cart";
     Layout = "_Layout";
 }
-
 <div class="container text-center">
     <h1 class="text-left">My Cart</h1>
-    <div class="row">
-        @for (int i = 0; i < Model.
-            Products.Count; i++)
-        {
-            @if (i % 3 == 0)
-            {
-                <div class="w-100"></div>
-            }
-            <div class="col">
-                <a href="/Shop/Cart/@Model.Products[i].ID">
-                    <img class="products" src="@Model.Products[i].Image" alt="...">
-                </a>
-                <h5 class="product-name">@Model.Products[i].Name</h5>
-                <p>$@Model.Products[i].Price</p>
-            </div>
-        }
-    </div>
+    <table class="table">
+        <thead class="text-center">
+            <tr>
+                <th>
+                    Image
+                </th>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
