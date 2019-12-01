@@ -1,5 +1,8 @@
 ﻿@page "{id?}"
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
 @model dotnet_ECommerce.Pages.Shop.ProductModel
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "Product";
     Layout = "_Layout";
@@ -23,7 +26,13 @@
                 <p> $@Model.SingleProduct.Price</p>
             </div>
             <div class="row">
-                <button class="add-to-cart-button">Add to Cart</button>
+                <form method="post">
+                    <div>
+                        <label asp-for="Input.Quantity">Quantity</label>
+                        <input asp-for="Input.Quantity" type="text">
+                    </div>
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </form>
             </div>
         </div>
     </div>
@@ -33,4 +42,8 @@
     <div class="row2">
         <p>@Model.SingleProduct.Description</p>
     </div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @await Component.InvokeAsync("MiniCart")
+    }
 </div>
