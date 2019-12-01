@@ -24,15 +24,18 @@
                     </div>
                     <form method="post">
                         <div>
-                            <label asp-for="Input.Quantity">Quantity&nbsp;&nbsp;</label>
-                            <input asp-for="Input.Quantity" type="text">
+                            <label asp-for="@Model.CartItem[i].Quantity">Quantity&nbsp;&nbsp;</label>
+                            <input asp-for="@Model.CartItem[i].Quantity" type="text">
                             <p>&nbsp;</p>
                         </div>
                     </form>
                     <div class="row">
-                        <h6>SKU:&nbsp;&nbsp;</h6>
-                        <p> @Model.SingleProduct.Sku</p>
+                        <h6>$@Model.CartItem[i].Product.Price</h6>
                     </div>
+                </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.CartItem[i].ProductID">Update</a>
+                    <a asp-action="Delete" asp-route-id="@Model.CartItem[i].ProductID">Remove</a>
                 </div>
             }
             <form method="post">

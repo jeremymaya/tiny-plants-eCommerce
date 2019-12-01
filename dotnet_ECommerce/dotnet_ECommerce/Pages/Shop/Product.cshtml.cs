@@ -60,7 +60,7 @@ namespace dotnet_ECommerce.Pages.Shop
                     CartID = cart.First().ID,
                     ProductID = id,
                     Quantity = Input.Quantity
-            };
+                };
                 await _shop.CreateCartItemAsync(cartItems);
             }
             return Page();

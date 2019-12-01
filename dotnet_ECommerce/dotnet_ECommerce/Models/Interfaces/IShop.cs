@@ -12,7 +12,7 @@ namespace dotnet_ECommerce.Models.Interfaces
 
         Task<IEnumerable<Cart>> GetCartsAsync();
 
-        Task<IEnumerable<CartItems>> GetCartItemsAsync();
+        Task<IList<CartItems>> GetCartItemsAsync();
 
         Task<CartItems> GetCartItemByIdAsync(int id);
 

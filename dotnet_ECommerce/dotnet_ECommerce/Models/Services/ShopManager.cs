@@ -32,7 +32,7 @@ namespace dotnet_ECommerce.Models.Services
 
         public async Task<CartItems> GetCartItemByIdAsync(int id) => await _context.CartItems.FindAsync(id);
 
-        public async Task<IEnumerable<CartItems>> GetCartItemsAsync() => await _context.CartItems.ToListAsync();
+        public async Task<IList<CartItems>> GetCartItemsAsync() => await _context.CartItems.ToListAsync();
 
         public async Task RemoveCartItemsAsync(int id)
         {

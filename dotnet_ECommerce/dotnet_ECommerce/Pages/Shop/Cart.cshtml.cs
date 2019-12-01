@@ -15,21 +15,23 @@ namespace dotnet_ECommerce.Pages.Shop
         /// <summary>
         /// Dependency injection to establish a private connection to a database table by injecting an interface
         /// </summary>
-        private readonly IShop _shopcontext;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IShop _shop;
 
         /// <summary>
         /// Dependency injection to establish a private connection to a database table by injecting an interface
         /// </summary>
-        private readonly IInventory _inventorycontext;
+        private readonly IInventory _inventory;
 
         /// <summary>
         /// A contructor to set propety to the corresponding interface instance
         /// </summary>
         /// <param name="context">IInventory interface</param>
-        public CartModel(IShop shopcontext, IInventory inventory)
+        public CartModel(IShop shopcontext, IInventory inventory, UserManager<ApplicationUser> userManager)
         {
-            _shopcontext = shopcontext;
-            _inventorycontext = inventory;
+            _shop = shopcontext;
+            _inventory = inventory;
+            _userManager = userManager;
         }
 
         /// <summary>
@@ -38,16 +40,23 @@ namespace dotnet_ECommerce.Pages.Shop
         public IList<CartItems> CartItem { get; set; }
 
         /// <summary>
+        /// A property to be available on the Model property in the Razor Page
+        /// </summary>
+        public IEnumerable<Cart> Cart { get; set; }
+
+        public Product Product { get; set; }
+
+        /// <summary>
         /// Asynchronous handler method to process the default GET request
         /// </summary>
         /// <returns>List of all cart items from the database</returns>
         public async Task OnGetAsync()
         {
-            CartItem = await _shopcontext.GetCartItemsAsync();
-        }
+            //var user = await _userManager.GetUserAsync(User);
+            //var carts = await _shop.GetCartsAsync();
+            //var cart = carts.Where(x => x.UserID == user.Id);
 
-        public void OnGet()
-        {
+            CartItem = await _shop.GetCartItemsAsync();
         }
     }
 }
