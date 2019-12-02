@@ -50,21 +50,18 @@ namespace dotnet_ECommerce.Pages.Shop
         public async Task<PageResult> OnPostAsync(int id)
         {
             var user = await _userManager.GetUserAsync(User);
-            var cart = await _shop.GetCartByUserIdAsync(user.Id);
+            var carts = await _shop.GetCartsAsync();
+            var cart = carts.Where(x => x.UserID == user.Id);
 
             if (ModelState.IsValid)
             {
                 CartItems cartItems = new CartItems
                 {
-                    CartID = cart.ID,
+                    CartID = cart.First().ID,
                     ProductID = id,
                     Quantity = Input.Quantity
                 };
-
-
-
                 await _shop.CreateCartItemAsync(cartItems);
-                Response.Redirect("/");
             }
             return Page();
         }
