@@ -5,9 +5,6 @@
         <thead class="text-center">
             <tr>
                 <th>
-                    Item
-                </th>
-                <th>
                     Name
                 </th>
                 <th>
@@ -22,7 +19,7 @@
         {
             <tbody>
                 <tr class="text-center">
-                    <td colspan="4">
+                    <td colspan="3">
                         Shopping Cart Is Empty
                     </td>
                 </tr>
@@ -35,15 +32,13 @@
                 {
                     <tr class="text-center">
                         <td>
-                            <img src="@Html.DisplayFor(modelItem => item.Product.Image)" width="50" height="50" />
+                            @item.Product.Name
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Product.Name)
+                            @item.Quantity
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Quantity)
-                        </td>
-                        <td>
+                            $ @(item.Quantity * item.Product.Price)
                         </td>
                     </tr>
                 }

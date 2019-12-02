@@ -13,7 +13,7 @@
     </h1>
     <div class="container">
         <div class="row">
-            @for (int i = 0; i < Model.CartItem.ToList().Count; i++)
+            @*@for (int i = 0; i < Model.CartItem.ToList().Count; i++)
             {
                 <div class="col-sm">
                     <img class="detail-img" src="@Model.CartItem.ElementAt(i).Product.Image" width="350" />
@@ -36,6 +36,32 @@
                 <div>
                     <a asp-action="Edit" asp-route-id="@Model.CartItem.ElementAt(i).ProductID">Update</a>
                     <a asp-action="Delete" asp-route-id="@Model.CartItem.ElementAt(i).ProductID">Remove</a>
+                </div>
+            }*@
+
+            @foreach (var item in Model.CartItem)
+            {
+                <div class="col-sm">
+                    <img class="detail-img" src="@item.Product.Image" width="350" />
+                </div>
+                <div class="col-sm">
+                    <div class="row">
+                        <h6>@item.Product.Name</h6>
+                    </div>
+                    <form method="post">
+                        <div>
+                            <label asp-for="@item.Quantity">Quantity&nbsp;&nbsp;</label>
+                            <input asp-for="@item.Quantity" type="text">
+                            <p>&nbsp;</p>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <h6>$@item.Product.Price</h6>
+                    </div>
+                </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@item.ProductID">Update</a>
+                    <a asp-action="Delete" asp-route-id="@item.ProductID">Remove</a>
                 </div>
             }
             <form method="post">
