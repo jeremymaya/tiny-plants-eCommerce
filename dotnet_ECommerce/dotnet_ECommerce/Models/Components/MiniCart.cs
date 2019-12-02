@@ -18,9 +18,9 @@ namespace dotnet_ECommerce.Models.Components
             _shop = shop;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(string userId)
         {
-            var cartItems = await _shop.GetCartItemsAsync();
+            var cartItems = await _shop.GetCartItemsByUserIdAsync(userId);
 
             return View(cartItems);
         }

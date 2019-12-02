@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Data;
 using dotnet_ECommerce.Models.Interfaces;
@@ -28,15 +29,26 @@ namespace dotnet_ECommerce.Models.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<Cart> GetCartByUserIdAsync(string userId)
+        {
+            var carts = await _context.Cart.ToListAsync();
+            return carts.Where(x => x.UserID == userId).FirstOrDefault();
+        }
+
         public async Task<IEnumerable<Cart>> GetCartsAsync() => await _context.Cart.ToListAsync();
 
-        public async Task<CartItems> GetCartItemByIdAsync(int id) => await _context.CartItems.FindAsync(id);
+        public async Task<IEnumerable<CartItems>> GetCartItemsByUserIdAsync(string userId)
+        {
+            var carItems = await _context.CartItems.ToListAsync();
+            var cart = GetCartByUserIdAsync(userId);
+            return carItems.Where(x => x.CartID == cart.Id);
+        }
 
-        public async Task<IList<CartItems>> GetCartItemsAsync() => await _context.CartItems.ToListAsync();
+        public async Task<CartItems> GetCartItemByIdlAsync(int id) => await _context.CartItems.FirstOrDefaultAsync(cart => cart.ID == id);
 
         public async Task RemoveCartItemsAsync(int id)
         {
-            CartItems cartItem = await GetCartItemByIdAsync(id);
+            CartItems cartItem = await GetCartItemByIdlAsync(id);
             _context.CartItems.Remove(cartItem);
             await _context.SaveChangesAsync();
         }

@@ -37,7 +37,7 @@ namespace dotnet_ECommerce.Pages.Shop
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
         /// </summary>
-        public IList<CartItems> CartItem { get; set; }
+        public IEnumerable<CartItems> CartItem { get; set; }
 
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
@@ -52,11 +52,11 @@ namespace dotnet_ECommerce.Pages.Shop
         /// <returns>List of all cart items from the database</returns>
         public async Task OnGetAsync()
         {
-            //var user = await _userManager.GetUserAsync(User);
-            //var carts = await _shop.GetCartsAsync();
-            //var cart = carts.Where(x => x.UserID == user.Id);
+            var user = await _userManager.GetUserAsync(User);
+            var carts = await _shop.GetCartsAsync();
+            var cart = carts.Where(x => x.UserID == user.Id);
 
-            CartItem = await _shop.GetCartItemsAsync();
+            CartItem = await _shop.GetCartItemsByUserIdAsync(user.Id);
         }
     }
 }
