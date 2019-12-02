@@ -10,14 +10,16 @@ namespace dotnet_ECommerce.Models.Interfaces
 
         Task CreateCartItemAsync(CartItems cartItems);
 
+        Task<Cart> GetCartByUserIdAsync(string userId);
+
         Task<IEnumerable<Cart>> GetCartsAsync();
 
-        Task<IEnumerable<CartItems>> GetCartItemsAsync();
+        Task<IEnumerable<CartItems>> GetCartItemsByUserIdAsync(string userId);
 
-        Task<CartItems> GetCartItemByIdAsync(int id);
-
-        Task UpdateCartItemsAsync(CartItems cartItems);
+        Task<CartItems> GetCartItemByIdlAsync(int id);
 
         Task RemoveCartItemsAsync(int id);
+
+        Task UpdateCartItemsAsync(CartItems cartItems);
     }
 }
