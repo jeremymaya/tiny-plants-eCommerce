@@ -19,18 +19,12 @@ namespace dotnet_ECommerce.Pages.Shop
         private readonly IShop _shop;
 
         /// <summary>
-        /// Dependency injection to establish a private connection to a database table by injecting an interface
-        /// </summary>
-        private readonly IInventory _inventory;
-
-        /// <summary>
         /// A contructor to set propety to the corresponding interface instance
         /// </summary>
         /// <param name="context">IInventory interface</param>
-        public CartModel(IShop shopcontext, IInventory inventory, UserManager<ApplicationUser> userManager)
+        public CartModel(UserManager<ApplicationUser> userManager, IShop shopcontext)
         {
             _shop = shopcontext;
-            _inventory = inventory;
             _userManager = userManager;
         }
 
@@ -40,20 +34,33 @@ namespace dotnet_ECommerce.Pages.Shop
         public IEnumerable<CartItems> CartItem { get; set; }
 
         /// <summary>
-        /// A property to be available on the Model property in the Razor Page
-        /// </summary>
-        public IEnumerable<Cart> Cart { get; set; }
-
-        public Product Product { get; set; }
-
-        /// <summary>
         /// Asynchronous handler method to process the default GET request
         /// </summary>
         /// <returns>List of all cart items from the database</returns>
         public async Task OnGetAsync()
         {
-            var user = await _userManager.GetUserAsync(User);
+            ApplicationUser user = await _userManager.GetUserAsync(User);
             CartItem = await _shop.GetCartItemsByUserIdAsync(user.Id);
+        }
+
+        public async Task<IActionResult> OnPostUpdateAsync(int id)
+        {
+            int updatedQuantity = Convert.ToInt32(Request.Form["Quantity"]);
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            CartItems cartItem = await _shop.GetCartItemByProductIdForUserAsync(user.Id, id);
+
+            cartItem.Quantity = updatedQuantity;
+            await _shop.UpdateCartItemsAsync(cartItem);
+
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            await _shop.RemoveCartItemsAsync(user.Id, id);
+
+            return RedirectToPage();
         }
     }
 }

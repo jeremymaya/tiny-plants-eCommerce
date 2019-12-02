@@ -1,9 +1,16 @@
 ﻿@model IEnumerable<dotnet_ECommerce.Models.CartItems>
 
 <div class="row">
+    <h4>
+        My Cart
+    </h4>
     <table class="table">
         <thead class="text-center">
             <tr>
+                <th>
+                    Item
+                </th>
+
                 <th>
                     Name
                 </th>
@@ -19,7 +26,7 @@
         {
             <tbody>
                 <tr class="text-center">
-                    <td colspan="3">
+                    <td colspan="4">
                         Shopping Cart Is Empty
                     </td>
                 </tr>
@@ -31,6 +38,9 @@
                 @foreach (var item in Model)
                 {
                     <tr class="text-center">
+                        <td>
+                            <img src="@Html.DisplayFor(modelItem => item.Product.Image)" width="75" height="75"/>
+                        </td>
                         <td>
                             @item.Product.Name
                         </td>
