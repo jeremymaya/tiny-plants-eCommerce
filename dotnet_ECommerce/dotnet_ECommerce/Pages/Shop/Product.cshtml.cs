@@ -53,13 +53,22 @@ namespace dotnet_ECommerce.Pages.Shop
             var cart = await _shop.GetCartByUserIdAsync(user.Id);
             if (ModelState.IsValid)
             {
-                CartItems cartItems = new CartItems
+                CartItems cartItem = new CartItems
                 {
                     CartID = cart.ID,
                     ProductID = id,
                     Quantity = Input.Quantity
                 };
-                await _shop.CreateCartItemAsync(cartItems);
+                if (await _shop.GetCartItemByProductIdForUserAsync(user.Id, id) != null)
+                {
+                    CartItems existingCartItem = await _shop.GetCartItemByProductIdForUserAsync(user.Id, id);
+                    existingCartItem.Quantity += Input.Quantity;
+                    await _shop.UpdateCartItemsAsync(existingCartItem);
+                }
+                else
+                {
+                    await _shop.CreateCartItemAsync(cartItem);
+                }
             }
             return Page();
         }
