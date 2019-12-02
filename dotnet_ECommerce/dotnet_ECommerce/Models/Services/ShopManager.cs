@@ -35,11 +35,10 @@ namespace dotnet_ECommerce.Models.Services
             return carts.Where(x => x.UserID == userId).FirstOrDefault();
         }
 
-        public IEnumerable<CartItems> GetCartItemsByUserIdAsync(string userId)
+        public async Task<IEnumerable<CartItems>> GetCartItemsByUserIdAsync(string userId)
         {
-            var cart = GetCartByUserIdAsync(userId);
-            var carItems = _context.CartItems.Where(x => x.CartID == cart.Id).Include(x => x.Cart).Include(x => x.Product);
-            return carItems;
+            var cart = await GetCartByUserIdAsync(userId);
+            return await _context.CartItems.Where(x => x.CartID == cart.ID).ToListAsync();
         }
 
         public async Task<CartItems> GetCartItemByIdlAsync(int id) => await _context.CartItems.FirstOrDefaultAsync(cart => cart.ID == id);

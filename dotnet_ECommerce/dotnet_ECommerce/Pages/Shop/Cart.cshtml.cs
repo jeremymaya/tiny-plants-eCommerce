@@ -53,9 +53,6 @@ namespace dotnet_ECommerce.Pages.Shop
         public async Task OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            var carts = await _shop.GetCartsAsync();
-            var cart = carts.Where(x => x.UserID == user.Id);
-
             CartItem = await _shop.GetCartItemsByUserIdAsync(user.Id);
         }
     }
