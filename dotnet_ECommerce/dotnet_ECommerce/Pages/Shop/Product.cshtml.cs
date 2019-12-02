@@ -47,7 +47,7 @@ namespace dotnet_ECommerce.Pages.Shop
             SingleProduct = await _inventory.GetInventoryByIdAsync(id);
         }
 
-        public async Task<PageResult> OnPostAsync(int id)
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             var user = await _userManager.GetUserAsync(User);
             var cart = await _shop.GetCartByUserIdAsync(user.Id);
@@ -70,12 +70,12 @@ namespace dotnet_ECommerce.Pages.Shop
                     await _shop.CreateCartItemAsync(cartItem);
                 }
             }
-            return Page();
+            return Redirect("/Shop/Cart");
         }
 
         public class ProductInput
         {
-            public int Quantity { get; set; }
+            public int Quantity { get; set; } = 1;
         }
     }
 }

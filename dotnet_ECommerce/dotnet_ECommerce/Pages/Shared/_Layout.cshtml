@@ -32,8 +32,14 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Shop">Products</a>
+                        <a class="nav-link" href="/Shop">Products&nbsp;&nbsp;&nbsp;</a>
                     </li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            <a class="navbar-text" href="/Shop/Cart">My Cart</a>
+                        </li>
+                    }
                 </ul>
                 <div>
                     @if (SignInManager.IsSignedIn(User))
