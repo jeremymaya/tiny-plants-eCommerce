@@ -12,6 +12,7 @@
     <Folder Include="Views\Inventory\" />
     <Folder Include="Pages\Admin\" />
     <Folder Include="Models\Components\" />
+    <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Home\index.html" />
@@ -32,5 +33,7 @@
   <ItemGroup>
     <Compile Remove="Pages\Product\ProductDetails.cshtml.cs" />
     <Compile Remove="Models\Banana.cs" />
+    <Compile Remove="Migrations\20191201214419_initialization.cs" />
+    <Compile Remove="Migrations\ApplicationDbContextModelSnapshot.cs" />
   </ItemGroup>
 </Project>
