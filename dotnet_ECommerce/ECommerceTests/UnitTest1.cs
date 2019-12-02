@@ -57,5 +57,17 @@ namespace ECommerceTests
                 Assert.Equal("Tiny plant", result.Name);
             }
         }
+
+        [Fact]
+        public void MoreTestForSprint2()
+        {
+
+        }
+
+        [Fact]
+        public void MoreTestsForSprint2()
+        {
+
+        }
     }
 }

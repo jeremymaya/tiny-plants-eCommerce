@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace dotnet_ECommerce.Migrations
+namespace dotnet_ECommerce.Migrations.StoreDb
 {
     public partial class initialS : Migration
     {
