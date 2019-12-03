@@ -78,7 +78,6 @@ namespace dotnet_ECommerce.Pages.Account
 
                     List<Claim> claims = new List<Claim> { name, email };
                     await _userManager.AddClaimsAsync(user, claims);
-                    await _signInManager.SignInAsync(user, false);
 
                     if (Input.Email == Configuration["AdminRoles"])
                     {
@@ -102,6 +101,8 @@ namespace dotnet_ECommerce.Pages.Account
                         $"<p>At Tiny Plants, we provide numerous unique and beautiful tiny plants for you to choose from!\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Start shoping now!<a>";
 
                     await _emailSender.SendEmailAsync(user.Email, subject, message);
+
+                    await _signInManager.SignInAsync(user, false);
 
                     Response.Redirect("/");
                 }
