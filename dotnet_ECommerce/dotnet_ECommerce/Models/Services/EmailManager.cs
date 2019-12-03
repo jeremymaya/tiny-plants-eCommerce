@@ -31,5 +31,20 @@ namespace dotnet_ECommerce.Models.Services
 
             await client.SendEmailAsync(msg);
         }
+
+        public static async Task PurchaseSummaryEmailAsync()
+        {
+            var apiKey = Environment.GetEnvironmentVariable("SendGridAPIKey");
+            var client = new SendGridClient(apiKey);
+            SendGridMessage msg = new SendGridMessage()
+            {
+                From = new EmailAddress("donotreply@tinyplants.com", "Site Admin"),
+                Subject = "Purchase Summary",
+                PlainTextContent = "and easy to do anywhere, even with C#",
+                HtmlContent = "<strong>and easy to do anywhere, even with C#</strong>"
+            };
+            msg.AddTo(new EmailAddress("test@example.com", "Test User"));
+            var response = await client.SendEmailAsync(msg);
+        }
     }
 }
