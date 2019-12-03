@@ -52,11 +52,14 @@ namespace dotnet_ECommerce.Pages.Checkout
 
             await _emailSender.SendEmailAsync(user.Email, subject, message);
 
-            return Redirect("/");
+            return Redirect("/Checkout/Receipt");
         }
 
         public class CheckoutInput
         {
+            [Display(Name = "Purchased Date:")]
+            public DateTime Date { get; set; }
+
             [Required]
             [Display(Name = "First Name:")]
             public string FirstName { get; set; }
@@ -82,7 +85,5 @@ namespace dotnet_ECommerce.Pages.Checkout
             [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
             public string Zip { get; set; }
         }
-
-
     }
 }
