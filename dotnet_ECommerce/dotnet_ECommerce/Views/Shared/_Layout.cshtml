@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using dotnet_ECommerce.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @inject SignInManager<ApplicationUser> SignInManager
 
 <!doctype html>
@@ -37,7 +39,13 @@
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <a class="navbar-text" href="/Shop/Cart">Cart</a>
+                                <a class="nav-link" href="/Shop/Cart">Cart</a>
+                            </li>
+                        }
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "AdminOnly")).Succeeded)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin">Admin</a>
                             </li>
                         }
                     </ul>
