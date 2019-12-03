@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,6 +42,8 @@ namespace dotnet_ECommerce
             services.AddScoped<IInventory, InventoryManager>();
 
             services.AddScoped<IShop, ShopManager>();
+
+            services.AddScoped<IEmailSender, EmailManager>();
 
             string userConnString = Environment.IsDevelopment()
                 ? Configuration["ConnectionStrings:UserConnection"]

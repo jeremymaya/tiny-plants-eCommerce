@@ -9,6 +9,7 @@ using dotnet_ECommerce.Models;
 using dotnet_ECommerce.Models.Interfaces;
 using dotnet_ECommerce.Models.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,7 @@ namespace dotnet_ECommerce.Pages.Account
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
         private IShop _shop;
-        private EmailManager _emailManager;
+        private IEmailSender _emailSender;
 
         public IConfiguration Configuration { get; }
 
@@ -37,12 +38,13 @@ namespace dotnet_ECommerce.Pages.Account
         /// </summary>
         /// <param name="userManager">UserManager context</param>
         /// <param name="signInManager">SignInManager context</param>
-        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IShop shop)
+        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IShop shop, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             Configuration = configuration;
             _shop = shop;
+            _emailSender = emailSender;
         }
 
         /// <summary>
@@ -94,10 +96,12 @@ namespace dotnet_ECommerce.Pages.Account
 
                     string subject = "Welcome to Tiny Plants!";
                     string message = 
-                        $"<p>Hello {user.FirstName} {user.LastName},\n</p>" +
-                        $"<p>Welcome to Tiny Plants! You have successfully created a new account. At Tiny Plants, we provide numerous unique and beautiful tiny plants for you to choose from!\n</p>" + "<a href=\"/\">Start shoping now<a>";
+                        $"<p>Hello {user.FirstName} {user.LastName},</p>" +
+                        $"<p>&nbsp;</p>" +
+                        $"<p>Welcome to Tiny Plants! You have successfully created a new account.</p>" +
+                        $"<p>At Tiny Plants, we provide numerous unique and beautiful tiny plants for you to choose from!\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Start shoping now!<a>";
 
-                    await _emailManager.SendEmailAsync(user.Email, subject, message);
+                    await _emailSender.SendEmailAsync(user.Email, subject, message);
 
                     Response.Redirect("/");
                 }
