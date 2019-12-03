@@ -43,4 +43,4 @@ This e-commerce store sells tiny plants including cactuses, flowers, and evergre
 This web app captures claims of a user's first and last name. After a user registers a new account or logins to the site, a greeting message shows up on the top right corner of the nav bar with the user's first and last name.
 
 ##### Deployed Website
-https://dotnet-ecommerce-karina-kyungrae.azurewebsites.net/
+https://dotnet-ecommerce-tiny-plants.azurewebsites.net/
