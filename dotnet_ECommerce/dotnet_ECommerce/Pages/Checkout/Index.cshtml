@@ -13,6 +13,10 @@
     <form method="post">
         <div asp-validation-summary="All"></div>
         <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.Date">Purchased Date:</label>
+            <label class="col-sm-2 col-form-label" asp-for="Input.Date">@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")</label>
+        </div>
+        <div class="form-group row">
             <label class="col-sm-2 col-form-label" asp-for="Input.FirstName">First Name:</label>
             <input asp-for="Input.FirstName" type="text" />
         </div>
@@ -100,12 +104,12 @@
                 <option>Master(SANDBOX)</option>
                 <option>American Express(SANDBOX)</option>
             </select>
-        </div>    
+        </div>
         <div>
             @await Component.InvokeAsync("MiniCart")
         </div>
         <div class="text-right">
-            <a href="/Shop/Cart" class="btn btn-outline-warning" role="button" >Return to Cart</a>
+            <a href="/Shop/Cart" class="btn btn-outline-warning" role="button">Return to Cart</a>
             <button type="submit" class="btn btn-outline-success">Complete Order</button>
         </div>
     </form>

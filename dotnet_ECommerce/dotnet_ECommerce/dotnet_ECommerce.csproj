@@ -13,7 +13,6 @@
     <Folder Include="Pages\Admin\" />
     <Folder Include="Models\Components\" />
     <Folder Include="Views\Shared\Components\" />
-    <Folder Include="Pages\Checkout\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Home\index.html" />
