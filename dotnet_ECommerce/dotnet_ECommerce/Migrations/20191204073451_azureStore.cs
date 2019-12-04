@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace dotnet_ECommerce.Migrations.StoreDb
+namespace dotnet_ECommerce.Migrations
 {
-    public partial class initial : Migration
+    public partial class azureStore : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

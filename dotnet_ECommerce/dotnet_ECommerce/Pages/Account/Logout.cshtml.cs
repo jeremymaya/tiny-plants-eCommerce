@@ -9,6 +9,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dotnet_ECommerce.Pages.Account
 {
+    /// <summary>
+    /// Bring in SignInManager dependency to help sign in a user
+    /// If the user signs out, redirect the user to main page
+    /// </summary>
     public class LogOutModel : PageModel
     {
         private SignInManager<ApplicationUser> _signInManager;

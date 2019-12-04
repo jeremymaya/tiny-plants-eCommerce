@@ -12,6 +12,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dotnet_ECommerce.Pages.Checkout
 {
+    /// <summary>
+    /// Inherits from PageModel class and brings in dependencies including UserManager, IEmailSender interface, and IShop interface
+    /// Create a CheckoutInput class and set getter and setter
+    /// </summary>
     public class IndexModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -32,6 +36,13 @@ namespace dotnet_ECommerce.Pages.Checkout
         {
         }
 
+        /// <summary>
+        /// This post operation uses UserManager to get the current signed in user
+        /// Set a variable to store the total costs of all items in the cart
+        /// Set variables to store email contents for an order summary email that is to be sent out to a user after they check out
+        /// After the email is sent out, redirect the user to receipt page
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPostAsync()
         {
             ApplicationUser user = await _userManager.GetUserAsync(User);
