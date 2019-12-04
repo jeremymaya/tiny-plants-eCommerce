@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace dotnet_ECommerce.Pages.Admin
 {
+    /// <summary>
+    /// Add Authorize tag and add policy so only the admin roles can access this page
+    /// </summary>
     [Authorize(Policy="AdminOnly")]
     public class IndexModel : PageModel
     {

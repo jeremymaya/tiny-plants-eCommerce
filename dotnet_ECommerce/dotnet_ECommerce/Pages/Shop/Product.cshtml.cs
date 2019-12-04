@@ -47,6 +47,12 @@ namespace dotnet_ECommerce.Pages.Shop
             SingleProduct = await _inventory.GetInventoryByIdAsync(id);
         }
 
+        /// <summary>
+        /// Create cart items by pulling data information from Product and Cart tables
+        /// If the product already exists then call update operation instead of get operation
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Redirect to /Shop/Cart page</returns>
         public async Task<IActionResult> OnPostAsync(int id)
         {
             var user = await _userManager.GetUserAsync(User);
