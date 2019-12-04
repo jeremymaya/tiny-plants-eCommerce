@@ -35,41 +35,51 @@ https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?_
 ### Visuals
 #### Home
 ##### Home - Logged Out
-![home-loggedout](/captures/products.JPG)
+![home-loggedout](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedout.png&version=GBmaster)
 ##### Home - Logged In (User)
-![home-loggedin-user](/captures/products.JPG)
+![home-loggedin-user](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedin-user.png&version=GBmaster)
 ##### Home - Logged In (Admin)
-![home-loggedin-admin](/captures/products.JPG)
+![home-loggedin-admin](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedin-admin.png&version=GBmaster)
+
+#### Account
+##### Login
+![account-login](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-login.png&version=GBmaster)
+##### Register
+![account-register](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-register.png&version=GBmaster)
 
 #### Shop
 ##### Shop
-![shop](/captures/products.JPG)
+![shop](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop.png&version=GBmaster)
 ##### Shop/Product - Logged Out
-![shop-product-loggedout](/captures/products.JPG)
+![shop-product-loggedout](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedout.png&version=GBmaster)
 ##### Shop/Product - Logged In
-![shop-product-loggedin](/captures/products.JPG)
+![shop-product-loggedin](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin.png&version=GBmaster)
 ##### Shop/Product - MiniCart
-![shop-product-loggedin-minicart](/captures/products.JPG)
+![shop-product-loggedin-minicart](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin-minicart.png&version=GBmaster)
 ##### Shop/Cart
-![shop-cart](/captures/products.JPG)
+![shop-cart](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-cart.png&version=GBmaster)
 
 #### Checkout
 ##### Checkout
-![checkout](/captures/product-detail.JPG)
+![checkout](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout.png&version=GBmaster)
 ##### Checkout/Receipt
-![checkout-receipt](/captures/register.JPG)
+![checkout-receipt](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout-receipt.png&version=GBmaster)
 
 #### Admin
 ##### Checkout
-![checkout](/captures/product-detail.JPG)
+![admin](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fadmin.png&version=GBmaster)
 
 #### Inventory (Admin)
+##### Inventory
+![inventory-home](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fiinventory-home.png&version=GBmaster)
+##### Inventory/Create
+![inventory-create](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-create.png&version=GBmaster)
 ##### Inventory/Edit
-![inventory-delete](/captures/product-detail.JPG)
+![inventory-delete](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-delete.png&version=GBmaster)
 ##### Inventory/Details
-![inventory-details](/captures/product-detail.JPG)
+![inventory-details](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-details.png&version=GBmaster)
 ##### Inventory/Delete
-![inventory-delete](/captures/product-detail.JPG)
+![inventory-delete](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-delete.png&version=GBmaster)
 
 ---
 
