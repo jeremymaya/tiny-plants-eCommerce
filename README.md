@@ -22,7 +22,7 @@ This e-commerce store sells tiny plants including cactuses, flowers, and evergre
 This web app captures claims of a user's first and last name. After a user registers a new account or logins to the site, a greeting message shows up on the top right corner of the nav bar with the user's first and last name.
 * Policies
 This web app uses "AdminOnly" policy to grant Admin special access previllages to /Admin and /Inventory page. This policy has been enforced so that only Admin can control the store inventory. To test the policy, use the following credential to log into the Admin account:
-    * Account: admin@tinyplants.com
+    * Account: JONATHAN'S GMAIL ADDRESS (re*************@g****.com)
     * Password: Admin1234!
 
 ---
@@ -35,55 +35,55 @@ https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?_
 ### Visuals
 #### Home
 ##### Home - Logged Out
-![home-loggedout](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedout.png&version=GBmaster)
+![home-loggedout](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedout.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Home - Logged In (User)
-![home-loggedin-user](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedin-user.png&version=GBmaster)
+![home-loggedin-user](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedin-user.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Home - Logged In (Admin)
-![home-loggedin-admin](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedin-admin.png&version=GBmaster)
+![home-loggedin-admin](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedin-admin.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 
 #### Account
 ##### Login
-![account-login](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-login.png&version=GBmaster)
+![account-login](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-login.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Register
-![account-register](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-register.png&version=GBmaster)
+![account-register](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-register.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 
 #### Shop
 ##### Shop
-![shop](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop.png&version=GBmaster)
+![shop](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Shop/Product - Logged Out
-![shop-product-loggedout](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedout.png&version=GBmaster)
+![shop-product-loggedout](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedout.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Shop/Product - Logged In
-![shop-product-loggedin](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin.png&version=GBmaster)
+![shop-product-loggedin](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Shop/Product - MiniCart
-![shop-product-loggedin-minicart](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin-minicart.png&version=GBmaster)
+![shop-product-loggedin-minicart](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin-minicart.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Shop/Cart
-![shop-cart](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-cart.png&version=GBmaster)
+![shop-cart](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-cart.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 
 #### Checkout
 ##### Checkout
-![checkout](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout.png&version=GBmaster)
+![checkout](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Checkout/Receipt
-![checkout-receipt](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout-receipt.png&version=GBmaster)
+![checkout-receipt](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout-receipt.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 
 #### Admin
-##### Checkout
-![admin](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fadmin.png&version=GBmaster)
+##### Admin
+![admin](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fadmin.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 
 #### Inventory (Admin)
 ##### Inventory
-![inventory-home](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fiinventory-home.png&version=GBmaster)
+![inventory-home](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-home.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Inventory/Create
-![inventory-create](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-create.png&version=GBmaster)
+![inventory-create](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-create.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Inventory/Edit
-![inventory-delete](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-delete.png&version=GBmaster)
+![inventory-edit](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-edit.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Inventory/Details
-![inventory-details](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-details.png&version=GBmaster)
+![inventory-details](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-details.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 ##### Inventory/Delete
-![inventory-delete](https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures&version=GBmaster#path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-delete.png&version=GBmaster)
+![inventory-delete](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-delete.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
 
 ---
 
 ### Change Log
-1.1: *Sprint 2 Completed, Initial Submission* - 03 Dec 2019
-1.0: *Sprint 1 Completed, Initial Submission* - 26 Nov 2019
-0.0: *Project Initiated* - 18 Nov 2019
+1.1: *Sprint 2 Completed, Initial Submission* - 03 Dec 2019  
+1.0: *Sprint 1 Completed, Initial Submission* - 26 Nov 2019  
+0.0: *Project Initiated* - 18 Nov 2019  
