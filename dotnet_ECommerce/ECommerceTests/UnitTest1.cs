@@ -59,13 +59,23 @@ namespace ECommerceTests
         }
 
         [Fact]
-        public void MoreTestForSprint2()
+        public void CanCreateCartItems()
         {
+            Cart cart = new Cart()
+            {
+                ID = 1,
+                UserID = "user01"
+            };
+
+            CartItems cartItems = new CartItems()
+            {
+
+            };
 
         }
 
         [Fact]
-        public void MoreTestsForSprint2()
+        public void CanCreateCart()
         {
 
         }
