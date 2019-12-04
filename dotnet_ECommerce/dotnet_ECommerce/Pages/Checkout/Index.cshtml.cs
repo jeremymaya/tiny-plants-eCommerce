@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthorizeNet.Api.Contracts.V1;
 using dotnet_ECommerce.Models;
 using dotnet_ECommerce.Models.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -21,12 +22,14 @@ namespace dotnet_ECommerce.Pages.Checkout
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IEmailSender _emailSender;
         private readonly IShop _shop;
+        private readonly IPayment _paymnet;
 
-        public IndexModel(UserManager<ApplicationUser> userManager, IEmailSender emailSender, IShop shop)
+        public IndexModel(UserManager<ApplicationUser> userManager, IEmailSender emailSender, IShop shop, IPayment payment)
         {
             _userManager = userManager;
             _emailSender = emailSender;
             _shop = shop;
+            _paymnet = payment;
         }
 
         [BindProperty]
@@ -54,16 +57,27 @@ namespace dotnet_ECommerce.Pages.Checkout
                 total += (cartItem.Product.Price * cartItem.Quantity);
             }
 
-            string subject = "Purhcase Summary From Tiny Plants!";
-            string message =
-                $"<p>Hello {user.FirstName} {user.LastName},</p>" +
-                $"<p>&nbsp;</p>" +
-                $"<p>Below is your recent purchase summary</p>" +
-                $"<p>Total: ${ total }\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Click here to shop more!<a>";
+            creditCardType creditCard = new creditCardType();
+            customerAddressType billingAdress = new customerAddressType();
+            paymentType paymentType = new paymentType();
 
-            await _emailSender.SendEmailAsync(user.Email, subject, message);
+            if(_paymnet.Run(total, creditCard, billingAdress, paymentType))
+            {
+                string subject = "Purhcase Summary From Tiny Plants!";
+                string message =
+                    $"<p>Hello {user.FirstName} {user.LastName},</p>" +
+                    $"<p>&nbsp;</p>" +
+                    $"<p>Below is your recent purchase summary</p>" +
+                    $"<p>Total: ${ total }\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Click here to shop more!<a>";
 
-            return Redirect("/Checkout/Receipt");
+                await _emailSender.SendEmailAsync(user.Email, subject, message);
+
+                return Redirect("/Checkout/Receipt");
+            }
+            else
+            {
+                return Page();
+            }
         }
 
         public class CheckoutInput
