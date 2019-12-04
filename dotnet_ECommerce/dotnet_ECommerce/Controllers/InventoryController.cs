@@ -22,9 +22,9 @@ namespace dotnet_ECommerce.Controllers
             _context = inventory;
         }
 
-        // GET: Products
+        // GET: Inventory
         /// <summary>
-        /// Default HTTP GET route for /Products to display all of the product data from the connencted database
+        /// Default HTTP GET route for /Inventory to display all of the product data from the connencted database
         /// </summary>
         /// <returns>Index.cshtml with all of product data from the connected database</returns>
         public async Task<IActionResult> Index()
@@ -32,9 +32,9 @@ namespace dotnet_ECommerce.Controllers
             return View(await _context.GetAllInventoriesAsync());
         }
 
-        // GET: Products/Detail/5
+        // GET: Inventory/Detail/5
         /// <summary>
-        /// HTTP GET route for Products/Edit to get a product data based on the product Id from the connencted database
+        /// HTTP GET route for Inventory/Edit to get a product data based on the product Id from the connencted database
         /// </summary>
         /// <param name="id">Product Id</param>
         /// <returns>Edit.cshtml with product data that matches with the id from the conntected database</returns>
@@ -55,12 +55,21 @@ namespace dotnet_ECommerce.Controllers
             return View(product);
         }
 
-        // POST: Products/Create
         /// <summary>
-        /// HTTP POST route doe Products/Create to create a new product data by saving a Product object into the connected database
+        /// HTTP GET route for Inventory/Create
+        /// </summary>
+        /// <returns>Empty Create.cshtml</returns>
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Inventory/Create
+        /// <summary>
+        /// HTTP POST route doe Inventory/Create to create a new product data by saving a Product object into the connected database
         /// </summary>
         /// <param name="product">New product information</param>
-        /// <returns>Index.cshtml with the updated products list from the the conntected database</returns>
+        /// <returns>Index.cshtml with the updated inventory list from the the conntected database</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Sku,Name,Price,Description,Image")] Product product)
@@ -73,9 +82,9 @@ namespace dotnet_ECommerce.Controllers
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        // GET: Inventory/Edit/5
         /// <summary>
-        /// HTTP GET route for Products/Edit to get a product data based on the product Id from the connected database
+        /// HTTP GET route for Inventory/Edit to get a product data based on the product Id from the connected database
         /// </summary>
         /// <param name="id">Product Id</param>
         /// <returns>Edit.cshtml with a product infomration based on the product Id from the connected database</returns>
@@ -95,13 +104,13 @@ namespace dotnet_ECommerce.Controllers
             return View(product);
         }
 
-        //POST: Products/Edit/5
+        //POST: Inventory/Edit/5
         /// <summary>
-        /// HTTP POST route for Products/Edit/ to edit the product data from the connected database
+        /// HTTP POST route for Inventory/Edit/ to edit the product data from the connected database
         /// </summary>
         /// <param name="id">Product Id</param>
         /// <param name="product">Product data based on the Id</param>
-        /// <returns>Index.cshtml with the updated products list from the the conntected database</returns>
+        /// <returns>Index.cshtml with the updated inventory list from the the conntected database</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Sku,Name,Price,Description,Image")] Product product)
@@ -133,9 +142,9 @@ namespace dotnet_ECommerce.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Inventory/Delete/5
         /// <summary>
-        /// HTTP GET route for Products/Delete/ to get a product data based on the product Id to be deleted from the connected database
+        /// HTTP GET route for Inventory/Delete/ to get a product data based on the product Id to be deleted from the connected database
         /// </summary>
         /// <param name="id">Product Id</param>
         /// <returns>Delete.cshtml with a product data based on the product Id</returns>
@@ -156,12 +165,12 @@ namespace dotnet_ECommerce.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: Inventory/Delete/5
         /// <summary>
-        /// HTTP POST route for Products/Delete/ to delete a product data based on the producrt Id from the connected database
+        /// HTTP POST route for Inventory/Delete/ to delete a product data based on the producrt Id from the connected database
         /// </summary>
         /// <param name="id">Product Id</param>
-        /// <returns>Index.cshtml with the updated products list from the the conntected database</returns>
+        /// <returns>Index.cshtml with the updated inventory list from the the conntected database</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
