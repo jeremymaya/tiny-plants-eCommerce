@@ -1,0 +1,72 @@
+﻿@model IEnumerable<dotnet_ECommerce.Models.Product>
+@{
+    ViewData["Title"] = "Inventory Management";
+    Layout = "_Layout";
+}
+<div class="container">
+    <h1>Inventory</h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <form asp-controller="Inventory" asp-action="Index" method="get">
+        <p>
+            Item Name: <input type="text" name="SearchString">
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+    <table class="table">
+        <thead class="text-center">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sku)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsFeatured)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@Html.DisplayFor(modelItem => item.Image)" width="100" height="100"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sku)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsFeatured)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

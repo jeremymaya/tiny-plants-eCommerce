@@ -1,0 +1,28 @@
+﻿@page
+@model dotnet_ECommerce.Pages.Shop.IndexModel
+@{
+    ViewData["Title"] = "Shop";
+    Layout = "_Layout";
+}
+
+<div class="container text-center">
+    <h1 class="text-left">
+        Products
+    </h1>
+    <div class="row">
+        @for (int i = 0; i < Model.Products.Count; i++)
+        {
+            @if (i % 3 == 0)
+            {
+                <div class="w-100"></div>
+            }
+            <div class="col">
+                <a href="/Shop/Product/@Model.Products[i].ID">
+                    <img class="products" src="@Model.Products[i].Image" alt="...">
+                </a>
+                <h5 class="product-name">@Model.Products[i].Name</h5>
+                <p>$@Model.Products[i].Price</p>
+            </div>
+        }
+    </div>
+</div>

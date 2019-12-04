@@ -16,6 +16,9 @@ namespace dotnet_ECommerce.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Creating a composite key
+            modelBuilder.Entity<CartItems>().HasKey(cartitems => new { cartitems.CartID, cartitems.ProductID });
+
             // Seeding Data
             modelBuilder.Entity<Product>().HasData(
                 new Product
@@ -122,5 +125,7 @@ namespace dotnet_ECommerce.Data
         }
 
         public DbSet<Product> Product { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartItems> CartItems { get; set; }
     }
 }

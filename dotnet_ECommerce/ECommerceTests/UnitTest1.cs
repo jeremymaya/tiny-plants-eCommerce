@@ -57,5 +57,27 @@ namespace ECommerceTests
                 Assert.Equal("Tiny plant", result.Name);
             }
         }
+
+        [Fact]
+        public void CanCreateCartItems()
+        {
+            Cart cart = new Cart()
+            {
+                ID = 1,
+                UserID = "user01"
+            };
+
+            CartItems cartItems = new CartItems()
+            {
+
+            };
+
+        }
+
+        [Fact]
+        public void CanCreateCart()
+        {
+
+        }
     }
 }

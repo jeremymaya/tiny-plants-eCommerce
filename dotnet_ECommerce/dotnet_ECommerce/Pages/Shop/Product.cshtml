@@ -1,0 +1,64 @@
+﻿@page "{id?}"
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
+@model dotnet_ECommerce.Pages.Shop.ProductModel
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    ViewData["Title"] = "Product";
+    Layout = "_Layout";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/css/style.css'" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <img class="detail-img" src="@Model.SingleProduct.Image" width="350" />
+            </div>
+            <div class="col-sm">
+                <div class="row">
+                    <h6>Name:&nbsp;&nbsp;</h6>
+                    <p> @Model.SingleProduct.Name</p>
+                </div>
+                <div class="row">
+                    <h6>SKU:&nbsp;&nbsp;</h6>
+                    <p> @Model.SingleProduct.Sku</p>
+                </div>
+                <div class="row">
+                    <h6>Price:&nbsp;&nbsp;</h6>
+                    <p> $@Model.SingleProduct.Price</p>
+                </div>
+                <div class="row">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form method="post">
+                            <div>
+                                <label asp-for="Input.Quantity">Quantity&nbsp;&nbsp;</label>
+                                <input asp-for="Input.Quantity" type="text">
+                                <p>&nbsp;</p>
+                            </div>
+                            <button class="add-to-cart-button">Add to Cart</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row2">
+            <h6 class="description">Description:</h6>
+        </div>
+        <div class="row2">
+            <p>@Model.SingleProduct.Description</p>
+        </div>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @await Component.InvokeAsync("MiniCart")
+        }
+    </div>
+</body>
+</html>

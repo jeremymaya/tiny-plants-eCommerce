@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using dotnet_ECommerce.Data;
 using dotnet_ECommerce.Models;
 using dotnet_ECommerce.Models.Interfaces;
-using dotnet_ECommerce.Models.Interfaces.Services;
+using dotnet_ECommerce.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,9 +37,13 @@ namespace dotnet_ECommerce
         {
             services.AddRazorPages();
 
-            services.AddMvc();
+            services.AddControllersWithViews();
 
-            services.AddScoped<IInventory, ProductService>();
+            services.AddScoped<IInventory, InventoryManager>();
+
+            services.AddScoped<IShop, ShopManager>();
+
+            services.AddScoped<IEmailSender, EmailManager>();
 
             string userConnString = Environment.IsDevelopment()
                 ? Configuration["ConnectionStrings:UserConnection"]
@@ -57,10 +62,13 @@ namespace dotnet_ECommerce
             services.AddIdentity<ApplicationUser, IdentityRole>()
                  .AddEntityFrameworkStores<ApplicationDbContext>()
                  .AddDefaultTokenProviders();
+
+            services.AddAuthorization(options =>
+            options.AddPolicy("AdminOnly", policy => policy.RequireRole(ApplicationRoles.Admin)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -78,8 +86,10 @@ namespace dotnet_ECommerce
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                //endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
+
+            RoleInitializer.SeedData(serviceProvider);
         }
     }
 }

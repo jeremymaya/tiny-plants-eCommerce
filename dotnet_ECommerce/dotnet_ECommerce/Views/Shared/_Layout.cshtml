@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using dotnet_ECommerce.Models
-@inject  SignInManager<ApplicationUser> SignInManager
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@inject SignInManager<ApplicationUser> SignInManager
 
 <!doctype html>
 <html lang="en">
@@ -10,14 +12,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="icon" href="/images/favicon.png">
         <title>@ViewBag.Title</title>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-light bg-light navbar-expand-lg">
                 <a class="navbar-brand mb-0 h1" href="/">
+                    <img src="/images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                     TINY PLANTS
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,22 +31,38 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                            <a class="nav-link" href="/Shop">Products</a>
                         </li>
-                    </ul>
-                    <div>
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            <span class="navbar-text">Hello @User.Claims.First(c => c.Type == "FullName").Value!</span>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Shop/Cart">Cart</a>
+                            </li>
                         }
-                        else
+                        @if ((await AuthorizationService.AuthorizeAsync(User, "AdminOnly")).Succeeded)
                         {
-                            <a class="navbar-text" href="/Account/Login">Login</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin">Admin</a>
+                            </li>
                         }
-                    </div>
+                    </ul>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <form class="form-inline" asp-page="/Account/LogOut">
+                            <span class="navbar-text">Hello @User.Claims.First(c => c.Type == "FullName").Value! (</span>
+                            <button class="navbar-text btn btn-link" type="submit">Logout</button>
+                            <span class="navbar-text">)</span>
+                        </form>
+                    }
+                    else
+                    {
+                        <a class="navbar-text" href="/Account/Login">Login</a>
+                        <span class="navbar-text">&nbsp;/&nbsp;</span>
+                        <a class="navbar-text" href="/Account/Register">Register</a>
+                    }
                 </div>
             </nav>
         </header>

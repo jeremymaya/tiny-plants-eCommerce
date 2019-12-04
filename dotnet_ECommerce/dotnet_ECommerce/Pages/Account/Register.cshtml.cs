@@ -4,10 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using dotnet_ECommerce.Data;
 using dotnet_ECommerce.Models;
+using dotnet_ECommerce.Models.Interfaces;
+using dotnet_ECommerce.Models.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
+using SendGrid;
 
 namespace dotnet_ECommerce.Pages.Account
 {
@@ -15,6 +21,10 @@ namespace dotnet_ECommerce.Pages.Account
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private IShop _shop;
+        private IEmailSender _emailSender;
+
+        public IConfiguration Configuration { get; }
 
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
@@ -28,10 +38,13 @@ namespace dotnet_ECommerce.Pages.Account
         /// </summary>
         /// <param name="userManager">UserManager context</param>
         /// <param name="signInManager">SignInManager context</param>
-        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IShop shop, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            Configuration = configuration;
+            _shop = shop;
+            _emailSender = emailSender;
         }
 
         /// <summary>
@@ -55,6 +68,7 @@ namespace dotnet_ECommerce.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email
                 };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -64,6 +78,30 @@ namespace dotnet_ECommerce.Pages.Account
 
                     List<Claim> claims = new List<Claim> { name, email };
                     await _userManager.AddClaimsAsync(user, claims);
+
+                    if (Input.Email == Configuration["AdminRoles"])
+                    {
+                        await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
+                    }
+
+                    await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
+
+                    var cart = new Cart
+                    {
+                        UserID = user.Id
+                    };
+
+                    await _shop.CreateCartAsync(cart);
+
+                    string subject = "Welcome to Tiny Plants!";
+                    string message = 
+                        $"<p>Hello {user.FirstName} {user.LastName},</p>" +
+                        $"<p>&nbsp;</p>" +
+                        $"<p>Welcome to Tiny Plants! You have successfully created a new account.</p>" +
+                        $"<p>At Tiny Plants, we provide numerous unique and beautiful tiny plants for you to choose from!\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Start shoping now!<a>";
+
+                    await _emailSender.SendEmailAsync(user.Email, subject, message);
+
                     await _signInManager.SignInAsync(user, false);
 
                     Response.Redirect("/");
