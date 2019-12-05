@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using AuthorizeNet.Api.Contracts.V1;
 using AuthorizeNet.Api.Controllers;
 using AuthorizeNet.Api.Controllers.Bases;
@@ -10,23 +9,40 @@ namespace dotnet_ECommerce.Models
 {
     public class PaymentManager : IPayment
     {
-        private readonly IConfiguration _configuration;
-        //public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; }
+
         public PaymentManager(IConfiguration configuration)
         {
-            _configuration = configuration;
+            Configuration = configuration;
         }
 
-        public bool Run(decimal total, creditCardType creditCard, customerAddressType billingAdress, paymentType paymentType)
+        public bool Run(decimal total)
         {
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNet.Environment.SANDBOX;
 
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.MerchantAuthentication = new merchantAuthenticationType()
             {
-                name = _configuration["AuthorizeNetLoginID"],
+                name = Configuration["AuthorizeNetLoginID"],
                 ItemElementName = ItemChoiceType.transactionKey,
-                Item = _configuration["AuthorizeNetTransactionKey"]
+                Item = Configuration["AuthorizeNetTransactionKey"]
             };
+
+            var creditCard = new creditCardType
+            {
+                cardNumber = "4111111111111111",
+                expirationDate = "0723"
+            };
+
+            var billingAdress = new customerAddressType
+            {
+                firstName = "Josie",
+                lastName = "Cat",
+                address = "123 Catnip Lane",
+                city = "meowsville",
+                zip = "12345"
+            };
+
+            var paymentType = new paymentType { Item = creditCard };
 
             var transactionRequest = new transactionRequestType
             {
@@ -47,7 +63,6 @@ namespace dotnet_ECommerce.Models
             {
                 if (response.messages.resultCode == messageTypeEnum.Ok)
                 {
-                    Console.WriteLine("Success, Auth Code : " + response.transactionResponse.authCode);
                     return true;
                 }
             }
@@ -55,7 +70,6 @@ namespace dotnet_ECommerce.Models
             {
                 if (response.transactionResponse.errors != null)
                 {
-                    Console.WriteLine("Transaction Error : " + response.transactionResponse.errors[0].errorCode + " " + response.transactionResponse.errors[0].errorText);
                     return false;
                 }
             }

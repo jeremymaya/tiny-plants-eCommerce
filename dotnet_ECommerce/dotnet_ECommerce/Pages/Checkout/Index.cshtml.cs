@@ -57,25 +57,9 @@ namespace dotnet_ECommerce.Pages.Checkout
                 total += (cartItem.Product.Price * cartItem.Quantity);
             }
 
-            var creditCard = new creditCardType
-            {
-                cardNumber = "4111111111111111",
-                expirationDate = "0923"
-            };
 
-            customerAddressType billingAdress = new customerAddressType
-            {
-                firstName = "Josie",
-                lastName = "Cat",
-                address = "123 Catnip Lane",
-                city = "meowsville",
-                zip = "12345"
-            };
 
-            var paymentType = new paymentType { Item = creditCard };
-
-            if (_paymnet.Run(total, creditCard, billingAdress, paymentType))
-            {
+            _paymnet.Run(total);
                 string subject = "Purhcase Summary From Tiny Plants!";
                 string message =
                     $"<p>Hello {user.FirstName} {user.LastName},</p>" +
@@ -86,11 +70,6 @@ namespace dotnet_ECommerce.Pages.Checkout
                 await _emailSender.SendEmailAsync(user.Email, subject, message);
 
                 return Redirect("/Checkout/Receipt");
-            }
-            else
-            {
-                return Page();
-            }
         }
 
         public class CheckoutInput
@@ -122,7 +101,6 @@ namespace dotnet_ECommerce.Pages.Checkout
             [DataType(DataType.PostalCode)]
             [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
             public string Zip { get; set; }
-            public creditCardType CreditCard { get; set; }
         }
     }
 }
