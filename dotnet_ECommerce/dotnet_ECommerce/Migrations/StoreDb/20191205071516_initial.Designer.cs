@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using dotnet_ECommerce.Data;
 
-namespace dotnet_ECommerce.Migrations.StoreDb
+namespace dotnet_ECommerce.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20191205071516_initial")]
-    partial class initial
+    [Migration("20191204073451_azureStore")]
+    partial class azureStore
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

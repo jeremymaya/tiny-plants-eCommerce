@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using dotnet_ECommerce.Data;
 
-namespace dotnet_ECommerce.Migrations.StoreDb
+namespace dotnet_ECommerce.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
     partial class StoreDbContextModelSnapshot : ModelSnapshot

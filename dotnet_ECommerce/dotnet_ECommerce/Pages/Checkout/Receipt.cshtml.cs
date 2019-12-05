@@ -16,7 +16,7 @@ namespace dotnet_ECommerce.Pages.Checkout
         public class ReceiptInfo
         {
             [Display(Name = "Purchased Date:")]
-            public DateTime Date { get; set; }
+            public string Date { get; set; }
 
             [Required]
             [Display(Name = "First Name:")]
