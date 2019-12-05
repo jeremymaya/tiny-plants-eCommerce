@@ -57,12 +57,9 @@ namespace dotnet_ECommerce.Pages.Checkout
                 total += (cartItem.Product.Price * cartItem.Quantity);
             }
 
-            creditCardType creditCard = new creditCardType();
-            customerAddressType billingAdress = new customerAddressType();
-            paymentType paymentType = new paymentType();
 
-            if(_paymnet.Run(total, creditCard, billingAdress, paymentType))
-            {
+
+            _paymnet.Run(total);
                 string subject = "Purhcase Summary From Tiny Plants!";
                 string message =
                     $"<p>Hello {user.FirstName} {user.LastName},</p>" +
@@ -73,11 +70,6 @@ namespace dotnet_ECommerce.Pages.Checkout
                 await _emailSender.SendEmailAsync(user.Email, subject, message);
 
                 return Redirect("/Checkout/Receipt");
-            }
-            else
-            {
-                return Page();
-            }
         }
 
         public class CheckoutInput

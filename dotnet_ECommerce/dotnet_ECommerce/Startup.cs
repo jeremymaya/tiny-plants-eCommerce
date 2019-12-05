@@ -45,6 +45,8 @@ namespace dotnet_ECommerce
 
             services.AddScoped<IEmailSender, EmailManager>();
 
+            services.AddScoped<IPayment, PaymentManager>();
+
             string userConnString = Environment.IsDevelopment()
                 ? Configuration["ConnectionStrings:UserConnection"]
                 : Configuration["ConnectionStrings:UserProductionConnection"];
