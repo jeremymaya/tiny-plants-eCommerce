@@ -57,19 +57,24 @@ namespace dotnet_ECommerce.Pages.Checkout
                 total += (cartItem.Product.Price * cartItem.Quantity);
             }
 
-            //var card = Input.CreditCard.cardNumber;
-            //var expired = Input.CreditCard.expirationDate;
+            var creditCard = new creditCardType
+            {
+                cardNumber = "4111111111111111",
+                expirationDate = "0923"
+            };
 
-            creditCardType creditCard = new creditCardType();
-            //{
-            //    cardNumber = "4111111111111111",
-            //    expirationDate = "0923"
-            //};
+            customerAddressType billingAdress = new customerAddressType
+            {
+                firstName = "Josie",
+                lastName = "Cat",
+                address = "123 Catnip Lane",
+                city = "meowsville",
+                zip = "12345"
+            };
 
-            customerAddressType billingAdress = new customerAddressType();
-            paymentType paymentType = new paymentType();
+            var paymentType = new paymentType { Item = creditCard };
 
-            if(_paymnet.Run(total, creditCard, billingAdress, paymentType))
+            if (_paymnet.Run(total, creditCard, billingAdress, paymentType))
             {
                 string subject = "Purhcase Summary From Tiny Plants!";
                 string message =

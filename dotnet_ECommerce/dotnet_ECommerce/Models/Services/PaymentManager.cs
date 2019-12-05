@@ -8,10 +8,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace dotnet_ECommerce.Models
 {
-    public class PaymentService : IPayment
+    public class PaymentManager : IPayment
     {
         private readonly IConfiguration _configuration;
-        public PaymentService(IConfiguration configuration)
+        //public IConfiguration Configuration { get; }
+        public PaymentManager(IConfiguration configuration)
         {
             _configuration = configuration;
         }

@@ -1,5 +1,5 @@
-﻿using System;
-using AuthorizeNet.Api.Contracts.V1;
+﻿using AuthorizeNet.Api.Contracts.V1;
+using System;
 
 namespace dotnet_ECommerce.Models.Interfaces
 {
