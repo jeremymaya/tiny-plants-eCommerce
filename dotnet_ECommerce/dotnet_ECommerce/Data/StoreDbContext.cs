@@ -18,6 +18,7 @@ namespace dotnet_ECommerce.Data
         {
             // Creating a composite key
             modelBuilder.Entity<CartItems>().HasKey(cartitems => new { cartitems.CartID, cartitems.ProductID });
+            modelBuilder.Entity<OrderItems>().HasKey(orderitems => new { orderitems.OrderID, orderitems.ProductID });
 
             // Seeding Data
             modelBuilder.Entity<Product>().HasData(
@@ -127,5 +128,7 @@ namespace dotnet_ECommerce.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Cart> Cart { get; set; }
         public DbSet<CartItems> CartItems { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderItems> OrderItems { get; set; }
     }
 }

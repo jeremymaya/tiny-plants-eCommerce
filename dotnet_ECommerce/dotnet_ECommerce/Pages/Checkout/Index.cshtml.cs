@@ -101,6 +101,8 @@ namespace dotnet_ECommerce.Pages.Checkout
             [DataType(DataType.PostalCode)]
             [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
             public string Zip { get; set; }
+
+            public string CreditCard{ get; set; }
         }
     }
 }
