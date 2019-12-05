@@ -57,7 +57,15 @@ namespace dotnet_ECommerce.Pages.Checkout
                 total += (cartItem.Product.Price * cartItem.Quantity);
             }
 
+            //var card = Input.CreditCard.cardNumber;
+            //var expired = Input.CreditCard.expirationDate;
+
             creditCardType creditCard = new creditCardType();
+            //{
+            //    cardNumber = "4111111111111111",
+            //    expirationDate = "0923"
+            //};
+
             customerAddressType billingAdress = new customerAddressType();
             paymentType paymentType = new paymentType();
 
@@ -109,6 +117,7 @@ namespace dotnet_ECommerce.Pages.Checkout
             [DataType(DataType.PostalCode)]
             [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
             public string Zip { get; set; }
+            public creditCardType CreditCard { get; set; }
         }
     }
 }

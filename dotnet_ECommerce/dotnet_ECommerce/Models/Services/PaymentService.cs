@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AuthorizeNet.Api.Contracts.V1;
 using AuthorizeNet.Api.Controllers;
 using AuthorizeNet.Api.Controllers.Bases;
@@ -10,7 +11,6 @@ namespace dotnet_ECommerce.Models
     public class PaymentService : IPayment
     {
         private readonly IConfiguration _configuration;
-
         public PaymentService(IConfiguration configuration)
         {
             _configuration = configuration;
