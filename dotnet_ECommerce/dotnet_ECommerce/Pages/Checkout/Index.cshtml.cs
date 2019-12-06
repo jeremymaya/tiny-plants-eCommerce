@@ -48,28 +48,36 @@ namespace dotnet_ECommerce.Pages.Checkout
         /// <returns></returns>
         public async Task<IActionResult> OnPostAsync()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
-            decimal total = 0;
-
-            IEnumerable<CartItems> cartItems = await _shop.GetCartItemsByUserIdAsync(user.Id);
-            foreach (var cartItem in cartItems)
+            if (ModelState.IsValid)
             {
-                total += (cartItem.Product.Price * cartItem.Quantity);
+                ApplicationUser user = await _userManager.GetUserAsync(User);
+                decimal total = 0;
+
+                IEnumerable<CartItems> cartItems = await _shop.GetCartItemsByUserIdAsync(user.Id);
+                foreach (var cartItem in cartItems)
+                {
+                    total += (cartItem.Product.Price * cartItem.Quantity);
+                }
+
+                if (_paymnet.Run(total))
+                {
+                    string subject = "Purhcase Summary From Tiny Plants!";
+                    string message =
+                        $"<p>Hello {user.FirstName} {user.LastName},</p>" +
+                        $"<p>&nbsp;</p>" +
+                        $"<p>Below is your recent purchase summary</p>" +
+                        $"<p>Total: ${ total }\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Click here to shop more!<a>";
+
+                    await _emailSender.SendEmailAsync(user.Email, subject, message);
+
+                    return Redirect("/Checkout/Receipt");
+                }
+                else
+                {
+                    return Page();
+                }
             }
-
-
-
-            _paymnet.Run(total);
-                string subject = "Purhcase Summary From Tiny Plants!";
-                string message =
-                    $"<p>Hello {user.FirstName} {user.LastName},</p>" +
-                    $"<p>&nbsp;</p>" +
-                    $"<p>Below is your recent purchase summary</p>" +
-                    $"<p>Total: ${ total }\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Click here to shop more!<a>";
-
-                await _emailSender.SendEmailAsync(user.Email, subject, message);
-
-                return Redirect("/Checkout/Receipt");
+            return Page();
         }
 
         public class CheckoutInput
@@ -101,6 +109,17 @@ namespace dotnet_ECommerce.Pages.Checkout
             [DataType(DataType.PostalCode)]
             [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
             public string Zip { get; set; }
+
+            [Required]
+            public CreditCard CreditCard { get; set; }
+        }
+
+        public enum CreditCard
+        {
+            Visa = 0,
+            Mastercard,
+            [Display(Name = "Amenrican Express")]
+            AmericanExpress
         }
     }
 }

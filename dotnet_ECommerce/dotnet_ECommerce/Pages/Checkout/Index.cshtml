@@ -98,11 +98,7 @@
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" asp-for="Input.CreditCard">Payment:</label>
-            <select asp-for="Input.CreditCard">
-                <option selected>Choose...</option>
-                <option value="visa">Visa(SANDBOX)</option>
-                <option value="mastercard">Master(SANDBOX)</option>
-                <option value="americanExpress">American Express(SANDBOX)</option>
+            <select asp-for="Input.CreditCard" asp-items="@Html.GetEnumSelectList(typeof(dotnet_ECommerce.Pages.Checkout.IndexModel.CreditCard))">
             </select>
         </div>
         <div>
