@@ -29,15 +29,15 @@ namespace dotnet_ECommerce.Models.Services
             return orders.OrderByDescending(order => order.ID).FirstOrDefault();
         }
 
-        public async Task SaveOrderItemsAsync(IList<OrderItems> orderItems)
+        public async Task SaveOrderItemsAsync(OrderItems orderItems)
         {
-            _context.OrderItems.AddRange(orderItems);
+            await _context.OrderItems.AddAsync(orderItems);
             await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(string userId) => await _context.Order.Where(order => order.UserID == userId).ToListAsync();
 
-        public async Task<IEnumerable<OrderItems>> GetOrderItemsByOrderIdAsync(int orderId) => await _context.OrderItems.Where(orderItems => orderItems.OrderID == orderId).Include(x => x.Product).ToListAsync();
+        public async Task<IList<OrderItems>> GetOrderItemsByOrderIdAsync(int orderId) => await _context.OrderItems.Where(orderItems => orderItems.OrderID == orderId).Include(x => x.Product).ToListAsync();
 
         public async Task UpdateOrderItemsAsync(OrderItems orderItems)
         {

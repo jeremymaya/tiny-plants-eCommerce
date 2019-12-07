@@ -16,7 +16,7 @@ namespace dotnet_ECommerce.Models
             Configuration = configuration;
         }
 
-        public bool Run(decimal total)
+        public bool Run(double total)
         {
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNet.Environment.SANDBOX;
 
@@ -35,11 +35,11 @@ namespace dotnet_ECommerce.Models
 
             var billingAdress = new customerAddressType
             {
-                firstName = "Josie",
-                lastName = "Cat",
-                address = "123 Catnip Lane",
-                city = "meowsville",
-                zip = "12345"
+                firstName = "Pink",
+                lastName = "Cactus",
+                address = "666 Spiky Road",
+                city = "Dessert",
+                zip = "22300"
             };
 
             var paymentType = new paymentType { Item = creditCard };
@@ -47,7 +47,7 @@ namespace dotnet_ECommerce.Models
             var transactionRequest = new transactionRequestType
             {
                 transactionType = transactionTypeEnum.authCaptureTransaction.ToString(),
-                amount = total,
+                amount = (decimal)total,
                 payment = paymentType,
                 billTo = billingAdress
             };
