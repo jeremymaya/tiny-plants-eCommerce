@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-header">
                     Invoice
-                    <strong>2019/12/03 12:27 PM</strong>
+                    <strong>@Model.CheckOut.Date</strong>
                     <span class="float-right"> <strong>Status:</strong> Processing</span>
                 </div>
                 <div class="card-body">
@@ -33,11 +33,11 @@
                         <div class="col-sm-6">
                             <h6 class="mb-3">To:</h6>
                             <div>
-                                <strong>Karina Chen</strong>
+                                <strong>@Model.CheckOut.FirstName @Model.CheckOut.LastName</strong>
                             </div>
-                            <div>1234 Main Street</div>
-                            <div>Seattle, WA, 98101</div>
-                            <div>Email: karina6188@gmail.com</div>
+                            <div>@Model.CheckOut.Address @Model.CheckOut.Address2</div>
+                            <div>@Model.CheckOut.City, @Model.CheckOut.State, @Model.CheckOut.Zip</div>
+                            <div>@Model.CheckOut.Email</div>
                             <div></div>
                         </div>
 
@@ -108,7 +108,7 @@
                                         <td class="left">
                                             <strong>Payment Method</strong>
                                         </td>
-                                        <td class="right">Visa ####</td>
+                                        <td class="right">@Model.CheckOut.CreditCard</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
