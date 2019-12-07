@@ -51,11 +51,18 @@
                     </ul>
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <form class="form-inline" asp-page="/Account/LogOut">
-                            <span class="navbar-text">Hello @User.Claims.First(c => c.Type == "FullName").Value! (</span>
-                            <button class="navbar-text btn btn-link" type="submit">Logout</button>
-                            <span class="navbar-text">)</span>
-                        </form>
+                        <div class="nav-item dropdown">
+                            <a class="navbar-text dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Hello, @User.Claims.First(c => c.Type == "FullName").Value!
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item navbar-text" href="/Account/Profile">My Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <form class="form-inline" asp-page="/Account/LogOut">
+                                    <button class="dropdown-item navbar-text" type="submit">Logout</button>
+                                </form>
+                            </div>
+                        </div>
                     }
                     else
                     {
