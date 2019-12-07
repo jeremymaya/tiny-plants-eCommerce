@@ -17,15 +17,21 @@ namespace dotnet_ECommerce.Models.Services
             _context = context;
         }
 
-        public async Task CreateOrderAsync(Order order)
+        public async Task SaveOrderAsync(Order order)
         {
             await _context.Order.AddAsync(order);
             await _context.SaveChangesAsync();
         }
 
-        public async Task CreateOrderItemAsync(OrderItems orderItems)
+        public async Task<Order> GetLatestOrderForUserAsync(string userId)
         {
-            await _context.OrderItems.AddAsync(orderItems);
+            var orders = await GetOrdersByUserIdAsync(userId);
+            return orders.OrderByDescending(order => order.ID).FirstOrDefault();
+        }
+
+        public async Task SaveOrderItemsAsync(IList<OrderItems> orderItems)
+        {
+            _context.OrderItems.AddRange(orderItems);
             await _context.SaveChangesAsync();
         }
 
@@ -37,7 +43,6 @@ namespace dotnet_ECommerce.Models.Services
         {
             _context.OrderItems.Update(orderItems);
             await _context.SaveChangesAsync();
-
         }
     }
 }

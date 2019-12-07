@@ -50,6 +50,12 @@ namespace dotnet_ECommerce.Models.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task RemoveCartItemsAsync(IEnumerable<CartItems> cartItems)
+        {
+            _context.CartItems.RemoveRange(cartItems);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task UpdateCartItemsAsync(CartItems cartItems)
         {
             _context.CartItems.Update(cartItems);

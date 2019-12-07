@@ -19,5 +19,7 @@ namespace dotnet_ECommerce.Models.Interfaces
         Task UpdateCartItemsAsync(CartItems cartItems);
 
         Task RemoveCartItemsAsync(string userId, int productId);
+
+        Task RemoveCartItemsAsync(IEnumerable<CartItems> cartItems);
     }
 }
