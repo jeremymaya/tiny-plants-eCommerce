@@ -3,15 +3,35 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using dotnet_ECommerce.Models;
+using dotnet_ECommerce.Models.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using static dotnet_ECommerce.Pages.Checkout.IndexModel;
 
 namespace dotnet_ECommerce.Pages.Checkout
 {
     public class ReceiptModel : PageModel
     {
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IShop _shop;
+        private readonly IPayment _paymnet;
+
+        public ReceiptModel(UserManager<ApplicationUser> userManager, IShop shop, IPayment payment)
+        {
+            _userManager = userManager;
+            _shop = shop;
+            _paymnet = payment;
+        }
+
         [BindProperty]
         public ReceiptInfo CheckOut { get; set; }
+
+        public async Task<IActionResult> OnGet()
+        {
+            return Page();
+        }
 
         public class ReceiptInfo
         {
@@ -45,11 +65,9 @@ namespace dotnet_ECommerce.Pages.Checkout
 
             [Required]
             public string Email { get; set; }
-        }
 
-        public void OnGet()
-        {
-
+            [Required]
+            public CreditCard CreditCard { get; set; }
         }
     }
 }
