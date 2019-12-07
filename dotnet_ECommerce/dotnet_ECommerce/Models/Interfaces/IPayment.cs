@@ -5,6 +5,6 @@ namespace dotnet_ECommerce.Models.Interfaces
 {
     public interface IPayment
     {
-        bool Run(decimal total);
+        bool Run(double total);
     }
 }

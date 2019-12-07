@@ -65,7 +65,7 @@ namespace dotnet_ECommerce.Pages.Checkout
                     State = Input.State,
                     Zip = Input.Zip,
                     CreditCard = Input.CreditCard.ToString(),
-                    Timestamp = "TEST"
+                    Timestamp = DateTime.Now.ToString()
                 };
 
                 await _order.SaveOrderAsync(order);
@@ -88,16 +88,20 @@ namespace dotnet_ECommerce.Pages.Checkout
                     total += cartItem.Product.Price * cartItem.Quantity;
                 }
 
-                await _order.SaveOrderItemsAsync(orderItems);
+                double finalCost = Decimal.ToDouble(total) * 1.1;
+                foreach (var item in orderItems)
+                {
+                    await _order.SaveOrderItemsAsync(item);
+                }
 
-                if (_paymnet.Run(total))
+                if (_paymnet.Run(finalCost))
                 {
                     string subject = "Purhcase Summary From Tiny Plants!";
                     string message =
                         $"<p>Hello {user.FirstName} {user.LastName},</p>" +
                         $"<p>&nbsp;</p>" +
                         $"<p>Below is your recent purchase summary</p>" +
-                        $"<p>Total: ${ total }\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Click here to shop more!<a>";
+                        $"<p>Total: ${ finalCost.ToString("F")}\n</p>" + "<a href=\"https://dotnet-ecommerce-tiny-plants.azurewebsites.net\">Click here to shop more!<a>";
 
                     await _emailSender.SendEmailAsync(user.Email, subject, message);
                     await _shop.RemoveCartItemsAsync(cartItems);

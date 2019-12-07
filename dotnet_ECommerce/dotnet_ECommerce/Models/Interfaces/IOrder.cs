@@ -10,11 +10,11 @@ namespace dotnet_ECommerce.Models.Interfaces
 
         Task<Order> GetLatestOrderForUserAsync(string userId);
 
-        Task SaveOrderItemsAsync(IList<OrderItems> orderItems);
+        Task SaveOrderItemsAsync(OrderItems orderItems);
 
         Task<IEnumerable<Order>> GetOrdersByUserIdAsync(string userId);
 
-        Task<IEnumerable<OrderItems>> GetOrderItemsByOrderIdAsync(int orderId);
+        Task<IList<OrderItems>> GetOrderItemsByOrderIdAsync(int orderId);
 
         Task UpdateOrderItemsAsync(OrderItems orderItems);
     }

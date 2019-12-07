@@ -10,8 +10,8 @@ using dotnet_ECommerce.Data;
 namespace dotnet_ECommerce.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191206182131_initial")]
-    partial class initial
+    [Migration("20191207021936_intialA")]
+    partial class intialA
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
