@@ -64,7 +64,7 @@ namespace dotnet_ECommerce.Pages.Checkout
                     City = Input.City,
                     State = Input.State,
                     Zip = Input.Zip,
-                    CreditCard = Input.CreditCard,
+                    CreditCard = Input.CreditCard.ToString(),
                     Timestamp = "TEST"
                 };
 
@@ -138,7 +138,16 @@ namespace dotnet_ECommerce.Pages.Checkout
             [Compare("Zip", ErrorMessage = "The is an invalid zip code")]
             public string Zip { get; set; }
 
-            public string CreditCard{ get; set; }
+            [Required]
+            public CreditCard CreditCard { get; set; }
+        }
+
+        public enum CreditCard
+        {
+            Visa = 0,
+            Mastercard,
+            [Display(Name = "Amenrican Express")]
+            AmericanExpress
         }
     }
 }
