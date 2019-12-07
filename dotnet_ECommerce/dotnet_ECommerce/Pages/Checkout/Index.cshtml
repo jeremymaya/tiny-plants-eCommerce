@@ -14,7 +14,7 @@
         <div asp-validation-summary="All"></div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" asp-for="Input.Date">Purchased Date:</label>
-            <label class="col-sm-2 col-form-label" asp-for="Input.Date">@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")</label>
+            <label class="col-sm-2 col-form-label">@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")</label>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" asp-for="Input.FirstName">First Name:</label>
@@ -39,7 +39,6 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" asp-for="Input.State">State:</label>
             <select asp-for="Input.State">
-                <option selected>Choose...</option>
                 <option>AL</option>
                 <option>AK</option>
                 <option>AZ</option>
@@ -97,12 +96,8 @@
             <input asp-for="Input.Zip" type="text">
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" asp-for="Input.Zip">Payment:</label>
-            <select asp-for="Input.State">
-                <option selected>Choose...</option>
-                <option>Visa(SANDBOX)</option>
-                <option>Master(SANDBOX)</option>
-                <option>American Express(SANDBOX)</option>
+            <label class="col-sm-2 col-form-label" asp-for="Input.CreditCard">Payment:</label>
+            <select asp-for="Input.CreditCard" asp-items="@Html.GetEnumSelectList(typeof(dotnet_ECommerce.Pages.Checkout.IndexModel.CreditCard))">
             </select>
         </div>
         <div>
