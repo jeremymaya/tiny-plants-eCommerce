@@ -1,5 +1,8 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
 @model dotnet_ECommerce.Pages.Checkout.ReceiptModel
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "Receipt";
     Layout = "~/Pages/Shared/_Layout.cshtml";

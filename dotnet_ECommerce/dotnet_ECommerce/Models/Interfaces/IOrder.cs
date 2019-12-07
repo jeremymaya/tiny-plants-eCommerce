@@ -6,9 +6,11 @@ namespace dotnet_ECommerce.Models.Interfaces
 {
     public interface IOrder
     {
-        Task CreateOrderAsync(Order order);
+        Task SaveOrderAsync(Order order);
 
-        Task CreateOrderItemAsync(OrderItems orderItems);
+        Task<Order> GetLatestOrderForUserAsync(string userId);
+
+        Task SaveOrderItemsAsync(IList<OrderItems> orderItems);
 
         Task<IEnumerable<Order>> GetOrdersByUserIdAsync(string userId);
 

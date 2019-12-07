@@ -8,30 +8,32 @@ using dotnet_ECommerce.Models.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using static dotnet_ECommerce.Pages.Checkout.IndexModel;
 
 namespace dotnet_ECommerce.Pages.Checkout
 {
     public class ReceiptModel : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IShop _shop;
-        private readonly IPayment _paymnet;
 
-        public ReceiptModel(UserManager<ApplicationUser> userManager, IShop shop, IPayment payment)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IOrder _order;
+
+        public ReceiptModel(UserManager<ApplicationUser> userManager, IOrder order)
         {
             _userManager = userManager;
-            _shop = shop;
-            _paymnet = payment;
+            _order = order;
+        }
+
+        public IEnumerable<OrderItems> OrderItems { get; set; }
+
+        public async Task OnGetAsync()
+        {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            Order order = await _order.GetLatestOrderForUserAsync(user.Id);
+            OrderItems = await _order.GetOrderItemsByOrderIdAsync(order.ID);
         }
 
         [BindProperty]
         public ReceiptInfo CheckOut { get; set; }
-
-        public async Task<IActionResult> OnGet()
-        {
-            return Page();
-        }
 
         public class ReceiptInfo
         {
@@ -65,9 +67,6 @@ namespace dotnet_ECommerce.Pages.Checkout
 
             [Required]
             public string Email { get; set; }
-
-            [Required]
-            public CreditCard CreditCard { get; set; }
         }
     }
 }
