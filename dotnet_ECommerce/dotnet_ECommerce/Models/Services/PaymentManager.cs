@@ -16,6 +16,11 @@ namespace dotnet_ECommerce.Models
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Makes a API call to Authorize.Net to make a Sandbox transaction
+        /// </summary>
+        /// <param name="total">Total amount of the transaction</param>
+        /// <returns>Boolean to confirm if the payment was successful or not</returns>
         public bool Run(double total)
         {
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNet.Environment.SANDBOX;

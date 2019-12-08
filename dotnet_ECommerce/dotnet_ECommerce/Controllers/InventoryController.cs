@@ -66,7 +66,7 @@ namespace dotnet_ECommerce.Controllers
 
         // POST: Inventory/Create
         /// <summary>
-        /// HTTP POST route doe Inventory/Create to create a new product data by saving a Product object into the connected database
+        /// HTTP POST route for Inventory/Create to create a new product data by saving a Product object into the connected database
         /// </summary>
         /// <param name="product">New product information</param>
         /// <returns>Index.cshtml with the updated inventory list from the the conntected database</returns>
