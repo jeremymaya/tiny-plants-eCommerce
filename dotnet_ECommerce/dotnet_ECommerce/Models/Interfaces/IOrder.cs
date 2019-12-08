@@ -10,7 +10,7 @@ namespace dotnet_ECommerce.Models.Interfaces
 
         Task<Order> GetLatestOrderForUserAsync(string userId);
 
-        Task SaveOrderItemsAsync(OrderItems orderItems);
+        Task SaveOrderItemAsync(OrderItems orderItem);
 
         Task<IEnumerable<Order>> GetOrdersByUserIdAsync(string userId);
 

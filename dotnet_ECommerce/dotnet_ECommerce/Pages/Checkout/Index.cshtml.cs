@@ -91,7 +91,7 @@ namespace dotnet_ECommerce.Pages.Checkout
                 double finalCost = Decimal.ToDouble(total) * 1.1;
                 foreach (var item in orderItems)
                 {
-                    await _order.SaveOrderItemsAsync(item);
+                    await _order.SaveOrderItemAsync(item);
                 }
 
                 if (_paymnet.Run(finalCost))

@@ -13,7 +13,6 @@ namespace dotnet_ECommerce.Models.Components
     /// The MiniCartViewComponent class inherits ViewComponent class then brings in dependencies
     /// The InvokeAsync method utilizes UserManager to bring in the user and call GetUserId to access the user id
     /// A variable is created to store all the cart items of the user by calling GetCartItemsByUserIdAsync that takes an user id and returns all the cart items where the items' user id matches.
-
     /// </summary>
     public class MiniCartViewComponent : ViewComponent
     {
