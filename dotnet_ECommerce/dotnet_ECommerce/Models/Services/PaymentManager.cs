@@ -21,7 +21,7 @@ namespace dotnet_ECommerce.Models
         /// </summary>
         /// <param name="total">Total amount of the transaction</param>
         /// <returns>Boolean to confirm if the payment was successful or not</returns>
-        public bool Run(double total)
+        public bool Run(double total, creditCardType creditCard, customerAddressType billingAdress)
         {
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNet.Environment.SANDBOX;
 
@@ -30,21 +30,6 @@ namespace dotnet_ECommerce.Models
                 name = Configuration["AuthorizeNetLoginID"],
                 ItemElementName = ItemChoiceType.transactionKey,
                 Item = Configuration["AuthorizeNetTransactionKey"]
-            };
-
-            var creditCard = new creditCardType
-            {
-                cardNumber = "4111111111111111",
-                expirationDate = "0723"
-            };
-
-            var billingAdress = new customerAddressType
-            {
-                firstName = "Pink",
-                lastName = "Cactus",
-                address = "666 Spiky Road",
-                city = "Dessert",
-                zip = "22300"
             };
 
             var paymentType = new paymentType { Item = creditCard };
