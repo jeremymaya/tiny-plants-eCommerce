@@ -1,0 +1,40 @@
+﻿@page
+@model dotnet_ECommerce.Pages.BlobStorage.BlobModel
+@{
+    ViewData["Title"] = "Blob";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Manage Blob Files</h1>
+    <div class="col-sm-12 col-lg-4 mr-auto ml-auto border p-4">
+        <form enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label asp-for="Image"><strong>Upload Files</strong></label>
+
+                <div class="input-group">
+                    <input asp-for="Image" type="file">
+                    <span asp-validation-for="Image"></span>
+                    <input asp-page-handler="Upload" type="submit" value="Upload" class="form-check-label" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div class="col-sm-12 col-lg-4 mr-auto ml-auto border p-4">
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label><strong>Upload Files</strong></label>
+
+            <div class="custom-file">
+                <input type="file" name="files[]" multiple class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" name="upload" value="upload" id="upload" class="btn btn-block btn-dark"><i class="fa fa-fw fa-upload"></i> Upload</button>
+        </div>
+    </form>
+</div>*@
