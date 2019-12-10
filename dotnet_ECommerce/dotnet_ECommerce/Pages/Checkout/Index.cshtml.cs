@@ -94,7 +94,47 @@ namespace dotnet_ECommerce.Pages.Checkout
                     await _order.SaveOrderItemAsync(item);
                 }
 
-                if (_paymnet.Run(finalCost))
+                string creditCardNumber;
+                string creditCardExpiration;
+
+                string cardType = Input.CreditCard.ToString();
+                switch (cardType)
+                {
+                    case "0":
+                        creditCardNumber = "4111111111111111";
+                        creditCardExpiration = "0723";
+                        break;
+                    case "1":
+                        creditCardNumber = "5424000000000015";
+                        creditCardExpiration = "0922";
+                        break;
+                    case "2":
+                        creditCardNumber = "370000000000002";
+                        creditCardExpiration = "1222";
+                        break;
+                    default:
+                        creditCardNumber = "4111111111111111";
+                        creditCardExpiration = "0723";
+                        break;
+                }
+
+                var creditCard = new creditCardType
+                {
+                    cardNumber = creditCardNumber,
+                    expirationDate = creditCardExpiration
+                };
+
+                var billingAdress = new customerAddressType
+                {
+                    firstName = Input.FirstName,
+                    lastName = Input.LastName,
+                    address = Input.Address + Input.Address2,
+                    city = Input.City,
+                    state = Input.State,
+                    zip = Input.Zip
+                };
+
+                if (_paymnet.Run(finalCost, creditCard, billingAdress))
                 {
                     string subject = "Purhcase Summary From Tiny Plants!";
                     string message =

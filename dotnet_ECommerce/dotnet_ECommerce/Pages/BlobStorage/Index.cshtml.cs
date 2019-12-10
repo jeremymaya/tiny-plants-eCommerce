@@ -45,7 +45,7 @@ namespace dotnet_ECommerce.Pages.BlobStorage
                 await Image.CopyToAsync(stream);
             }
 
-            await Blob.UploadFile(blobContainer, "Polka Dots", filePath);
+            await Blob.UploadFile(blobContainer, Image.FileName, filePath);
             return Page();
         }
     }

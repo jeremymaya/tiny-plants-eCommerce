@@ -5,6 +5,6 @@ namespace dotnet_ECommerce.Models.Interfaces
 {
     public interface IPayment
     {
-        bool Run(double total);
+        bool Run(double total, creditCardType creditCard, customerAddressType billingAdress);
     }
 }

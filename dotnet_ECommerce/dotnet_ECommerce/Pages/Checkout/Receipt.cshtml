@@ -80,7 +80,22 @@
                                         <td class="left">
                                             <strong>Payment Method</strong>
                                         </td>
-                                        <td class="right">@Model.OrderItems[0].Order.CreditCard</td>
+                                        @{ 
+                                            string lastFourDigits = "";
+                                            if (Model.OrderItems[0].Order.CreditCard == "0")
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX1111";
+                                            }
+                                            else if (Model.OrderItems[0].Order.CreditCard == "1")
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX0015";
+                                            }
+                                            else
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX0002";
+                                            }
+                                        }
+                                        <td class="right">@Model.OrderItems[0].Order.CreditCard @lastFourDigits</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
