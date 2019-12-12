@@ -92,9 +92,9 @@ namespace dotnet_ECommerce.Controllers
                     await product.File.CopyToAsync(stream);
                 }
 
-                await Blob.UploadFile(blobContainer, product.File.FileName, filePath);
+                await Blob.UploadFile(blobContainer, product.Sku, filePath);
 
-                product.Image = Blob.GetBlob(product.File.FileName, "products").Uri.AbsoluteUri;
+                product.Image = Blob.GetBlob(product.Sku, "products").Uri.AbsoluteUri;
 
                 await _context.CreateInventoryAsync(product);
                 return RedirectToAction(nameof(Index));
@@ -153,9 +153,9 @@ namespace dotnet_ECommerce.Controllers
                         await product.File.CopyToAsync(stream);
                     }
 
-                    await Blob.UploadFile(blobContainer, product.File.FileName, filePath);
+                    await Blob.UploadFile(blobContainer, product.Sku, filePath);
 
-                    product.Image = Blob.GetBlob(product.File.FileName, "products").Uri.AbsoluteUri;
+                    product.Image = Blob.GetBlob(product.Sku, "products").Uri.AbsoluteUri;
 
                     await _context.UpdateInventoryAsync(product);
                 }
@@ -209,6 +209,11 @@ namespace dotnet_ECommerce.Controllers
             {
                 return NotFound();
             }
+            var product = await _context.GetInventoryByIdAsync(id);
+
+            CloudBlobContainer blobContainer = await Blob.GetContainer("products");
+
+            await Blob.DeleteBlob(blobContainer, product.Sku);
 
             await _context.RemoveInventoryAsync(id);
 
