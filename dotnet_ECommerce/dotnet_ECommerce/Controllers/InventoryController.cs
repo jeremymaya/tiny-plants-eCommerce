@@ -71,6 +71,7 @@ namespace dotnet_ECommerce.Controllers
             return View();
         }
 
+        // Source: https://www.c-sharpcorner.com/article/upload-files-in-azure-blob-storage-using-asp-net-core/
         // POST: Inventory/Create
         /// <summary>
         /// HTTP POST route for Inventory/Create to create a new product data by saving a Product object into the connected database
