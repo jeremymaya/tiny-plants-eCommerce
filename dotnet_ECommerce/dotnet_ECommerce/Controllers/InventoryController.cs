@@ -83,8 +83,9 @@ namespace dotnet_ECommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                var filePath = Path.GetTempFileName();
                 CloudBlobContainer blobContainer = await Blob.GetContainer("products");
+
+                var filePath = Path.GetTempFileName();
 
                 using (var stream = System.IO.File.Create(filePath))
                 {
@@ -132,7 +133,7 @@ namespace dotnet_ECommerce.Controllers
         /// <returns>Index.cshtml with the updated inventory list from the the conntected database</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Sku,Name,Price,Description,Image")] Product product)
+        public async Task<IActionResult> Edit(int id, Product product)
         {
             if (id != product.ID)
             {
@@ -143,6 +144,19 @@ namespace dotnet_ECommerce.Controllers
             {
                 try
                 {
+                    CloudBlobContainer blobContainer = await Blob.GetContainer("products");
+
+                    var filePath = Path.GetTempFileName();
+
+                    using (var stream = System.IO.File.Create(filePath))
+                    {
+                        await product.File.CopyToAsync(stream);
+                    }
+
+                    await Blob.UploadFile(blobContainer, product.File.FileName, filePath);
+
+                    product.Image = Blob.GetBlob(product.File.FileName, "products").Uri.AbsoluteUri;
+
                     await _context.UpdateInventoryAsync(product);
                 }
                 catch (DbUpdateConcurrencyException)
@@ -151,10 +165,7 @@ namespace dotnet_ECommerce.Controllers
                     {
                         return NotFound();
                     }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
