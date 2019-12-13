@@ -1,0 +1,50 @@
+﻿@page
+@model dotnet_ECommerce.Pages.Account.OrderModel
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Order</h1>
+
+    <div class="table-responsive-sm">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="center">#</th>
+                    <th>Order Number</th>
+                    <th>Ordered Items</th>
+                    @*<th class="right">Purchased Amount</th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int number = Model.Orders.ToList().Count;
+                    if (number >= 5)
+                    {
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <tr>
+                                <td class="center">@(i + 1)</td>
+                                <td class="left strong">@Model.Orders.</td>
+                                <td class="left">@Model.Orders</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        @for (int i = 0; i < number; i++)
+                        {
+                            <tr>
+                                <td class="center">@(i + 1)</td>
+                                <td class="left strong">@Model.Orders.</td>
+                                <td class="left">@Model.Orders</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
