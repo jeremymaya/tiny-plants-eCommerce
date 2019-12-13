@@ -60,12 +60,16 @@ namespace dotnet_ECommerce.Models.Services
         /// <returns>IEnumerable of all order data marked for the user from the conntected database</returns>
         public async Task<IEnumerable<Order>> GetOrdersByUserIdAsync(string userId) => await _context.Order.Where(order => order.UserID == userId).ToListAsync();
 
+        public async Task<IEnumerable<Order>> GetOrdersAsync() => await _context.Order.ToListAsync();
+
         /// <summary>
         /// Gets all of the oderItems data for an orderId from the connencted database
         /// </summary>
         /// <param name="orderId"></param>
         /// <returns>IList of all orderItems data for the orderId fron the connected database</returns>
         public async Task<IList<OrderItems>> GetOrderItemsByOrderIdAsync(int orderId) => await _context.OrderItems.Where(orderItems => orderItems.OrderID == orderId).Include(x => x.Product).ToListAsync();
+
+        public async Task<IEnumerable<OrderItems>> GetOrderItemsAsync() => await _context.OrderItems.Include(x => x.Product).ToListAsync();
 
         /// <summary>
         /// Modifies an orderItem data from the connected database
