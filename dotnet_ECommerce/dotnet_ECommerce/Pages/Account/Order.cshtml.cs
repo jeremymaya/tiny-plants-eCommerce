@@ -31,11 +31,12 @@ namespace dotnet_ECommerce.Pages.Account
         /// A property to be available on the Model property in the Razor Page
         /// </summary>
         public IEnumerable<Order> Orders { get; set; }
+        public IEnumerable<OrderItems> OrderItems { get; set; }
 
-        public async Task OnGet()
+        public async Task OnGetAsync()
         {
-            ApplicationUser user = await _userManager.GetUserAsync(User);
-            Orders = await _order.GetOrdersByUserIdAsync(user.Id);
+            Orders = await _order.GetOrdersAsync();
+            OrderItems = await _order.GetOrderItemsAsync();
         }
     }
 }

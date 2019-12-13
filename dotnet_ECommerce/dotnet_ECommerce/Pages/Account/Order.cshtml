@@ -12,10 +12,10 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="center">#</th>
-                    <th>Order Number</th>
-                    <th>Ordered Items</th>
-                    @*<th class="right">Purchased Amount</th>*@
+                    <th>Order</th>
+                    <th>Purchased On</th>
+                    <th>Total</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,19 +27,35 @@
                         {
                             <tr>
                                 <td class="center">@(i + 1)</td>
-                                <td class="left strong">@Model.Orders.</td>
-                                <td class="left">@Model.Orders</td>
+                                <td>@Html.DisplayFor(modelItem => Model.Orders.ToList()[i].Timestamp)</td>
+                                @{decimal subtotal = 0;
+                                    foreach (var orderItem in Model.OrderItems.Where(orderItem => orderItem.OrderID == Model.Orders.ToList()[i].ID))
+                                    {
+                                        subtotal += orderItem.Quantity * orderItem.Product.Price;
+                                    }
+                                }
+                                @{double finalTotal = Decimal.ToDouble(subtotal) * 1.1;}
+                                <td>$@finalTotal.ToString("F")</td>
                             </tr>
                         }
                     }
                     else
                     {
-                        @for (int i = 0; i < number; i++)
+                        @for (int i = 0; i < 5; i++)
                         {
                             <tr>
                                 <td class="center">@(i + 1)</td>
-                                <td class="left strong">@Model.Orders.</td>
-                                <td class="left">@Model.Orders</td>
+                                <td>@Html.DisplayFor(modelItem => Model.Orders.ToList()[i].Timestamp)</td>
+                                @{decimal subtotal = 0;
+                                    foreach (var orderItem in Model.OrderItems.Where(orderItem => orderItem.OrderID == Model.Orders.ToList()[i].ID))
+                                    {
+                                        subtotal += orderItem.Quantity * orderItem.Product.Price;
+                                    }
+                                }
+                                @{double finalTotal = Decimal.ToDouble(subtotal) * 1.1;}
+                                <td>
+                                    $@finalTotal.ToString("F")
+                                </td>
                             </tr>
                         }
                     }
