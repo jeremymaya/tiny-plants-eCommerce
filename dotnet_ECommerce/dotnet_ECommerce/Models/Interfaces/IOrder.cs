@@ -14,7 +14,11 @@ namespace dotnet_ECommerce.Models.Interfaces
 
         Task<IEnumerable<Order>> GetOrdersByUserIdAsync(string userId);
 
+        Task<IEnumerable<Order>> GetOrdersAsync();
+
         Task<IList<OrderItems>> GetOrderItemsByOrderIdAsync(int orderId);
+
+        Task<IEnumerable<OrderItems>> GetOrderItemsAsync();
 
         Task UpdateOrderItemsAsync(OrderItems orderItems);
     }
