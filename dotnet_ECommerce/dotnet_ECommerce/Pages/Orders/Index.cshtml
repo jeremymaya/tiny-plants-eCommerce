@@ -11,16 +11,16 @@
         <thead>
             <tr>
                 <th>
-                    Order
+                    @Html.DisplayNameFor(model => model.Orders.FirstOrDefault().ID)
                 </th>
                 <th>
-                    First Name
+                    @Html.DisplayNameFor(model => model.Orders.FirstOrDefault().FirstName)
                 </th>
                 <th>
-                    Last Name
+                    @Html.DisplayNameFor(model => model.Orders.FirstOrDefault().LastName)
                 </th>
                 <th>
-                    Timestamp
+                    @Html.DisplayNameFor(model => model.Orders.FirstOrDefault().Timestamp)
                 </th>
                 <th>
                     Total
@@ -55,7 +55,7 @@
                         $@finalTotal.ToString("F")
                     </td>
                     <td>
-                        <a asp-action="Details" asp-route-id="@order.ID">Details</a>
+                        <a href="/Orders/Detail/@Html.DisplayFor(modelItem => order.ID)">Details</a>
                     </td>
                 </tr>
             }
