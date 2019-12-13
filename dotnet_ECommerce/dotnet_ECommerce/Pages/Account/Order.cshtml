@@ -1,5 +1,8 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
 @model dotnet_ECommerce.Pages.Account.OrderModel
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "Order";
     Layout = "~/Pages/Shared/_Layout.cshtml";
@@ -19,7 +22,8 @@
                 </tr>
             </thead>
             <tbody>
-                @{
+                @if (SignInManager.IsSignedIn(User))
+                {
                     int number = Model.Orders.ToList().Count;
                     if (number >= 5)
                     {
@@ -55,6 +59,9 @@
                                 @{double finalTotal = Decimal.ToDouble(subtotal) * 1.1;}
                                 <td>
                                     $@finalTotal.ToString("F")
+                                </td>
+                                <td>
+                                    <a href="/Account/Details/@Model.Orders.ToList()[i].ID">Details</a>
                                 </td>
                             </tr>
                         }

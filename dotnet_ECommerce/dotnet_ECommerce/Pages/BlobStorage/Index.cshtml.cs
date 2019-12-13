@@ -25,11 +25,6 @@ namespace dotnet_ECommerce.Pages.BlobStorage
         [BindProperty]
         public IFormFile Image { get; set; }
 
-        public async Task OnGet()
-        {
-
-        }
-
         public async Task<IActionResult> OnPost()
         {
             if (!ModelState.IsValid)

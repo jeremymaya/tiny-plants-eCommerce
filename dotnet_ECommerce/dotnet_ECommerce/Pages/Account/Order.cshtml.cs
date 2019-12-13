@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Models;
 using dotnet_ECommerce.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -35,7 +36,8 @@ namespace dotnet_ECommerce.Pages.Account
 
         public async Task OnGetAsync()
         {
-            Orders = await _order.GetOrdersAsync();
+            ApplicationUser user = await _userManager.GetUserAsync(User);
+            Orders = await _order.GetOrdersByUserIdAsync(user.Id);
             OrderItems = await _order.GetOrderItemsAsync();
         }
     }
