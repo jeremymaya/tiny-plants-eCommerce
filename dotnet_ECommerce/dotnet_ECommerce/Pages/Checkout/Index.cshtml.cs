@@ -25,6 +25,14 @@ namespace dotnet_ECommerce.Pages.Checkout
         private readonly IPayment _paymnet;
         private readonly IOrder _order;
 
+        /// <summary>
+        /// Constructor to take UserManager, IEmailSender, IShop, IPayment, and IOrder interfaces to enable the checkout process
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="emailSender"></param>
+        /// <param name="shop"></param>
+        /// <param name="payment"></param>
+        /// <param name="order"></param>
         public IndexModel(UserManager<ApplicationUser> userManager, IEmailSender emailSender, IShop shop, IPayment payment, IOrder order)
         {
             _userManager = userManager;
@@ -34,6 +42,9 @@ namespace dotnet_ECommerce.Pages.Checkout
             _order = order;
         }
 
+        /// <summary>
+        /// Bind the Input object that contains all the required information for checkout to the property
+        /// </summary>
         [BindProperty]
         public CheckoutInput Input { get; set; }
 
@@ -47,7 +58,7 @@ namespace dotnet_ECommerce.Pages.Checkout
         /// Set variables to store email contents for an order summary email that is to be sent out to a user after they check out
         /// After the email is sent out, redirect the user to receipt page
         /// </summary>
-        /// <returns></returns>
+        /// <returns>If the ckeckout process is successful, redirect to the receipt page. Otherwise, returns to the same page</returns>
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
