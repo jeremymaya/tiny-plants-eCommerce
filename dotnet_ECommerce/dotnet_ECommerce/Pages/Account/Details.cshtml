@@ -1,0 +1,61 @@
+﻿@page "{id?}"
+@model dotnet_ECommerce.Pages.Account.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Order Details</h1>
+    <div class="row">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Product.Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Product.Sku)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Product.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Product.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Quantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Product.Description)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderItem in Model.OrderItems)
+                {
+                    <tr>
+                        <td>
+                            <img src="@Html.DisplayFor(modelItem => orderItem.Product.Image)" width="100" height="100" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => orderItem.Product.Sku)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => orderItem.Product.Name)
+                        </td>
+                        <td>
+                            $@Html.DisplayFor(modelItem => orderItem.Product.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => orderItem.Quantity)
+                        </td>
+                        <td class="text-left">
+                            @Html.DisplayFor(modelItem => orderItem.Product.Description)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

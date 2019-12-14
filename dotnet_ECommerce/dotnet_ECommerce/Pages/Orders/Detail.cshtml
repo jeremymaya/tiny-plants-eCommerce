@@ -23,6 +23,9 @@
                     @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Product.Price)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Quantity)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.OrderItems.FirstOrDefault().Product.Description)
                 </th>
             </tr>
@@ -32,7 +35,7 @@
             {
                 <tr>
                     <td>
-                        <img src="@Html.DisplayFor(modelItem => orderItem.Product.Image)" width="100" height="100"/>
+                        <img src="@Html.DisplayFor(modelItem => orderItem.Product.Image)" width="100" height="100" />
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => orderItem.Product.Sku)
@@ -41,7 +44,10 @@
                         @Html.DisplayFor(modelItem => orderItem.Product.Name)
                     </td>
                     <td>
-                        $@Html.DisplayFor(modelItem => orderItem.Product.Price)
+                        @Html.DisplayFor(modelItem => orderItem.Product.Price)
+                    </td>
+                    <td>
+                        $@Html.DisplayFor(modelItem => orderItem.Quantity)
                     </td>
                     <td class="text-left">
                         @Html.DisplayFor(modelItem => orderItem.Product.Description)

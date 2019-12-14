@@ -13,6 +13,10 @@ namespace dotnet_ECommerce.Pages.Orders
     {
         private readonly IOrder _order;
 
+        /// <summary>
+        /// The constructor to bring in IOrder interface that enables getting information from the order data table
+        /// </summary>
+        /// <param name="order"></param>
         public IndexModel(IOrder order)
         {
             _order = order;
@@ -21,6 +25,11 @@ namespace dotnet_ECommerce.Pages.Orders
         public IEnumerable<Order> Orders { get; set; }
         public IEnumerable<OrderItems> OrderItems { get; set; }
 
+        /// <summary>
+        /// Get all the orders from the order table
+        /// Get all the order items from the each order
+        /// </summary>
+        /// <returns></returns>
         public async Task OnGetAsync()
         {
             Orders = await _order.GetOrdersAsync();
