@@ -1,0 +1,73 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
+@model dotnet_ECommerce.Pages.Account.OrderModel
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Order</h1>
+
+    <div class="table-responsive-sm">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Purchased On</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    int number = Model.Orders.ToList().Count;
+                    if (number >= 5)
+                    {
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <tr>
+                                <td class="center">@(i + 1)</td>
+                                <td>@Html.DisplayFor(modelItem => Model.Orders.ToList()[i].Timestamp)</td>
+                                @{decimal subtotal = 0;
+                                    foreach (var orderItem in Model.OrderItems.Where(orderItem => orderItem.OrderID == Model.Orders.ToList()[i].ID))
+                                    {
+                                        subtotal += orderItem.Quantity * orderItem.Product.Price;
+                                    }
+                                }
+                                @{double finalTotal = Decimal.ToDouble(subtotal) * 1.1;}
+                                <td>$@finalTotal.ToString("F")</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        @for (int i = 0; i < number; i++)
+                        {
+                            <tr>
+                                <td class="center">@(i + 1)</td>
+                                <td>@Html.DisplayFor(modelItem => Model.Orders.ToList()[i].Timestamp)</td>
+                                @{decimal subtotal = 0;
+                                    foreach (var orderItem in Model.OrderItems.Where(orderItem => orderItem.OrderID == Model.Orders.ToList()[i].ID))
+                                    {
+                                        subtotal += orderItem.Quantity * orderItem.Product.Price;
+                                    }
+                                }
+                                @{double finalTotal = Decimal.ToDouble(subtotal) * 1.1;}
+                                <td>
+                                    $@finalTotal.ToString("F")
+                                </td>
+                                <td>
+                                    <a href="/Account/Details/@Model.Orders.ToList()[i].ID">Details</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
