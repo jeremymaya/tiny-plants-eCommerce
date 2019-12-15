@@ -50,11 +50,11 @@ namespace dotnet_ECommerce
             services.AddScoped<IOrder, OrderManager>();
 
             string userConnString = Environment.IsDevelopment()
-                ? Configuration["ConnectionStrings:UserProductionConnection"]
+                ? Configuration["ConnectionStrings:UserConnection"]
                 : Configuration["ConnectionStrings:UserProductionConnection"];
 
             string productConnString = Environment.IsDevelopment()
-                ? Configuration["ConnectionStrings:ProductProductionConnection"]
+                ? Configuration["ConnectionStrings:ProductConnection"]
                 : Configuration["ConnectionStrings:ProductProductionConnection"];
 
             services.AddDbContext<ApplicationDbContext>(options =>
