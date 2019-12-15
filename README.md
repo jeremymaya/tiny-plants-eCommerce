@@ -83,7 +83,20 @@ https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?_
 
 ---
 
+### Resources
+[Add or Remove Multiple Entities in Entity Framework](https://www.entityframeworktutorial.net/entityframework6/addrange-removerange.aspx)  
+[Adding Email](https://www.learnrazorpages.com/razor-pages/tutorial/bakery/email)  
+[Azure Blob storage client library v12 for .NET](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet)  
+[Azure Storage CRUD Operations In MVC Using C#](https://www.c-sharpcorner.com/article/azure-storage-crud-operations-in-mvc-using-c-sharp-part-two/)  
+[Handler Methods in Razor Pages](https://www.learnrazorpages.com/razor-pages/handler-methods)  
+[HtmlHelper - Editor](https://www.tutorialsteacher.com/mvc/htmlhelper-editor-editorfor)  
+[Model Binding](https://www.learnrazorpages.com/razor-pages/model-binding)  
+[Upload files in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads?view=aspnetcore-3.1)  
+[Upload File In Azure Blob Storage Using ASP.NET Core](https://www.c-sharpcorner.com/article/upload-files-in-azure-blob-storage-using-asp-net-core/)
+
+---
+
 ### Change Log
-1.1: *Sprint 2 Completed, Initial Submission* - 03 Dec 2019  
-1.0: *Sprint 1 Completed, Initial Submission* - 26 Nov 2019  
-0.0: *Project Initiated* - 18 Nov 2019  
+1.1: Sprint 2 Completed, Initial Submission - 03 Dec 2019  
+1.0: Sprint 1 Completed, Initial Submission - 26 Nov 2019  
+0.0: Project Initiated - 18 Nov 2019  

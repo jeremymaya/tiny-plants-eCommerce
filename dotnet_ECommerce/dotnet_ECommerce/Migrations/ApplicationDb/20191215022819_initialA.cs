@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace dotnet_ECommerce.Migrations
+namespace dotnet_ECommerce.Migrations.ApplicationDb
 {
     public partial class initialA : Migration
     {

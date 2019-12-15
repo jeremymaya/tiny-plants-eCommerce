@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using dotnet_ECommerce.Data;
 
-namespace dotnet_ECommerce.Migrations
+namespace dotnet_ECommerce.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191213011623_initialA")]
+    [Migration("20191215022819_initialA")]
     partial class initialA
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
