@@ -34,7 +34,7 @@ namespace dotnet_ECommerce.Pages.BlobStorage
 
         /// <summary>
         /// Get the full path of the image that is to be uploaded to Blob
-        /// Findthe container on Blob storage by specifying the container name
+        /// Find the container on Blob storage by specifying the container name
         /// Create a file in the specified file path then copy the file
         /// Finally upload the image to Blob storage by adding the image to the container
         /// </summary>
