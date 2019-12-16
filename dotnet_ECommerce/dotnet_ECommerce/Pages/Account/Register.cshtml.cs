@@ -66,7 +66,14 @@ namespace dotnet_ECommerce.Pages.Account
                 var user = new ApplicationUser
                 {
                     UserName = Input.Email,
-                    Email = Input.Email
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,
+                    LastName = Input.LastName,
+                    Address = Input.Address,
+                    Address2 = Input.Address2,
+                    City = Input.City,
+                    State = Input.State,
+                    Zip = Input.Zip
                 };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);

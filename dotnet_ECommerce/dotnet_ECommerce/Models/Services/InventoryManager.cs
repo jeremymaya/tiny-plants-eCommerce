@@ -53,7 +53,7 @@ namespace dotnet_ECommerce.Models.Services
         public async Task<Product> GetInventoryByIdAsync(int id) => await _context.Product.FindAsync(id);
 
         /// <summary>
-        /// Deleted a product data based on the id from the connected database
+        /// Deletes a product data based on the id from the connected database
         /// </summary>
         /// <param name="id">Product Id</param>
         /// <returns>Void</returns>

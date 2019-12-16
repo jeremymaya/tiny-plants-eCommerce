@@ -1,0 +1,69 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
+@model dotnet_ECommerce.Pages.Account.ProfileModel
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    ViewData["Title"] = "Product";
+    Layout = "_Layout";
+}
+<div class="container">
+    <h1>My Profile</h1>
+    <div class="row">
+        <div class="col">
+            <img src="https://via.placeholder.com/400" width="400" height="400"/>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label asp-for="@Model.CurrentUser.Email" class="control-label"></label>
+                <p>@Model.CurrentUser.Email</p>
+            </div>
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="@Model.CurrentUser.FirstName" class="control-label"></label>
+                        <input asp-for="@Model.CurrentUser.FirstName" class="form-control" name="FirstName"/>
+                        <span asp-validation-for="@Model.CurrentUser.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="@Model.CurrentUser.LastName" class="control-label"></label>
+                        <input asp-for="@Model.CurrentUser.LastName" class="form-control" name="LastName"/>
+                        <span asp-validation-for="@Model.CurrentUser.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CurrentUser.Address" class="control-label"></label>
+                    <input asp-for="@Model.CurrentUser.Address" class="form-control" name="Address"/>
+                    <span asp-validation-for="@Model.CurrentUser.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.CurrentUser.Address2" class="control-label"></label>
+                    <input asp-for="@Model.CurrentUser.Address2" class="form-control" name="Address2"/>
+                    <span asp-validation-for="@Model.CurrentUser.Address2" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="@Model.CurrentUser.City" class="control-label"></label>
+                        <input asp-for="@Model.CurrentUser.City" class="form-control" name="City"/>
+                        <span asp-validation-for="@Model.CurrentUser.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="@Model.CurrentUser.State" class="control-label"></label>
+                        <input asp-for="@Model.CurrentUser.State" class="form-control" name="State"/>
+                        <span asp-validation-for="@Model.CurrentUser.State" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="@Model.CurrentUser.Zip" class="control-label"></label>
+                        <input asp-for="@Model.CurrentUser.Zip" class="form-control" name="Zip"/>
+                        <span asp-validation-for="@Model.CurrentUser.Zip" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group text-right">
+                    <a asp-action="Index" class="btn btn-outline-dark" role="button">Back to List</a>
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

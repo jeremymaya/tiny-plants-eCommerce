@@ -1,5 +1,8 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using dotnet_ECommerce.Models
 @model dotnet_ECommerce.Pages.Checkout.ReceiptModel
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     ViewData["Title"] = "Receipt";
     Layout = "~/Pages/Shared/_Layout.cshtml";
@@ -11,33 +14,30 @@
             <div class="card">
                 <div class="card-header">
                     Invoice
-                    <strong>2019/12/03 12:27 PM</strong>
+                    <strong>@Model.OrderItems[0].Order.Timestamp</strong>
                     <span class="float-right"> <strong>Status:</strong> Processing</span>
                 </div>
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-sm-6">
-                            <h6 class="mb-3">From:</h6>
+                            <h6 class="mb-3">Ship From:</h6>
                             <div>
                                 <strong>Tiny Plants</strong>
                             </div>
                             <div>1000 Tinyplants Road</div>
                             <div>Greens, TP, 71695</div>
-                            <div>Email: orders@tinyplants.com</div>
                             <div>Phone: +55 300 277 5500</div>
                         </div>
 
                         <div class="col-sm-6">
-                            <h6 class="mb-3">To:</h6>
+                            <h6 class="mb-3">Ship To:</h6>
                             <div>
-                                <strong>Karina Chen</strong>
+                                <strong>@Model.OrderItems[0].Order.FirstName @Model.OrderItems[0].Order.LastName</strong>
                             </div>
-                            <div>1234 Main Street</div>
-                            <div>Seattle, WA, 98101</div>
-                            <div>Email: karina6188@gmail.com</div>
+                            <div>@Model.OrderItems[0].Order.Address @Model.OrderItems[0].Order.Address2</div>
+                            <div>@Model.OrderItems[0].Order.City, @Model.OrderItems[0].Order.State, @Model.OrderItems[0].Order.Zip</div>
                             <div></div>
                         </div>
-
                     </div>
 
                     <div class="table-responsive-sm">
@@ -47,57 +47,29 @@
                                     <th class="center">#</th>
                                     <th>Item</th>
                                     <th>Product Number</th>
-
                                     <th class="right">Unit Cost</th>
                                     <th class="center">Qty</th>
                                     <th class="right">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="center">1</td>
-                                    <td class="left strong">Product A</td>
-                                    <td class="left">CACS001</td>
-
-                                    <td class="right">$22.00</td>
-                                    <td class="center">1</td>
-                                    <td class="right">$22.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="center">1</td>
-                                    <td class="left strong">Product B</td>
-                                    <td class="left">CACS002</td>
-
-                                    <td class="right">$18.00</td>
-                                    <td class="center">1</td>
-                                    <td class="right">$18.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="center">1</td>
-                                    <td class="left strong">Product C</td>
-                                    <td class="left">CACS003</td>
-
-                                    <td class="right">$24.00</td>
-                                    <td class="center">1</td>
-                                    <td class="right">$24.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="center">1</td>
-                                    <td class="left strong">Product D</td>
-                                    <td class="left">CACS004</td>
-
-                                    <td class="right">$15.00</td>
-                                    <td class="center">1</td>
-                                    <td class="right">$15.00</td>
-                                </tr>
+                                @for (int i = 0; i < Model.OrderItems.Count(); i++)
+                                {
+                                    <tr>
+                                        <td class="center">@(i + 1)</td>
+                                        <td class="left strong">@Model.OrderItems[i].Product.Name</td>
+                                        <td class="left">@Model.OrderItems[i].Product.Sku</td>
+                                        <td class="right">@Model.OrderItems[i].Product.Price</td>
+                                        <td class="center">@Model.OrderItems[i].Quantity</td>
+                                        <td class="right">@(Model.OrderItems[i].Quantity * Model.OrderItems[i].Product.Price)</td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
                     <div class="row">
                         <div class="col-lg-4 col-sm-5">
-
                         </div>
-
                         <div class="col-lg-4 col-sm-5 ml-auto">
                             <table class="table table-clear">
                                 <tbody>
@@ -105,32 +77,49 @@
                                         <td class="left">
                                             <strong>Payment Method</strong>
                                         </td>
-                                        <td class="right">Visa ####</td>
+                                        @{ 
+                                            string lastFourDigits = "";
+                                            if (Model.OrderItems[0].Order.CreditCard == "0")
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX1111";
+                                            }
+                                            else if (Model.OrderItems[0].Order.CreditCard == "1")
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX0015";
+                                            }
+                                            else
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX0002";
+                                            }
+                                        }
+                                        <td class="right">@Model.OrderItems[0].Order.CreditCard @lastFourDigits</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
                                             <strong>Subtotal</strong>
                                         </td>
-                                        <td class="right">$79.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left">
-                                            <strong>Discount (0%)</strong>
-                                        </td>
-                                        <td class="right">$0.00</td>
+                                        @{decimal subtotal = 0;
+                                            foreach (var item in Model.OrderItems)
+                                            {
+                                                subtotal += item.Quantity * item.Product.Price;
+                                            }
+                                        }
+                                        <td class="right">$@subtotal</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
                                             <strong>Tax (10%)</strong>
                                         </td>
-                                        <td class="right">$7.90</td>
+                                        @{double tax = Decimal.ToDouble(subtotal) * 0.1;}
+                                        <td class="right">$@tax.ToString("F")</td>
                                     </tr>
                                     <tr>
                                         <td class="left">
                                             <strong>Total</strong>
                                         </td>
                                         <td class="right">
-                                            <strong>$86.90</strong>
+                                            @{double finalTotal = Decimal.ToDouble(subtotal) * 1.1;}
+                                            <strong>$@finalTotal.ToString("F")</strong>
                                         </td>
                                     </tr>
                                 </tbody>
