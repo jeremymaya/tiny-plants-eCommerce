@@ -25,11 +25,16 @@ This web app uses "AdminOnly" policy to grant Admin special access previllages t
     * Account: JONATHAN'S GMAIL ADDRESS (re*************@g****.com)
     * Password: Admin1234!
 #### Entity Relationship Diagram
-![erd](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Ferd.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![erd](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/erd.png)
 * Cart table has one to many relationship with CarItems table
 * Order table has one to many relationship with OrderItems table
 * Product table has one to many relationship with CartItems table
 * Product table has one to many relationship with OrderItems table
+
+---
+
+### Vulnerability Report
+https://github.com/jeremymaya/Code-401-eCommerce/blob/master/vulnerability-report.md
 
 ---
 
@@ -41,61 +46,61 @@ https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?_
 ### Visuals
 #### Home
 ##### Home - Logged Out
-![home-loggedout](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedout.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![home-loggedout](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/home-loggedout.png)
 ##### Home - Logged In (User)
-![home-loggedin-user](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fhome-loggedin-user.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![home-loggedin-user](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/home-loggedin-user.png)
 
 #### Account
 ##### Register
-![account-register](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-register.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![account-register](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/account-register.png)
 ##### Login
-![account-login](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Faccount-login.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![account-login](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/account-login.png)
 ##### User Profile
-![user-profile](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fuser-profile.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![user-profile](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/user-profile.png)
 ##### Manage Orders (User)
-![orders-user](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Forders-user.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![orders-user](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/orders-user.png)
 ##### Manage Order Details (User)
-![order-details-user](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Forder-details-user.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![order-details-user](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/order-details-user.png)
 
 #### Shop
 ##### Shop
-![shop](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![shop](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop.png)
 ##### Shop/Product - Logged Out
-![shop-product-loggedout](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedout.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![shop-product-loggedout](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-product-loggedout.png)
 ##### Shop/Product - Logged In
-![shop-product-loggedin](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![shop-product-loggedin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-product-loggedin.png)
 ##### Shop/Product - MiniCart
-![shop-product-loggedin-minicart](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-product-loggedin-minicart.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![shop-product-loggedin-minicart](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-product-loggedin-minicart.png)
 ##### Shop/Cart (Empty)
-![shop-cart-empty](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-cart-empty.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![shop-cart-empty](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-cart-empty.png)
 ##### Shop/Cart
-![shop-cart](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fshop-cart.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![shop-cart](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/shop-cart.png)
 
 #### Checkout
 ##### Checkout
-![checkout](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![checkout](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/checkout.png)
 ##### Checkout/Receipt
-![checkout-receipt](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fcheckout-receipt.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![checkout-receipt](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/checkout-receipt.png)
 
 #### Admin
 ##### Admin
-![admin](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fadmin.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![admin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/admin.png)
 ##### Manage Blob
-![admin-blob](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Fadmin-blob.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![admin-blob](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/admin-blob.png)
 ##### Manage Orders (Admin)
-![orders-admin](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Forders-admin.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![orders-admin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/orders-admin.png)
 ##### Manage Order Details (Admin)
-![order-details-admin](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Forder-details-admin.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![order-details-admin](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/order-details-admin.png)
 ##### Inventory
-![inventory-home](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-home.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![inventory-home](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-home.png)
 ##### Inventory/Create
-![inventory-create](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-create.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![inventory-create](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-create.png)
 ##### Inventory/Edit
-![inventory-edit](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-edit.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![inventory-edit](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-edit.png)
 ##### Inventory/Details
-![inventory-details](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-details.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![inventory-details](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-details.png)
 ##### Inventory/Delete
-![inventory-delete](https://dev.azure.com/dotnet-ecommerce/b133a1d6-6623-481d-8fd2-365a886a89f8/_apis/git/repositories/c07e43b5-1b55-4bd6-b47f-6d0e100c8f0c/Items?path=%2Fdotnet_ECommerce%2Fdotnet_ECommerce%2Fwwwroot%2Fcaptures%2Finventory-delete.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1)
+![inventory-delete](https://github.com/jeremymaya/Code-401-eCommerce/blob/master/dotnet_ECommerce/dotnet_ECommerce/wwwroot/captures/inventory-delete.png)
 
 ---
 
@@ -113,6 +118,7 @@ https://dev.azure.com/dotnet-ecommerce/_git/dotnetd9-ecommerce-karina-kyungrae?_
 ---
 
 ### Change Log
+1.2: Sprint 3 Completed, Initial Submission - 16 Dec 2019  
 1.1: Sprint 2 Completed, Initial Submission - 03 Dec 2019  
 1.0: Sprint 1 Completed, Initial Submission - 26 Nov 2019  
 0.0: Project Initiated - 18 Nov 2019  
