@@ -6,7 +6,7 @@
 ---
 
 ### Deployed Website
-https://dotnet-ecommerce-tiny-plants.azurewebsites.net/
+[https://dotnet-ecommerce-tiny-plants.azurewebsites.net/](*) (inactive)
 
 ---
 
