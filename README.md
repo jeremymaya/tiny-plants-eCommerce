@@ -3,6 +3,8 @@
 ![Actions Status](https://github.com/jeremymaya/tiny-plants-eCommerce/workflows/build/badge.svg)  
 ![Actions Status](https://github.com/jeremymaya/tiny-plants-eCommerce/workflows/deploy/badge.svg)
 
+Author: [Karina Chen](https://github.com/karina6188), and Kyungrae Kim
+
 Website : <https://tinyplants.herokuapp.com>
 
 ---
@@ -173,8 +175,8 @@ https://github.com/jeremymaya/Code-401-eCommerce/blob/master/vulnerability-repor
 
 ## Change Log
 
-* 1.3: Docker support added and deployed to Heroku - 14 October 2020
-* 1.2: Sprint 3 Completed, Initial Submission - 16 Dec 2019  
-* 1.1: Sprint 2 Completed, Initial Submission - 03 Dec 2019  
-* 1.0: Sprint 1 Completed, Initial Submission - 26 Nov 2019  
-* 0.0: Project Initiated - 18 Nov 2019  
+* 1.3: *Docker support added and deployed to Heroku* - 14 October 2020
+* 1.2: *Sprint 3 Completed, Initial Submission* - 16 Dec 2019  
+* 1.1: *Sprint 2 Completed, Initial Submission* - 03 Dec 2019  
+* 1.0: *Sprint 1 Completed, Initial Submission* - 26 Nov 2019  
+* 0.0: *Project Initiated* - 18 Nov 2019  
