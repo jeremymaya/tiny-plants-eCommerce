@@ -4,10 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using dotnet_ECommerce.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace dotnet_ECommerce.Pages.Account
 {
@@ -15,6 +17,7 @@ namespace dotnet_ECommerce.Pages.Account
     {
         private SignInManager<ApplicationUser> _signInManager;
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment WebHostEnvironment { get; }
 
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
@@ -27,10 +30,11 @@ namespace dotnet_ECommerce.Pages.Account
         /// A property that brings in SignInManager depdency to be used in the class
         /// </summary>
         /// <param name="signInManager">SignInManager context</param>
-        public LoginModel(SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             _signInManager = signInManager;
             Configuration = configuration;
+            WebHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -52,7 +56,11 @@ namespace dotnet_ECommerce.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    if (Input.Email == Configuration["AdminRoles"])
+                    string adminEmail = WebHostEnvironment.IsDevelopment()
+                        ? Configuration["ADMIN_EMAIL"]
+                        : Environment.GetEnvironmentVariable("ADMIN_EMAIL");
+
+                    if (Input.Email == adminEmail)
                     {
                         Response.Redirect("/Admin");
                     }

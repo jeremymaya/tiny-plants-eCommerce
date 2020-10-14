@@ -29,7 +29,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Atlantic",
                     Price = 12,
                     Description = "A combination of multiple small cactuses",
-                    Image = "https://tinyplants.blob.core.windows.net/products/CAC001",
+                    Image = "/images/CAC001.jpg",
                     IsFeatured = true
                 },
                 new Product
@@ -39,7 +39,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Rosette",
                     Price = 9,
                     Description = "A hot pink little cactus to bright up your room",
-                    Image = "https://tinyplants.blob.core.windows.net/products/CAC002",
+                    Image = "/images/CAC002.jpg",
                     IsFeatured = true
                 },
                 new Product
@@ -49,7 +49,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Pastel",
                     Price = 7,
                     Description = "This cactus with elegant-looking glass is perfect for your desk",
-                    Image = "https://tinyplants.blob.core.windows.net/products/CAC003",
+                    Image = "/images/CAC003.jpg",
                     IsFeatured = false
                 },
                 new Product
@@ -59,7 +59,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Coral",
                     Price = 10,
                     Description = "This cute little coral will definitely lighten up your mood",
-                    Image = "https://tinyplants.blob.core.windows.net/products/CAC004",
+                    Image = "/images/CAC004.jpg",
                     IsFeatured = true
                 },
                 new Product
@@ -69,7 +69,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Parakeet",
                     Price = 18,
                     Description = "The unique looking little parakeet is one of the tiny plants that you must have",
-                    Image = "https://tinyplants.blob.core.windows.net/products/CAC005",
+                    Image = "/images/CAC005.jpg",
                     IsFeatured = false
                 },
                 new Product
@@ -79,7 +79,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Crimson",
                     Price = 17,
                     Description = "This spiky and layered looking cactus is defenitely a rare found",
-                    Image = "https://tinyplants.blob.core.windows.net/products/CAC006",
+                    Image = "/images/CAC006.jpg",
                     IsFeatured = false
                 },
                 new Product
@@ -89,7 +89,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Arctic",
                     Price = 24,
                     Description = "A blue orchid is one of the best indoor plants that you can have",
-                    Image = "https://tinyplants.blob.core.windows.net/products/FLW001",
+                    Image = "/images/FLW001.jpg",
                     IsFeatured = false
                 },
                 new Product
@@ -99,7 +99,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Violet Kokedama",
                     Price = 29,
                     Description = "This ornamental plant comes with violet flowers and kokedama that adds more style to your plant",
-                    Image = "https://tinyplants.blob.core.windows.net/products/FLW002",
+                    Image = "/images/FLW002.jpg",
                     IsFeatured = false
                 },
                 new Product
@@ -109,7 +109,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Bamboo",
                     Price = 26,
                     Description = "Bamboo is easy to take care of and it grows fast",
-                    Image = "https://tinyplants.blob.core.windows.net/products/PLN001",
+                    Image = "/images/PLN001.jpg",
                     IsFeatured = false
                 },
                 new Product
@@ -119,7 +119,7 @@ namespace dotnet_ECommerce.Data
                     Name = "Hyacinth",
                     Price = 22,
                     Description = "This plant can live in water and it makes a great indoor plant",
-                    Image = "https://tinyplants.blob.core.windows.net/products/PLN002",
+                    Image = "/images/PLN002.jpg",
                     IsFeatured = false
                 }
                 );

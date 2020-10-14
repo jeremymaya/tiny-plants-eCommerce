@@ -8,11 +8,13 @@ using dotnet_ECommerce.Data;
 using dotnet_ECommerce.Models;
 using dotnet_ECommerce.Models.Interfaces;
 using dotnet_ECommerce.Models.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using SendGrid;
 
 namespace dotnet_ECommerce.Pages.Account
@@ -25,6 +27,7 @@ namespace dotnet_ECommerce.Pages.Account
         private IEmailSender _emailSender;
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment WebHostEnvironment { get; }
 
         /// <summary>
         /// A property to be available on the Model property in the Razor Page
@@ -38,13 +41,14 @@ namespace dotnet_ECommerce.Pages.Account
         /// </summary>
         /// <param name="userManager">UserManager context</param>
         /// <param name="signInManager">SignInManager context</param>
-        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IShop shop, IEmailSender emailSender)
+        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration, IShop shop, IEmailSender emailSender, IWebHostEnvironment webHostEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             Configuration = configuration;
             _shop = shop;
             _emailSender = emailSender;
+            WebHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -86,7 +90,11 @@ namespace dotnet_ECommerce.Pages.Account
                     List<Claim> claims = new List<Claim> { name, email };
                     await _userManager.AddClaimsAsync(user, claims);
 
-                    if (Input.Email == Configuration["AdminRoles"])
+                    string adminEmail = WebHostEnvironment.IsDevelopment()
+                        ? Configuration["ADMIN_EMAIL"]
+                        : Environment.GetEnvironmentVariable("ADMIN_EMAIL");
+
+                    if (Input.Email == adminEmail)
                     {
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
                     }

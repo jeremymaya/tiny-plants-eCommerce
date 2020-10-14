@@ -21,12 +21,12 @@ namespace dotnet_ECommerce.Controllers
     {
         private readonly IInventory _context;
 
-        public Blob Blob { get; }
+        //public Blob Blob { get; }
 
         public InventoryController(IInventory inventory, IConfiguration configuration)
         {
             _context = inventory;
-            Blob = new Blob(configuration);
+            //Blob = new Blob(configuration);
         }
 
         // GET: Inventory
@@ -84,18 +84,18 @@ namespace dotnet_ECommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                CloudBlobContainer blobContainer = await Blob.GetContainer("products");
+                //CloudBlobContainer blobContainer = await Blob.GetContainer("products");
 
-                var filePath = Path.GetTempFileName();
+                //var filePath = Path.GetTempFileName();
 
-                using (var stream = System.IO.File.Create(filePath))
-                {
-                    await product.File.CopyToAsync(stream);
-                }
+                //using (var stream = System.IO.File.Create(filePath))
+                //{
+                //    await product.File.CopyToAsync(stream);
+                //}
 
-                await Blob.UploadFile(blobContainer, product.Sku, filePath);
+                //await Blob.UploadFile(blobContainer, product.Sku, filePath);
 
-                product.Image = Blob.GetBlob(product.Sku, "products").Uri.AbsoluteUri;
+                //product.Image = Blob.GetBlob(product.Sku, "products").Uri.AbsoluteUri;
 
                 await _context.CreateInventoryAsync(product);
                 return RedirectToAction(nameof(Index));
@@ -145,18 +145,18 @@ namespace dotnet_ECommerce.Controllers
             {
                 try
                 {
-                    CloudBlobContainer blobContainer = await Blob.GetContainer("products");
+                    //CloudBlobContainer blobContainer = await Blob.GetContainer("products");
 
-                    var filePath = Path.GetTempFileName();
+                    //var filePath = Path.GetTempFileName();
 
-                    using (var stream = System.IO.File.Create(filePath))
-                    {
-                        await product.File.CopyToAsync(stream);
-                    }
+                    //using (var stream = System.IO.File.Create(filePath))
+                    //{
+                    //    await product.File.CopyToAsync(stream);
+                    //}
 
-                    await Blob.UploadFile(blobContainer, product.Sku, filePath);
+                    //await Blob.UploadFile(blobContainer, product.Sku, filePath);
 
-                    product.Image = Blob.GetBlob(product.Sku, "products").Uri.AbsoluteUri;
+                    //product.Image = Blob.GetBlob(product.Sku, "products").Uri.AbsoluteUri;
 
                     await _context.UpdateInventoryAsync(product);
                 }
@@ -212,9 +212,9 @@ namespace dotnet_ECommerce.Controllers
             }
             var product = await _context.GetInventoryByIdAsync(id);
 
-            CloudBlobContainer blobContainer = await Blob.GetContainer("products");
+            //CloudBlobContainer blobContainer = await Blob.GetContainer("products");
 
-            await Blob.DeleteBlob(blobContainer, product.Sku);
+            //await Blob.DeleteBlob(blobContainer, product.Sku);
 
             await _context.RemoveInventoryAsync(id);
 
