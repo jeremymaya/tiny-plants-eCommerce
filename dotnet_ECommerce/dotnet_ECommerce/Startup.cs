@@ -21,14 +21,29 @@ namespace dotnet_ECommerce
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        public IHostEnvironment Environment { get; }
+        public IWebHostEnvironment WebHostEnvironment { get; }
 
-        public Startup(IHostEnvironment environment)
+        public Startup(IWebHostEnvironment webHostEnvironment)
         {
-            Environment = environment;
+            WebHostEnvironment = webHostEnvironment;
             var builder = new ConfigurationBuilder().AddEnvironmentVariables();
             builder.AddUserSecrets<Startup>();
             Configuration = builder.Build();
+        }
+
+        // Source: https://n1ghtmare.github.io/2020-09-28/deploying-a-dockerized-aspnet-core-app-using-a-postgresql-db-to-heroku/
+        private string GetHerokuConnectionString(string connectionString)
+        {
+            string connectionUrl = WebHostEnvironment.IsDevelopment()
+                ? Configuration["ConnectionStrings:" + connectionString]
+                : Environment.GetEnvironmentVariable(connectionString);
+
+            var databaseUri = new Uri(connectionUrl);
+
+            string db = databaseUri.LocalPath.TrimStart('/');
+            string[] userInfo = databaseUri.UserInfo.Split(':', StringSplitOptions.RemoveEmptyEntries);
+
+            return $"User ID={userInfo[0]};Password={userInfo[1]};Host={databaseUri.Host};Port={databaseUri.Port};Database={db};Pooling=true;SSL Mode=Require;Trust Server Certificate=True;";
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -49,19 +64,11 @@ namespace dotnet_ECommerce
 
             services.AddScoped<IOrder, OrderManager>();
 
-            string userConnString = Environment.IsDevelopment()
-                ? Configuration["ConnectionStrings:UserConnection"]
-                : Configuration["ConnectionStrings:UserProductionConnection"];
-
-            string productConnString = Environment.IsDevelopment()
-                ? Configuration["ConnectionStrings:ProductConnection"]
-                : Configuration["ConnectionStrings:ProductProductionConnection"];
-
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(userConnString));
+                options.UseNpgsql(GetHerokuConnectionString("APPLICATION_OLIVE")));
 
             services.AddDbContext<StoreDbContext>(options =>
-                options.UseSqlServer(productConnString));
+                options.UseNpgsql(GetHerokuConnectionString("PRODUCT_JADE")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                  .AddEntityFrameworkStores<ApplicationDbContext>()

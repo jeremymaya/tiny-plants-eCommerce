@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -15,9 +17,12 @@ namespace dotnet_ECommerce.Models.Services
     public class EmailManager : IEmailSender
     {
         public IConfiguration Configuration { get; }
-        public EmailManager(IConfiguration configuration)
+        public IWebHostEnvironment WebHostEnvironment { get; }
+
+        public EmailManager(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             Configuration = configuration;
+            WebHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -31,7 +36,11 @@ namespace dotnet_ECommerce.Models.Services
         /// <returns>Send out an email containing the above information to the user</returns>
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            SendGridClient client = new SendGridClient(Configuration["SendGridEmail"]);
+            string sendgrid = WebHostEnvironment.IsDevelopment()
+                ? Configuration["SENDGRID"]
+                : Environment.GetEnvironmentVariable("SENDGRID");
+
+            SendGridClient client = new SendGridClient(sendgrid);
             SendGridMessage msg = new SendGridMessage();
 
             msg.SetFrom("donotreply@tinyplants.com", "Tiny Plants Admin");

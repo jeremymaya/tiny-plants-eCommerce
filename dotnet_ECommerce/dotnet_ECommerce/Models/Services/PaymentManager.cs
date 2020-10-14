@@ -3,17 +3,21 @@ using AuthorizeNet.Api.Contracts.V1;
 using AuthorizeNet.Api.Controllers;
 using AuthorizeNet.Api.Controllers.Bases;
 using dotnet_ECommerce.Models.Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace dotnet_ECommerce.Models
 {
     public class PaymentManager : IPayment
     {
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment WebHostEnvironment { get; }
 
-        public PaymentManager(IConfiguration configuration)
+        public PaymentManager(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
             Configuration = configuration;
+            WebHostEnvironment = webHostEnvironment;
         }
 
         /// <summary>
@@ -25,11 +29,19 @@ namespace dotnet_ECommerce.Models
         {
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNet.Environment.SANDBOX;
 
+            string authNetId = WebHostEnvironment.IsDevelopment()
+                ? Configuration["AUTH_NET_ID"]
+                : Environment.GetEnvironmentVariable("AUTH_NET_ID");
+
+            string authNetKey = WebHostEnvironment.IsDevelopment()
+                ? Configuration["AUTH_NET_KEY"]
+                : Environment.GetEnvironmentVariable("AUTH_NET_KEY");
+
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.MerchantAuthentication = new merchantAuthenticationType()
             {
-                name = Configuration["AuthorizeNetLoginID"],
+                name = authNetId,
                 ItemElementName = ItemChoiceType.transactionKey,
-                Item = Configuration["AuthorizeNetTransactionKey"]
+                Item = authNetKey
             };
 
             var paymentType = new paymentType { Item = creditCard };
