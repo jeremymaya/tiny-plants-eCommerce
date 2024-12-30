@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_ECommerce.Models.Services
 {
-    public class InventoryManager : IInventory
+    public class InventoryManager : IInventoryManager
     {
         /// <summary>
         /// Establishes a private connection to a database via dependency injection
