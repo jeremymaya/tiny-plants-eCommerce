@@ -1,0 +1,48 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using TinyPlants.Models
+@model TinyPlants.Pages.Shop.CartModel
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    ViewData["Title"] = "My Cart";
+    Layout = "_Layout";
+}
+    <div class="container">
+        <h1 class="text-left">
+            My Cart
+        </h1>
+        @foreach (var item in Model.CartItem)
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/Shop/Product/@item.Product.Id">
+                        <img src="@Html.DisplayFor(modelItem => item.Product.Image)" width="250" height="250" />
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <form class="form-row" method="post">
+                        <div class="form-group col-md-8">
+                            <h3>@item.Product.Name</h3>
+                            <label asp-for="@item.Quantity">Quantity</label>
+                            <input asp-for="@item.Quantity" type="number" name="Quantity">
+                            <p>$@(item.Product.Price * item.Quantity)</p>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <button type="submit" class="btn btn-outline-primary" asp-page-handler="update" asp-route-id="@item.ProductId">
+                                Update
+                            </button>
+                            <button type="submit" class="btn btn-outline-danger" asp-page-handler="delete" asp-route-id="@item.ProductId">
+                                Delete
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+        <div class="text-right">
+            <a href="/Shop" class="btn btn-outline-success" role="button">Go Back to Shopping</a>
+        </div>
+        <div class="text-right">
+            <a href="/Checkout" class="btn btn-outline-success" role="button">Check Out</a>
+        </div>
+    </div>

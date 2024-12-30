@@ -1,0 +1,55 @@
+﻿@page
+@model TinyPlants.Pages.IndexModel
+@{
+    ViewData["Title"] = "TINY PLANTS";
+    Layout = "_Layout";
+}
+
+<div class="bd-example">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @for (int i = 0; i < Model.FeaturedProducts.Count; i++)
+            {
+                if (i == 0)
+                {
+                    <li data-target="#carouselExampleCaptions" data-slide-to="i" class="active"></li>
+                }
+                else
+                {
+                    <li data-target="#carouselExampleCaptions" data-slide-to="i"></li>
+                }
+            }
+        </ol>
+        <div class="carousel-inner">
+            @for (int i = 0; i < Model.FeaturedProducts.Count; i++)
+            {
+                if (i == 0)
+                {
+                    <div class="carousel-item active">
+                        <img src="@Model.FeaturedProducts[i].Image" class="d-block w-100 hero" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>@Model.FeaturedProducts[i].Name</h5>
+                            <p>@Model.FeaturedProducts[i].Description</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="carousel-item">
+                        <img src="@Model.FeaturedProducts[i].Image" class="d-block w-100 hero" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>@Model.FeaturedProducts[i].Name</h5>
+                            <p>@Model.FeaturedProducts[i].Description</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>

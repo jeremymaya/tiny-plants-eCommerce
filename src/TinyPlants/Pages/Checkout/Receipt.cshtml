@@ -1,0 +1,133 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using TinyPlants.Models
+@model TinyPlants.Pages.Checkout.ReceiptModel
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    ViewData["Title"] = "Receipt";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h1>Receipt</h1>
+    <div class="form-group row">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    Invoice
+                    <strong>@Model.OrderItems[0].Order.Timestamp</strong>
+                    <span class="float-right"> <strong>Status:</strong> Processing</span>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-sm-6">
+                            <h6 class="mb-3">Ship From:</h6>
+                            <div>
+                                <strong>Tiny Plants</strong>
+                            </div>
+                            <div>1000 Tinyplants Road</div>
+                            <div>Greens, TP, 71695</div>
+                            <div>Phone: +55 300 277 5500</div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h6 class="mb-3">Ship To:</h6>
+                            <div>
+                                <strong>@Model.OrderItems[0].Order.FirstName @Model.OrderItems[0].Order.LastName</strong>
+                            </div>
+                            <div>@Model.OrderItems[0].Order.Address @Model.OrderItems[0].Order.Address2</div>
+                            <div>@Model.OrderItems[0].Order.City, @Model.OrderItems[0].Order.State, @Model.OrderItems[0].Order.Zip</div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive-sm">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="center">#</th>
+                                    <th>Item</th>
+                                    <th>Product Number</th>
+                                    <th class="right">Unit Cost</th>
+                                    <th class="center">Qty</th>
+                                    <th class="right">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.OrderItems.Count(); i++)
+                                {
+                                    <tr>
+                                        <td class="center">@(i + 1)</td>
+                                        <td class="left strong">@Model.OrderItems[i].Product.Name</td>
+                                        <td class="left">@Model.OrderItems[i].Product.Sku</td>
+                                        <td class="right">@Model.OrderItems[i].Product.Price</td>
+                                        <td class="center">@Model.OrderItems[i].Quantity</td>
+                                        <td class="right">@(Model.OrderItems[i].Quantity * Model.OrderItems[i].Product.Price)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-5">
+                        </div>
+                        <div class="col-lg-4 col-sm-5 ml-auto">
+                            <table class="table table-clear">
+                                <tbody>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>Payment Method</strong>
+                                        </td>
+                                        @{ 
+                                            string lastFourDigits = "";
+                                            if (Model.OrderItems[0].Order.CreditCard == "0")
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX1111";
+                                            }
+                                            else if (Model.OrderItems[0].Order.CreditCard == "1")
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX0015";
+                                            }
+                                            else
+                                            {
+                                                lastFourDigits = "XXXXXXXXXXXX0002";
+                                            }
+                                        }
+                                        <td class="right">@Model.OrderItems[0].Order.CreditCard @lastFourDigits</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>Subtotal</strong>
+                                        </td>
+                                        @{decimal subtotal = 0;
+                                            foreach (var item in Model.OrderItems)
+                                            {
+                                                subtotal += item.Quantity * item.Product.Price;
+                                            }
+                                        }
+                                        <td class="right">$@subtotal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>Tax (10%)</strong>
+                                        </td>
+                                        @{double tax = Decimal.ToDouble(subtotal) * 0.1;}
+                                        <td class="right">$@tax.ToString("F")</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="left">
+                                            <strong>Total</strong>
+                                        </td>
+                                        <td class="right">
+                                            @{double finalTotal = Decimal.ToDouble(subtotal) * 1.1;}
+                                            <strong>$@finalTotal.ToString("F")</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
