@@ -1,0 +1,33 @@
+﻿body {
+
+}
+
+.col-sm {
+    margin-top: 30px;
+}
+
+.add-to-cart-button {
+    margin-top: 30px;
+}
+
+.detail-img {
+    margin: 0 0 10px 0;
+}
+
+h6 {
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+
+.row {
+    margin-bottom: 5px;
+}
+
+.row2 {
+    margin-left: 7px;
+}
+
+.product-name {
+    margin-top: 8px;
+}

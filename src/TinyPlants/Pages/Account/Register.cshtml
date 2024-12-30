@@ -1,0 +1,116 @@
+﻿@page
+@model TinyPlants.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+
+<div class="container w-80">
+    <h1>Register</h1>
+
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Input.FirstName">First Name</label>
+                <input asp-for="Input.FirstName" type="text" class="form-control" id="inputFirst-Name" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Input.LastName">Last Name</label>
+                <input asp-for="Input.LastName" type="text" class="form-control" id="inputLast-Name" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Input.Email">Email</label>
+                <input asp-for="Input.Email" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                <span asp-validation-for="Input.Email"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Input.Password">Password</label>
+                <input asp-for="Input.Password" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <input asp-for="Input.ConfirmPassword" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Address">Address</label>
+            <input asp-for="Input.Address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Address2">Address 2</label>
+            <input asp-for="Input.Address2" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Input.City">City</label>
+                <input asp-for="Input.City" type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Input.State">State</label>
+                <select asp-for="Input.State" id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>AL</option>
+                    <option>AK</option>
+                    <option>AZ</option>
+                    <option>AR</option>
+                    <option>CA</option>
+                    <option>CO</option>
+                    <option>CT</option>
+                    <option>DE</option>
+                    <option>FL</option>
+                    <option>GA</option>
+                    <option>HI</option>
+                    <option>ID</option>
+                    <option>IL</option>
+                    <option>IN</option>
+                    <option>IA</option>
+                    <option>KS</option>
+                    <option>KY</option>
+                    <option>LA</option>
+                    <option>ME</option>
+                    <option>MD</option>
+                    <option>MA</option>
+                    <option>MI</option>
+                    <option>MN</option>
+                    <option>MS</option>
+                    <option>MO</option>
+                    <option>MT</option>
+                    <option>NE</option>
+                    <option>NV</option>
+                    <option>NH</option>
+                    <option>NJ</option>
+                    <option>NM</option>
+                    <option>NY</option>
+                    <option>NC</option>
+                    <option>ND</option>
+                    <option>OH</option>
+                    <option>OK</option>
+                    <option>OR</option>
+                    <option>PA</option>
+                    <option>RI</option>
+                    <option>SC</option>
+                    <option>SD</option>
+                    <option>TN</option>
+                    <option>TX</option>
+                    <option>UT</option>
+                    <option>VT</option>
+                    <option>VA</option>
+                    <option>WA</option>
+                    <option>WV</option>
+                    <option>WI</option>
+                    <option>WY</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="Input.Zip">Zip</label>
+                <input asp-for="Input.Zip" type="text" class="form-control" id="inputZip">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>

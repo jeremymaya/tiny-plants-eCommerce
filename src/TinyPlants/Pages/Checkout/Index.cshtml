@@ -1,0 +1,111 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using TinyPlants.Models
+@model TinyPlants.Pages.Checkout.IndexModel
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    ViewData["Title"] = "Product";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h1>Order Details</h1>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.Date">Purchased Date:</label>
+            <label class="col-sm-2 col-form-label">@DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")</label>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.FirstName">First Name:</label>
+            <input asp-for="Input.FirstName" type="text" />
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.LastName">Last Name:</label>
+            <input asp-for="Input.LastName" type="text">
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.Address">Address:</label>
+            <input asp-for="Input.Address" type="text">
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.Address2">Address 2:</label>
+            <input asp-for="Input.Address2" type="text">
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.City">City:</label>
+            <input asp-for="Input.City" type="text">
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.State">State:</label>
+            <select asp-for="Input.State">
+                <option>AL</option>
+                <option>AK</option>
+                <option>AZ</option>
+                <option>AR</option>
+                <option>CA</option>
+                <option>CO</option>
+                <option>CT</option>
+                <option>DE</option>
+                <option>FL</option>
+                <option>GA</option>
+                <option>HI</option>
+                <option>ID</option>
+                <option>IL</option>
+                <option>IN</option>
+                <option>IA</option>
+                <option>KS</option>
+                <option>KY</option>
+                <option>LA</option>
+                <option>ME</option>
+                <option>MD</option>
+                <option>MA</option>
+                <option>MI</option>
+                <option>MN</option>
+                <option>MS</option>
+                <option>MO</option>
+                <option>MT</option>
+                <option>NE</option>
+                <option>NV</option>
+                <option>NH</option>
+                <option>NJ</option>
+                <option>NM</option>
+                <option>NY</option>
+                <option>NC</option>
+                <option>ND</option>
+                <option>OH</option>
+                <option>OK</option>
+                <option>OR</option>
+                <option>PA</option>
+                <option>RI</option>
+                <option>SC</option>
+                <option>SD</option>
+                <option>TN</option>
+                <option>TX</option>
+                <option>UT</option>
+                <option>VT</option>
+                <option>VA</option>
+                <option>WA</option>
+                <option>WV</option>
+                <option>WI</option>
+                <option>WY</option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.Zip">Zip:</label>
+            <input asp-for="Input.Zip" type="text">
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Input.CreditCard">Payment:</label>
+            <select asp-for="Input.CreditCard" asp-items="@Html.GetEnumSelectList(typeof(TinyPlants.Pages.Checkout.IndexModel.CreditCard))">
+            </select>
+        </div>
+        <div>
+            @await Component.InvokeAsync("MiniCart")
+        </div>
+        <div class="text-right">
+            <a href="/Shop/Cart" class="btn btn-outline-warning" role="button">Return to Cart</a>
+            <button type="submit" class="btn btn-outline-success">Complete Order</button>
+        </div>
+    </form>
+</div>
